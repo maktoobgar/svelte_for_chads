@@ -1,0 +1,49 @@
+:root {
+	--background: #fbfbfb;
+	/* Primary */
+	--primary-50: #fff4eb;
+	--primary-100: #f9dcc4;
+	--primary-200: #f3c39c;
+	--primary-300: #e6a36b;
+	--primary-400: #d9833a;
+	--primary-500: #cc6209;
+	--primary-600: #ad5308;
+	--primary-700: #8d4306;
+	--primary-800: #6d3405;
+	--primary-900: #4d2403;
+	/* Secondary */
+	--secondary-50: #e6f5f7;
+	--secondary-100: #b0dfe7;
+	--secondary-200: #8acfdc;
+	--secondary-300: #54b9cb;
+	--secondary-400: #33acc1;
+	--secondary-500: #0097b2;
+	--secondary-600: #0089a2;
+	--secondary-700: #006b7e;
+	--secondary-800: #005362;
+	--secondary-900: #003f4b;
+	/* Primary Glass */
+	--primary-glass-5: #cc620916;
+	--primary-glass-10: #cc62091a;
+	--primary-glass-20: #cc620934;
+	--primary-glass-30: #cc62094d;
+	--primary-glass-40: #cc620967;
+	--primary-glass-50: #cc620980;
+	--primary-glass-60: #cc62099a;
+	--primary-glass-70: #cc6209b3;
+	--primary-glass-80: #cc6209cd;
+	--primary-glass-90: #cc6209e6;
+	--primary-glass-95: #cc6209f2;
+	/* Secondary Glass */
+	--secondary-glass-5: #0097b216;
+	--secondary-glass-10: #0097b21a;
+	--secondary-glass-20: #0097b234;
+	--secondary-glass-30: #0097b24d;
+	--secondary-glass-40: #0097b267;
+	--secondary-glass-50: #0097b280;
+	--secondary-glass-60: #0097b29a;
+	--secondary-glass-70: #0097b2b3;
+	--secondary-glass-80: #0097b2cd;
+	--secondary-glass-90: #0097b2e6;
+	--secondary-glass-95: #0097b2f2;
+}

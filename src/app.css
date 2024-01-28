@@ -1,0 +1,140 @@
+@import './fonts.css';
+
+/* This makes the default configs of html disappear */
+@tailwind base;
+/* This makes css styles to use @apply in themselves */
+@tailwind components;
+/* You don't need this one really but just to know this exists */
+@tailwind utilities;
+
+* {
+	transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 400ms;
+	@apply text-black-700;
+}
+
+html {
+	@apply font-normal;
+	@apply text-sm sm:text-base;
+	/* Hide scrollbars on every other browsers */
+	/* scrollbar-width: none; */
+}
+
+:is(.dark) {
+	* {
+		color: var(--black-20);
+	}
+}
+
+:root {
+	--red-50: #fef0f0;
+	--red-100: #fccfcf;
+	--red-200: #fab8b8;
+	--red-300: #f89898;
+	--red-400: #f78484;
+	--red-500: #f56565;
+	--red-600: #df5c5c;
+	--red-700: #ae4848;
+	--red-800: #873838;
+	--red-900: #672a2a;
+	--green-50: #f4fff0;
+	--green-100: #dcfccf;
+	--green-200: #cbfab9;
+	--green-300: #b2f797;
+	--green-400: #a4f783;
+	--green-500: #8df564;
+	--green-600: #7acc53;
+	--green-700: #64ad47;
+	--green-800: #4e8737;
+	--green-900: #3b672a;
+	--white: #fbfbfb;
+	--black: #080808;
+	--black-10: #fbfbfb;
+	--black-20: #f6f6f6;
+	--black-30: #ededed;
+	--black-40: #e2e2e2;
+	--black-50: #c7c8c8;
+	--black-60: #b9baba;
+	--black-70: #aeafaf;
+	--black-80: #a1a2a2;
+	--black-90: #939494;
+	--black-100: #868787;
+	--black-200: #797979;
+	--black-300: #6d6d6d;
+	--black-400: #5c5c5c;
+	--black-500: #4b4b4b;
+	--black-600: #3d3d3d;
+	--black-700: #303030;
+	--black-800: #252525;
+	--black-900: #111111;
+	--black-950: #080808;
+	--glass-5: #0808080d;
+	--glass-10: #0808081a;
+	--glass-20: #08080833;
+	--glass-30: #0808084d;
+	--glass-40: #08080866;
+	--glass-50: #08080880;
+	--glass-60: #08080899;
+	--glass-70: #080808b3;
+	--glass-80: #080808cc;
+	--glass-90: #080808e6;
+	--glass-95: #080808f2;
+	--white-glass-5: #fbfbfb0d;
+	--white-glass-10: #fbfbfb1a;
+	--white-glass-20: #fbfbfb33;
+	--white-glass-30: #fbfbfb4d;
+	--white-glass-40: #fbfbfb66;
+	--white-glass-50: #fbfbfb80;
+	--white-glass-60: #fbfbfb99;
+	--white-glass-70: #fbfbfbb3;
+	--white-glass-80: #fbfbfbcc;
+	--white-glass-90: #fbfbfbe6;
+	--white-glass-95: #fbfbfbf2;
+}
+
+textarea {
+	resize: vertical;
+}
+
+/* h1-h6 */
+h1 {
+	@apply font-bold md:text-5xl text-4xl capitalize;
+}
+
+h2 {
+	@apply font-bold md:text-4xl sm:text-3xl capitalize;
+}
+
+h3 {
+	@apply font-bold md:text-3xl text-2xl capitalize;
+}
+
+h4 {
+	@apply font-bold md:text-2xl text-xl capitalize;
+}
+
+h5 {
+	@apply font-bold md:text-xl text-lg capitalize;
+}
+
+h6 {
+	@apply font-bold text-lg capitalize;
+}
+
+@layer utilities {
+	/* Removes Scroll */
+	.scroll-none {
+		scrollbar-width: none;
+	}
+	.scroll-none::-webkit-scrollbar {
+		display: none;
+	}
+
+	.rtl {
+		direction: rtl;
+	}
+	.ltr {
+		direction: ltr;
+	}
+}
