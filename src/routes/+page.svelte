@@ -23,31 +23,31 @@
 	<ThemeSwitcher class="absolute left-2 top-2" />
 	<LanguageChanger class="absolute right-2 top-2" />
 	<div class="absolute flex justify-between left-0 bottom-0 p-3 sm:w-[240px] w-[210px] ltr">
-		<Button class="bg-green-300 dark:bg-green-900" on:click={successFn}>{$LL.SuccessMsg()}</Button>
-		<Button class="bg-red-300 dark:bg-red-900" on:click={errorFn}>{$LL.ErrorMsg()}</Button>
-		<Button class="bg-cyan-300 dark:bg-cyan-900" on:click={infoFn}>{$LL.InfoMsg()}</Button>
+		<Button color="green" on:click={successFn}>{$LL.SuccessMsg()}</Button>
+		<Button color="red" on:click={errorFn}>{$LL.ErrorMsg()}</Button>
+		<Button color="cyan" on:click={infoFn}>{$LL.InfoMsg()}</Button>
 	</div>
-	<div class="relative md:w-[512px] sm:w-[384px] w-[256px] md:h-[512px] sm:h-[384px] h-[256px]">
+	<div class="relative lg:w-[512px] sm:w-[384px] w-[256px] lg:h-[512px] sm:h-[384px] h-[256px]">
 		<TypeWriter
 			text={content}
 			duration={200}
 			element="h1"
-			class="absolute left-1/2 -top-20 -translate-x-1/2 w-[512px] text-center ltr"
+			class="absolute left-1/2 -top-20 -translate-x-1/2 w-[512px] text-center select-none ltr"
 		/>
 		<SecondMan
 			position={where - 1}
-			class="absolute transition-all md:w-[384px] sm:w-[256px] w-[128px] md:h-[384px] sm:h-[256px] h-[128px] md:data-[position=mid]:w-[512px] sm:data-[position=mid]:w-[384px] data-[position=mid]:w-[256px] md:data-[position=mid]:h-[512px] sm:data-[position=mid]:h-[384px] data-[position=mid]:h-[256px] data-[position=left]:left-[5%] data-[position=right]:left-[95%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-80 data-[position=mid]:opacity-100 fill-glass-80 data-[position=mid]:fill-primary-800 duration-500 z-0 data-[position=mid]:z-10 dark:fill-white-glass-80 dark:data-[position=mid]:fill-primary-300 data-[position=mid]:drop-shadow-3xl"
+			class="absolute transition-all lg:w-[384px] sm:w-[256px] w-[128px] lg:h-[384px] sm:h-[256px] h-[128px] lg:data-[position=mid]:w-[512px] sm:data-[position=mid]:w-[384px] data-[position=mid]:w-[256px] lg:data-[position=mid]:h-[512px] sm:data-[position=mid]:h-[384px] data-[position=mid]:h-[256px] data-[position=left]:left-[5%] data-[position=right]:left-[95%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-80 data-[position=mid]:opacity-100 fill-glass-80 data-[position=mid]:fill-primary-800 duration-500 z-0 data-[position=mid]:z-10 dark:fill-white-glass-80 dark:data-[position=mid]:fill-primary-300 data-[position=mid]:drop-shadow-3xl"
 		/>
 		<Man
 			position={where - 2}
-			class="absolute transition-all md:w-[384px] sm:w-[256px] w-[128px] md:h-[384px] sm:h-[256px] h-[128px] md:data-[position=mid]:w-[512px] sm:data-[position=mid]:w-[384px] data-[position=mid]:w-[256px] md:data-[position=mid]:h-[512px] sm:data-[position=mid]:h-[384px] data-[position=mid]:h-[256px] data-[position=left]:left-[5%] data-[position=right]:left-[95%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-80 data-[position=mid]:opacity-100 fill-glass-80 data-[position=mid]:fill-primary-800 duration-500 z-0 data-[position=mid]:z-10 dark:fill-white-glass-80 dark:data-[position=mid]:fill-primary-300 data-[position=mid]:drop-shadow-3xl"
+			class="absolute transition-all lg:w-[384px] sm:w-[256px] w-[128px] lg:h-[384px] sm:h-[256px] h-[128px] lg:data-[position=mid]:w-[512px] sm:data-[position=mid]:w-[384px] data-[position=mid]:w-[256px] lg:data-[position=mid]:h-[512px] sm:data-[position=mid]:h-[384px] data-[position=mid]:h-[256px] data-[position=left]:left-[5%] data-[position=right]:left-[95%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-80 data-[position=mid]:opacity-100 fill-glass-80 data-[position=mid]:fill-primary-800 duration-500 z-0 data-[position=mid]:z-10 dark:fill-white-glass-80 dark:data-[position=mid]:fill-primary-300 data-[position=mid]:drop-shadow-3xl"
 		/>
 		<ThirdMan
 			position={where - 3}
-			class="absolute transition-all md:w-[384px] sm:w-[256px] w-[128px] md:h-[384px] sm:h-[256px] h-[128px] md:data-[position=mid]:w-[512px] sm:data-[position=mid]:w-[384px] data-[position=mid]:w-[256px] md:data-[position=mid]:h-[512px] sm:data-[position=mid]:h-[384px] data-[position=mid]:h-[256px] data-[position=left]:left-[5%] data-[position=right]:left-[95%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-80 data-[position=mid]:opacity-100 fill-glass-80 data-[position=mid]:fill-primary-800 duration-500 z-0 data-[position=mid]:z-10 dark:fill-white-glass-80 dark:data-[position=mid]:fill-primary-300 data-[position=mid]:drop-shadow-3xl"
+			class="absolute transition-all lg:w-[384px] sm:w-[256px] w-[128px] lg:h-[384px] sm:h-[256px] h-[128px] lg:data-[position=mid]:w-[512px] sm:data-[position=mid]:w-[384px] data-[position=mid]:w-[256px] lg:data-[position=mid]:h-[512px] sm:data-[position=mid]:h-[384px] data-[position=mid]:h-[256px] data-[position=left]:left-[5%] data-[position=right]:left-[95%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-80 data-[position=mid]:opacity-100 fill-glass-80 data-[position=mid]:fill-primary-800 duration-500 z-0 data-[position=mid]:z-10 dark:fill-white-glass-80 dark:data-[position=mid]:fill-primary-300 data-[position=mid]:drop-shadow-3xl"
 		/>
 		<div
-			class="md:w-[512px] sm:w-[384px] w-[256px] absolute left-1/2 -bottom-14 -translate-x-1/2 flex justify-between ltr"
+			class="lg:w-[512px] sm:w-[384px] w-[256px] absolute left-1/2 -bottom-14 -translate-x-1/2 flex justify-between ltr"
 		>
 			<button
 				class="flex justify-center items-center w-12 h-12 fill-secondary-700 dark:fill-primary-200"
