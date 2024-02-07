@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+- 🎉 feat: rateClickLimiter + oneTime functions added
 - 🎉 feat: ripple effect added for buttons
 - 🎉 feat: added a demo page with everything in it
 - 🎉 feat: functionality added for theme changes + some svg chad added

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onDestroy, type ComponentType } from 'svelte';
+	import { onDestroy } from 'svelte';
 	import { tweened, type Tweened, type Unsubscriber } from 'svelte/motion';
 	import * as easingFns from 'svelte/easing';
 

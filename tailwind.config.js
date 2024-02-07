@@ -159,8 +159,8 @@ export default {
 			// Keyframes
 			keyframes: {
 				'fade-in-and-move': {
-					'0%': { opacity: 0, transform: 'translateY(-50px)' },
-					'100%': { opacity: 1, transform: 'translateY(0)' }
+					'0%': { opacity: 0, transform: 'translateY(100%)' },
+					'100%': { opacity: 1, transform: 'translateY(0%)' }
 				},
 				'fade-in': {
 					'0%': { opacity: 0 },
@@ -169,25 +169,13 @@ export default {
 				'fade-out': {
 					'0%': { opacity: 1 },
 					'100%': { opacity: 0 }
-				},
-				blink: {
-					'0%': {
-						background: 'transparent'
-					},
-					'40%': {
-						background: 'orange'
-					},
-					to: {
-						background: 'orange'
-					}
 				}
 			},
 			// Animations
 			animation: {
 				'fade-in-and-move': 'fade-in-and-move 0.5s ease-out forwards',
 				'fade-in': 'fade-in 0.5s ease-out forwards',
-				'fade-out': 'fade-out 0.5s ease-out forwards',
-				blink: 'blink 0.8s infinite'
+				'fade-out': 'fade-out 0.5s ease-out forwards'
 			},
 			boxShadow: {
 				'inner-custom': 'inset 0 0 10px 0 rgba(0, 0, 0, 0.25)',
