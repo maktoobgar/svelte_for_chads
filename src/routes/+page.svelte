@@ -35,7 +35,7 @@
 		<Button color="cyan" on:click={infoFn}>{$LL.InfoMsg()}</Button>
 	</div>
 	<Dialog bind:this={dialog}>
-		<Button color="primary">Hi Boys</Button>
+		<Button color="primary" on:click={dialog.close}>{$LL.Close()}</Button>
 	</Dialog>
 	<div class="absolute right-2 bottom-2">
 		<Button on:click={() => dialog.open()}>{$LL.ShowPopup()}</Button>

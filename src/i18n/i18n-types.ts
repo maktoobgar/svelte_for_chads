@@ -58,6 +58,10 @@ type RootTranslation = {
 	 * S​h​o​w​ ​P​o​p​u​p
 	 */
 	ShowPopup: string
+	/**
+	 * C​l​o​s​e
+	 */
+	Close: string
 }
 
 export type TranslationFunctions = {
@@ -105,6 +109,10 @@ export type TranslationFunctions = {
 	 * Show Popup
 	 */
 	ShowPopup: () => LocalizedString
+	/**
+	 * Close
+	 */
+	Close: () => LocalizedString
 }
 
 export type Formatters = {}

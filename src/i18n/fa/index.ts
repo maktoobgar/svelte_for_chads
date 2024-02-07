@@ -16,7 +16,9 @@ const fa = {
 	ErrorMsg: 'خطا',
 	InfoMsg: 'اطلاعات',
 
-	ShowPopup: 'نمایش پنجره بازشو'
+	ShowPopup: 'نمایش پنجره بازشو',
+
+	Close: 'خروج'
 } satisfies Translation;
 
 export default fa;

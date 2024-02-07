@@ -16,7 +16,9 @@ const en = {
 	ErrorMsg: 'Error',
 	InfoMsg: 'Info',
 
-	ShowPopup: 'Show Popup'
+	ShowPopup: 'Show Popup',
+
+	Close: 'Close'
 } satisfies BaseTranslation;
 
 export default en;
