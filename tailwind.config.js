@@ -23,6 +23,8 @@ export default {
 			// Colors
 			colors: {
 				// Primary
+				'background-lighter': 'var(--background-lighter)',
+				'background-light': 'var(--background-light)',
 				background: 'var(--background)',
 				primary: {
 					50: 'var(--primary-50)',
@@ -158,7 +160,7 @@ export default {
 			},
 			// Keyframes
 			keyframes: {
-				'fade-in-and-move': {
+				'fade-in-and-slide': {
 					'0%': { opacity: 0, transform: 'translateY(100%)' },
 					'100%': { opacity: 1, transform: 'translateY(0%)' }
 				},
@@ -169,17 +171,22 @@ export default {
 				'fade-out': {
 					'0%': { opacity: 1 },
 					'100%': { opacity: 0 }
+				},
+				'slide-in': {
+					'0%': { transform: 'translateY(100%)' },
+					'100%': { transform: 'translateY(0%)' }
 				}
 			},
 			// Animations
 			animation: {
-				'fade-in-and-move': 'fade-in-and-move 0.5s ease-out forwards',
+				'fade-in-and-slide': 'fade-in-and-slide 0.5s ease-out forwards',
 				'fade-in': 'fade-in 0.5s ease-out forwards',
-				'fade-out': 'fade-out 0.5s ease-out forwards'
+				'fade-out': 'fade-out 0.5s ease-out forwards',
+				'slide-in': 'slide-in 0.5s ease-out forwards'
 			},
 			boxShadow: {
 				'inner-custom': 'inset 0 0 10px 0 rgba(0, 0, 0, 0.25)',
-				custom: '0 0 5px 0 rgba(0, 0, 0, 0.2)'
+				custom: '0 0 5px 0 rgba(0, 0, 0, 0.4)'
 			},
 			dropShadow: {
 				'3xl': '0 0 5px rgba(0, 0, 0, 0.6)'

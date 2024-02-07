@@ -14,7 +14,9 @@ const en = {
 
 	SuccessMsg: 'Success',
 	ErrorMsg: 'Error',
-	InfoMsg: 'Info'
+	InfoMsg: 'Info',
+
+	ShowPopup: 'Show Popup'
 } satisfies BaseTranslation;
 
 export default en;

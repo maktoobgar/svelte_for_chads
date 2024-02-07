@@ -7,7 +7,7 @@
 	let className = '';
 	export { className as class };
 	export let type: 'submit' | 'button' = 'button';
-	export let color: 'green' | 'red' | 'cyan' | 'primary' | 'secondary' = 'primary';
+	export let color: 'green' | 'red' | 'cyan' | 'primary' | 'secondary' | '' = '';
 
 	$: colorClasses =
 		color === 'green'
@@ -18,12 +18,14 @@
 					? 'bg-cyan-300 dark:bg-cyan-900'
 					: color === 'secondary'
 						? 'bg-secondary-300 dark:bg-secondary-900'
-						: 'bg-primary-300 dark:bg-primary-900';
+						: color === 'primary'
+							? 'bg-primary-300 dark:bg-primary-900'
+							: '';
 </script>
 
 <button
 	{type}
-	class={`rounded-lg px-3 py-2 ${colorClasses}${className ? ' ' + className : ''}`}
+	class={`shadow-custom rounded-lg px-3 py-2 ${colorClasses} ${className}`}
 	on:click={() => dispatch('click')}
 	use:ripple><slot /></button
 >

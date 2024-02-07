@@ -1,5 +1,7 @@
 :root {
 	--background: #0f1c21;
+	--background-light: #101e24;
+	--background-lighter: #122229;
 	/* Primary */
 	--primary-50: #fff4eb;
 	--primary-100: #f9dcc4;

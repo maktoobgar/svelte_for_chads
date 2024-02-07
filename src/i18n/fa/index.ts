@@ -14,7 +14,9 @@ const fa = {
 
 	SuccessMsg: 'موفق',
 	ErrorMsg: 'خطا',
-	InfoMsg: 'اطلاعات'
+	InfoMsg: 'اطلاعات',
+
+	ShowPopup: 'نمایش پنجره بازشو'
 } satisfies Translation;
 
 export default fa;

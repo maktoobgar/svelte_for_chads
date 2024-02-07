@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Button from '@cp/Button.svelte';
+	import Dialog from '@cp/Dialog.svelte';
 	import LanguageChanger from '@cp/LanguageChanger.svelte';
 	import Meta from '@cp/Meta.svelte';
 	import ThemeSwitcher from '@cp/ThemeSwitcher.svelte';
@@ -10,6 +11,8 @@
 	import ThirdMan from '@icons/ThirdMan.svelte';
 	import { oneTime, rateClickLimiter } from '@utils/general';
 	import { error, info, success } from '@utils/notifier';
+
+	let dialog: Dialog;
 
 	let { run, runAllowed } = oneTime(null);
 	let { click } = rateClickLimiter(500);
@@ -23,13 +26,19 @@
 </script>
 
 <Meta title={$LL.NewProjectsNewTeam()} />
-<div class="flex justify-center items-center relative min-h-screen overflow-hidden">
+<div class="relative flex justify-center items-center min-h-screen overflow-hidden">
 	<ThemeSwitcher class="absolute left-2 top-2" />
 	<LanguageChanger class="absolute right-2 top-2" />
 	<div class="absolute flex justify-between left-0 bottom-0 p-3 sm:w-[240px] w-[210px] ltr">
 		<Button color="green" on:click={successFn}>{$LL.SuccessMsg()}</Button>
 		<Button color="red" on:click={errorFn}>{$LL.ErrorMsg()}</Button>
 		<Button color="cyan" on:click={infoFn}>{$LL.InfoMsg()}</Button>
+	</div>
+	<Dialog bind:this={dialog}>
+		<Button color="primary">Hi Boys</Button>
+	</Dialog>
+	<div class="absolute right-2 bottom-2">
+		<Button on:click={() => dialog.open()}>{$LL.ShowPopup()}</Button>
 	</div>
 	<div class="relative lg:w-[512px] sm:w-[384px] w-[256px] lg:h-[512px] sm:h-[384px] h-[256px]">
 		<TypeWriter
@@ -40,21 +49,20 @@
 		/>
 		<SecondMan
 			position={where - 1}
-			class={`absolute transition-all lg:w-[384px] sm:w-[256px] w-[128px] lg:h-[384px] sm:h-[256px] h-[128px] lg:data-[position=mid]:w-[512px] sm:data-[position=mid]:w-[384px] data-[position=mid]:w-[256px] lg:data-[position=mid]:h-[512px] sm:data-[position=mid]:h-[384px] data-[position=mid]:h-[256px] data-[position=left]:left-[5%] data-[position=right]:left-[95%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-80 data-[position=mid]:opacity-100 fill-glass-80 data-[position=mid]:fill-primary-800 duration-500 z-0 data-[position=mid]:z-10 dark:fill-white-glass-80 dark:data-[position=mid]:fill-primary-300 data-[position=mid]:drop-shadow-3xl data-[position=mid]:animate-fade-in [&:not([data-position=mid])]:animate-fade-out${$runAllowed ? ' invisible' : ''}`}
+			class={`absolute transition-all lg:w-[384px] sm:w-[256px] w-[128px] lg:h-[384px] sm:h-[256px] h-[128px] lg:data-[position=mid]:w-[512px] sm:data-[position=mid]:w-[384px] data-[position=mid]:w-[256px] lg:data-[position=mid]:h-[512px] sm:data-[position=mid]:h-[384px] data-[position=mid]:h-[256px] data-[position=left]:left-[5%] data-[position=right]:left-[95%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-80 data-[position=mid]:opacity-100 fill-glass-80 data-[position=mid]:fill-primary-800 duration-500 z-0 data-[position=mid]:z-[1] dark:fill-white-glass-80 dark:data-[position=mid]:fill-primary-300 data-[position=mid]:drop-shadow-3xl data-[position=mid]:animate-fade-in [&:not([data-position=mid])]:animate-fade-out${$runAllowed ? ' invisible' : ''}`}
 		/>
 		<Man
 			position={where - 2}
-			class="absolute transition-all lg:w-[384px] sm:w-[256px] w-[128px] lg:h-[384px] sm:h-[256px] h-[128px] lg:data-[position=mid]:w-[512px] sm:data-[position=mid]:w-[384px] data-[position=mid]:w-[256px] lg:data-[position=mid]:h-[512px] sm:data-[position=mid]:h-[384px] data-[position=mid]:h-[256px] data-[position=left]:left-[5%] data-[position=right]:left-[95%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-80 data-[position=mid]:opacity-100 fill-glass-80 data-[position=mid]:fill-primary-800 duration-500 z-0 data-[position=mid]:z-10 dark:fill-white-glass-80 dark:data-[position=mid]:fill-primary-300 data-[position=mid]:drop-shadow-3xl data-[position=mid]:animate-fade-in [&:not([data-position=mid])]:animate-fade-out"
+			class="absolute transition-all lg:w-[384px] sm:w-[256px] w-[128px] lg:h-[384px] sm:h-[256px] h-[128px] lg:data-[position=mid]:w-[512px] sm:data-[position=mid]:w-[384px] data-[position=mid]:w-[256px] lg:data-[position=mid]:h-[512px] sm:data-[position=mid]:h-[384px] data-[position=mid]:h-[256px] data-[position=left]:left-[5%] data-[position=right]:left-[95%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-80 data-[position=mid]:opacity-100 fill-glass-80 data-[position=mid]:fill-primary-800 duration-500 z-0 data-[position=mid]:z-[1] dark:fill-white-glass-80 dark:data-[position=mid]:fill-primary-300 data-[position=mid]:drop-shadow-3xl data-[position=mid]:animate-fade-in [&:not([data-position=mid])]:animate-fade-out"
 		/>
 		<ThirdMan
 			position={where - 3}
-			class={`absolute transition-all lg:w-[384px] sm:w-[256px] w-[128px] lg:h-[384px] sm:h-[256px] h-[128px] lg:data-[position=mid]:w-[512px] sm:data-[position=mid]:w-[384px] data-[position=mid]:w-[256px] lg:data-[position=mid]:h-[512px] sm:data-[position=mid]:h-[384px] data-[position=mid]:h-[256px] data-[position=left]:left-[5%] data-[position=right]:left-[95%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-80 data-[position=mid]:opacity-100 fill-glass-80 data-[position=mid]:fill-primary-800 duration-500 z-0 data-[position=mid]:z-10 dark:fill-white-glass-80 dark:data-[position=mid]:fill-primary-300 data-[position=mid]:drop-shadow-3xl data-[position=mid]:animate-fade-in [&:not([data-position=mid])]:animate-fade-out${$runAllowed ? ' invisible' : ''}`}
+			class={`absolute transition-all lg:w-[384px] sm:w-[256px] w-[128px] lg:h-[384px] sm:h-[256px] h-[128px] lg:data-[position=mid]:w-[512px] sm:data-[position=mid]:w-[384px] data-[position=mid]:w-[256px] lg:data-[position=mid]:h-[512px] sm:data-[position=mid]:h-[384px] data-[position=mid]:h-[256px] data-[position=left]:left-[5%] data-[position=right]:left-[95%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-80 data-[position=mid]:opacity-100 fill-glass-80 data-[position=mid]:fill-primary-800 duration-500 z-0 data-[position=mid]:z-[1] dark:fill-white-glass-80 dark:data-[position=mid]:fill-primary-300 data-[position=mid]:drop-shadow-3xl data-[position=mid]:animate-fade-in [&:not([data-position=mid])]:animate-fade-out${$runAllowed ? ' invisible' : ''}`}
 		/>
 		<div
 			class="lg:w-[512px] sm:w-[384px] w-[256px] absolute left-1/2 -bottom-14 -translate-x-1/2 flex justify-between ltr"
 		>
 			<Button
-				color="green"
 				class="flex justify-center items-center w-12 h-12 fill-glass-70 dark:fill-black-20"
 				on:click={() =>
 					click(() => {
@@ -68,7 +76,6 @@
 				></Button
 			>
 			<Button
-				color="green"
 				class="flex justify-center items-center w-12 h-12 fill-glass-70 dark:fill-black-20"
 				on:click={() =>
 					click(() => {
