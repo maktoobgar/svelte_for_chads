@@ -17,7 +17,13 @@ const fa = {
 
 	ShowPopup: 'نمایش پنجره بازشو',
 
-	Close: 'خروج'
+	Cancel: 'انصراف',
+	Submit: 'ارسال',
+	Username: 'نام کاربری',
+	Password: 'رمز عبور',
+	LogIn: 'ورود',
+	UsernameExample: 'محمد',
+	LoggedIn: '{username} وارد شد'
 } satisfies Translation;
 
 export default fa;

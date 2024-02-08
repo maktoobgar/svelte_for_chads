@@ -103,7 +103,7 @@ h1 {
 }
 
 h2 {
-	@apply font-bold md:text-4xl sm:text-3xl capitalize;
+	@apply font-bold md:text-4xl text-3xl capitalize;
 }
 
 h3 {

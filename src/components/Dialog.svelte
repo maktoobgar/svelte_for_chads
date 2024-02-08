@@ -1,9 +1,14 @@
 <script lang="ts">
+	import type { EventHandler } from 'svelte/elements';
+
 	let className: string = '';
 	let _open: boolean = false;
 	let closing: boolean = false;
 	export { className as class };
+	export let contentClass = '';
 	export let closeWhenClickBackground: boolean = true;
+	export let isForm: boolean = false;
+	export let submit: EventHandler<SubmitEvent, HTMLFormElement> | null = null;
 
 	let dialog: HTMLDivElement;
 
@@ -40,9 +45,11 @@
 	on:click={closeWhenClickBackground ? modalClose : null}
 	class={`group fixed inset-0 flex justify-center items-center z-[1000] backdrop-blur-lg outline-none bg-glass-40 data-[closing=true]:pointer-events-none data-[open=false]:hidden data-[open=true]:data-[closing=false]:animate-fade-in data-[closing=true]:animate-fade-out ${className}`}
 >
-	<div
-		class="bg-background-light shadow-custom dark:shadow-custom-dark p-5 rounded-lg animate-slide-in"
+	<svelte:element
+		this={isForm ? 'form' : 'div'}
+		on:submit={isForm ? submit : null}
+		class={`bg-background-light shadow-custom dark:shadow-custom-dark p-5 rounded-[8px] animate-slide-in ${contentClass}`}
 	>
 		<slot />
-	</div>
+	</svelte:element>
 </div>

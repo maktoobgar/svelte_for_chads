@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+- 🎉 feat: login form added
 - 🎉 feat: Dialog added
 - 🎉 feat: rateClickLimiter + oneTime functions added
 - 🎉 feat: ripple effect added for buttons

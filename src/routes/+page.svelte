@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Button from '@cp/Button.svelte';
 	import Dialog from '@cp/Dialog.svelte';
+	import Input from '@cp/Inputs/Input.svelte';
 	import LanguageChanger from '@cp/LanguageChanger.svelte';
 	import Meta from '@cp/Meta.svelte';
 	import ThemeSwitcher from '@cp/ThemeSwitcher.svelte';
@@ -23,21 +24,59 @@
 	$: successFn = () => success($LL.Success());
 	$: errorFn = () => error($LL.Error());
 	$: infoFn = () => info($LL.Info());
+
+	let username = '';
+	let password = '';
 </script>
 
 <Meta title={$LL.NewProjectsNewTeam()} />
 <div class="relative flex justify-center items-center min-h-screen overflow-hidden">
 	<ThemeSwitcher class="absolute left-2 top-2" />
 	<LanguageChanger class="absolute right-2 top-2" />
-	<div class="absolute flex justify-between left-0 bottom-0 p-3 sm:w-[240px] w-[210px] ltr">
+	<div
+		class="absolute flex flex-col justify-between left-0 bottom-0 p-3 sm:h-[200px] h-[160px] ltr"
+	>
 		<Button color="green" on:click={successFn}>{$LL.SuccessMsg()}</Button>
 		<Button color="red" on:click={errorFn}>{$LL.ErrorMsg()}</Button>
 		<Button color="cyan" on:click={infoFn}>{$LL.InfoMsg()}</Button>
 	</div>
-	<Dialog bind:this={dialog}>
-		<Button color="primary" on:click={dialog.close}>{$LL.Close()}</Button>
+	<Dialog
+		isForm={true}
+		contentClass="w-[300px] sm:w-[350px] h-[400px] sm:h-[450px] flex flex-col justify-between"
+		submit={() => {
+			dialog.close();
+			username && success($LL.LoggedIn({ username }));
+		}}
+		bind:this={dialog}
+	>
+		<div class="flex flex-col space-y-3">
+			<h2 class="py-2">{$LL.LogIn()}</h2>
+			<Input
+				id="username"
+				bind:value={username}
+				placeholder={$LL.UsernameExample()}
+				label={$LL.Username()}
+			/>
+			<Input
+				id="password"
+				bind:value={password}
+				type="password"
+				placeholder="****"
+				label={$LL.Password()}
+			/>
+		</div>
+		<div class="flex gap-4">
+			<Button
+				color="primary"
+				class="flex-grow"
+				on:click={() => {
+					dialog.close();
+				}}>{$LL.Cancel()}</Button
+			>
+			<Button color="green" class="flex-grow" type="submit">{$LL.Submit()}</Button>
+		</div>
 	</Dialog>
-	<div class="absolute right-2 bottom-2">
+	<div class="absolute right-0 bottom-0 p-3">
 		<Button on:click={() => dialog.open()}>{$LL.ShowPopup()}</Button>
 	</div>
 	<div class="relative lg:w-[512px] sm:w-[384px] w-[256px] lg:h-[512px] sm:h-[384px] h-[256px]">
@@ -63,7 +102,7 @@
 			class="lg:w-[512px] sm:w-[384px] w-[256px] absolute left-1/2 -bottom-14 -translate-x-1/2 flex justify-between ltr"
 		>
 			<Button
-				class="flex justify-center items-center w-12 h-12 fill-glass-70 dark:fill-black-20"
+				class="flex justify-center items-center w-[60px] h-[50px] fill-glass-70 dark:fill-black-20"
 				on:click={() =>
 					click(() => {
 						where = where <= 1 ? 3 : where - 1;
@@ -76,7 +115,7 @@
 				></Button
 			>
 			<Button
-				class="flex justify-center items-center w-12 h-12 fill-glass-70 dark:fill-black-20"
+				class="flex justify-center items-center w-[60px] h-[50px] fill-glass-70 dark:fill-black-20"
 				on:click={() =>
 					click(() => {
 						where = where >= 3 ? 1 : where + 1;

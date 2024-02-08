@@ -17,7 +17,13 @@ const en = {
 
 	ShowPopup: 'Show Popup',
 
-	Close: 'Close'
+	Cancel: 'Cancel',
+	Submit: 'Submit',
+	Username: 'Username',
+	Password: 'Password',
+	LogIn: 'Log in',
+	UsernameExample: 'Jackson',
+	LoggedIn: '{username:string} Logged In'
 } satisfies BaseTranslation;
 
 export default en;

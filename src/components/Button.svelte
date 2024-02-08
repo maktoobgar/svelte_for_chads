@@ -25,7 +25,7 @@
 
 <button
 	{type}
-	class={`shadow-custom dark:shadow-custom-dark rounded-lg px-3 py-2 ${colorClasses} ${className}`}
+	class={`shadow-custom dark:shadow-custom-dark rounded-[8px] px-5 py-3 ${colorClasses} ${className}`}
 	on:click={() => dispatch('click')}
 	use:ripple><slot /></button
 >
