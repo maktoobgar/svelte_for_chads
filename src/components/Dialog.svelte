@@ -3,6 +3,7 @@
 	let _open: boolean = false;
 	let closing: boolean = false;
 	export { className as class };
+	export let closeWhenClickBackground: boolean = true;
 
 	let dialog: HTMLDivElement;
 
@@ -36,10 +37,12 @@
 	bind:this={dialog}
 	data-closing={closing}
 	data-open={_open}
-	on:click={modalClose}
-	class={`group fixed inset-0 flex justify-center items-center z-[1000] backdrop-blur-sm outline-none backdrop:hidden data-[closing=true]:pointer-events-none data-[open=false]:hidden data-[open=true]:data-[closing=false]:animate-fade-in data-[closing=true]:animate-fade-out ${className}`}
+	on:click={closeWhenClickBackground ? modalClose : null}
+	class={`group fixed inset-0 flex justify-center items-center z-[1000] backdrop-blur-lg outline-none bg-glass-40 data-[closing=true]:pointer-events-none data-[open=false]:hidden data-[open=true]:data-[closing=false]:animate-fade-in data-[closing=true]:animate-fade-out ${className}`}
 >
-	<div class="bg-background-light p-5 rounded-lg animate-slide-in">
+	<div
+		class="bg-background-light shadow-custom dark:shadow-custom-dark p-5 rounded-lg animate-slide-in"
+	>
 		<slot />
 	</div>
 </div>

@@ -1,7 +1,6 @@
 import type { Translation } from '../i18n-types';
 
 const fa = {
-	// this is an example Translation, just rename or delete this folder if you want
 	NewProjectsNewTeam: 'پروژه های جدید، تیم جدید',
 
 	Chad1: 'نگاییدم',

@@ -186,7 +186,8 @@ export default {
 			},
 			boxShadow: {
 				'inner-custom': 'inset 0 0 10px 0 rgba(0, 0, 0, 0.25)',
-				custom: '0 0 5px 0 rgba(0, 0, 0, 0.4)'
+				custom: '0 0 5px 0 rgba(0, 0, 0, 0.5)',
+				'custom-dark': '0 0 5px 0 rgba(0, 0, 0, 0.5)'
 			},
 			dropShadow: {
 				'3xl': '0 0 5px rgba(0, 0, 0, 0.6)'

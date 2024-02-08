@@ -1,7 +1,6 @@
 import type { BaseTranslation } from '../i18n-types';
 
 const en = {
-	// TODO: your translations go here
 	NewProjectsNewTeam: 'New Projects, New Team',
 
 	Chad1: 'You Got This Boy',

@@ -20,12 +20,12 @@
 						? 'bg-secondary-300 dark:bg-secondary-900'
 						: color === 'primary'
 							? 'bg-primary-300 dark:bg-primary-900'
-							: '';
+							: 'dark:bg-white-glass-10 bg-glass-5';
 </script>
 
 <button
 	{type}
-	class={`shadow-custom rounded-lg px-3 py-2 ${colorClasses} ${className}`}
+	class={`shadow-custom dark:shadow-custom-dark rounded-lg px-3 py-2 ${colorClasses} ${className}`}
 	on:click={() => dispatch('click')}
 	use:ripple><slot /></button
 >
