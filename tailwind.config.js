@@ -23,8 +23,8 @@ export default {
 			// Colors
 			colors: {
 				// Primary
-				'background-lighter': 'var(--background-lighter)',
-				'background-light': 'var(--background-light)',
+				'background-more-reverse': 'var(--background-more-reverse)',
+				'background-reverse': 'var(--background-reverse)',
 				background: 'var(--background)',
 				primary: {
 					50: 'var(--primary-50)',
@@ -186,8 +186,8 @@ export default {
 			},
 			boxShadow: {
 				'inner-custom': 'inset 0 0 10px 0 rgba(0, 0, 0, 0.25)',
-				custom: '0 0 5px 0 rgba(0, 0, 0, 0.5)',
-				'custom-dark': '0 0 5px 0 rgba(0, 0, 0, 0.5)'
+				custom: '0 0 5px 0 rgba(0, 0, 0, 0.3)',
+				'custom-dark': '0 0 5px 0 rgba(0, 0, 0, 0.3)'
 			},
 			dropShadow: {
 				'3xl': '0 0 5px rgba(0, 0, 0, 0.6)'

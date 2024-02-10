@@ -1,7 +1,7 @@
 :root {
 	--background: #fbfbfb;
-	--background-light: #f6f6f6;
-	--background-lighter: #ededed;
+	--background-reverse: #f6f6f6;
+	--background-more-reverse: #ededed;
 	/* Primary */
 	--primary-50: #fff4eb;
 	--primary-100: #f9dcc4;

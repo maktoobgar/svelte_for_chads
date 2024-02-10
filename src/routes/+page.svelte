@@ -134,27 +134,29 @@
 	</div>
 </div>
 
-<ProfileCard
-	title={$LL.Card1Title()}
-	author={$LL.Card1Author()}
-	exOne={$LL.Card1ExOne()}
-	exOneTime={$LL.Card1ExOneTime()}
-	exTwo={$LL.Card1ExTwo()}
-	exTwoTime={$LL.Card1ExTwoTime()}>{$LL.Card1Description()}</ProfileCard
->
+<div class="flex justify-around items-center mb-5">
+	<ProfileCard
+		title={$LL.Card1Title()}
+		author={$LL.Card1Author()}
+		exOne={$LL.Card1ExOne()}
+		exOneTime={$LL.Card1ExOneTime()}
+		exTwo={$LL.Card1ExTwo()}
+		exTwoTime={$LL.Card1ExTwoTime()}>{$LL.Card1Description()}</ProfileCard
+	>
 
-<ProfileCard2 titleOne={$LL.Card2TitleOne()} titleTwo={$LL.Card2TitleTwo()}>
-	{$LL.Card2Description()}
-</ProfileCard2>
+	<ProfileCard2 titleOne={$LL.Card2TitleOne()} titleTwo={$LL.Card2TitleTwo()}>
+		{$LL.Card2Description()}
+	</ProfileCard2>
 
-<ShopCard
-	priceOne={$LL.ShopCardPriceOne()}
-	priceTwo={$LL.ShopCardPriceTwo()}
-	itemName={$LL.ShopCardItemName()}
-	itemOneTitle={$LL.ShopCardItemOneTitle()}
-	itemOneText={$LL.ShopCardItemOneText()}
-	itemTwoTitle={$LL.ShopCardItemTwoTitle()}
-	itemTwoText={$LL.ShopCardItemTwoText()}
-	itemThreeTitle={$LL.ShopCardItemThreeTitle()}
-	itemThreeText={$LL.ShopCardItemThreeText()}>{$LL.ShopCardDescription()}</ShopCard
->
+	<ShopCard
+		priceOne={$LL.ShopCardPriceOne()}
+		priceTwo={$LL.ShopCardPriceTwo()}
+		itemName={$LL.ShopCardItemName()}
+		itemOneTitle={$LL.ShopCardItemOneTitle()}
+		itemOneText={$LL.ShopCardItemOneText()}
+		itemTwoTitle={$LL.ShopCardItemTwoTitle()}
+		itemTwoText={$LL.ShopCardItemTwoText()}
+		itemThreeTitle={$LL.ShopCardItemThreeTitle()}
+		itemThreeText={$LL.ShopCardItemThreeText()}>{$LL.ShopCardDescription()}</ShopCard
+	>
+</div>

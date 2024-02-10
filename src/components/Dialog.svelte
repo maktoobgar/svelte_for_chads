@@ -48,7 +48,7 @@
 	<svelte:element
 		this={isForm ? 'form' : 'div'}
 		on:submit={isForm ? submit : null}
-		class={`bg-background-light shadow-custom dark:shadow-custom-dark p-5 rounded-[8px] animate-slide-in ${contentClass}`}
+		class={`bg-background-reverse shadow-custom dark:shadow-custom-dark p-5 rounded-[8px] animate-slide-in ${contentClass}`}
 	>
 		<slot />
 	</svelte:element>

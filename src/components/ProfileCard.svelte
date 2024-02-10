@@ -9,45 +9,44 @@
 	export let exTwoTime: string = '3 minute';
 </script>
 
-<div class="flex justify-center items-center m-10">
-	<a
-		href="#"
-		class="max-w-[30rem] relative block overflow-hidden rounded-lg border border-gray-100 p-4 sm:p-6 lg:p-8"
-	>
-		<span
-			class="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-secondary-500 via-primary-50 to-primary-500"
-		></span>
+<!-- svelte-ignore a11y-invalid-attribute -->
+<a
+	href="#"
+	class="bg-background-reverse max-w-[30rem] relative block overflow-hidden rounded-lg border border-black-40 dark:border-gray-800 transition-[box-shadow] hover:shadow-lg p-4 sm:p-6 lg:p-8"
+>
+	<span
+		class="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-secondary-500 via-primary-50 to-primary-500"
+	></span>
 
-		<div class="sm:flex sm:justify-between sm:gap-4">
-			<div>
-				<h3 class="text-lg font-bold !text-secondary-400 sm:text-xl">
-					{title}
-				</h3>
+	<div class="sm:flex sm:justify-between sm:gap-4">
+		<div>
+			<h3 class="text-lg font-bold !text-secondary-400 sm:text-xl">
+				{title}
+			</h3>
 
-				<p class="mt-1 text-xs font-medium !text-primary-400">{author}</p>
-			</div>
-
-			<div class="hidden sm:block sm:shrink-0">
-				<img alt="Paul Clapton" src={picture} class="h-16 w-16 rounded-lg object-cover shadow-sm" />
-			</div>
+			<p class="mt-1 text-xs font-medium !text-primary-400">{author}</p>
 		</div>
 
-		<div class="mt-4">
-			<p class="text-pretty text-sm">
-				<slot />
-			</p>
+		<div class="hidden sm:block sm:shrink-0">
+			<img alt="Paul Clapton" src={picture} class="h-16 w-16 rounded-lg object-cover shadow-sm" />
+		</div>
+	</div>
+
+	<div class="mt-4">
+		<p class="text-pretty text-sm">
+			<slot />
+		</p>
+	</div>
+
+	<dl class="mt-6 flex gap-4 sm:gap-6">
+		<div class="flex flex-col-reverse">
+			<dt class="text-sm font-medium">{exOne}</dt>
+			<dd class="text-xs">{exOneTime}</dd>
 		</div>
 
-		<dl class="mt-6 flex gap-4 sm:gap-6">
-			<div class="flex flex-col-reverse">
-				<dt class="text-sm font-medium">{exOne}</dt>
-				<dd class="text-xs">{exOneTime}</dd>
-			</div>
-
-			<div class="flex flex-col-reverse">
-				<dt class="text-sm font-medium">{exTwo}</dt>
-				<dd class="text-xs">{exTwoTime}</dd>
-			</div>
-		</dl>
-	</a>
-</div>
+		<div class="flex flex-col-reverse">
+			<dt class="text-sm font-medium">{exTwo}</dt>
+			<dd class="text-xs">{exTwoTime}</dd>
+		</div>
+	</dl>
+</a>
