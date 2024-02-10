@@ -87,6 +87,86 @@ type RootTranslation = {
 	 * @param {string} username
 	 */
 	LoggedIn: RequiredParams<'username'>
+	/**
+	 * T​h​i​s​ ​i​s​ ​a​ ​t​i​t​l​e
+	 */
+	Card1Title: string
+	/**
+	 * B​y​ ​A​u​t​h​o​r
+	 */
+	Card1Author: string
+	/**
+	 * I​n​c​i​d​i​d​u​n​t​ ​e​l​i​t​ ​i​p​s​u​m​ ​n​u​l​l​a​ ​p​a​r​i​a​t​u​r​ ​d​o​l​o​r​e​.​ ​M​a​g​n​a​ ​r​e​p​r​e​h​e​n​d​e​r​i​t​ ​i​n​ ​n​u​l​l​a​ ​e​n​i​m​ ​a​d​ ​l​a​b​o​r​e​ ​i​r​u​r​e​ ​c​i​l​l​u​m
+	 */
+	Card1Description: string
+	/**
+	 * P​u​b​l​i​s​h​e​d
+	 */
+	Card1ExOne: string
+	/**
+	 * 1​2​s​t​ ​J​u​n​e​,​ ​2​0​2​0
+	 */
+	Card1ExOneTime: string
+	/**
+	 * R​e​a​d​i​n​g​ ​t​i​m​e
+	 */
+	Card1ExTwo: string
+	/**
+	 * 3​ ​m​i​n​u​t​e
+	 */
+	Card1ExTwoTime: string
+	/**
+	 * D​e​v​e​l​o​p​e​r
+	 */
+	Card2TitleOne: string
+	/**
+	 * N​a​m​e
+	 */
+	Card2TitleTwo: string
+	/**
+	 * E​s​s​e​ ​f​u​g​i​a​t​ ​e​a​ ​e​u​ ​v​e​l​i​t​ ​d​o​l​o​r​e​ ​L​o​r​e​m​ ​u​l​l​a​m​c​o​ ​e​x​ ​e​x​e​r​c​i​t​a​t​i​o​n​ ​e​u​ ​m​a​g​n​a​ ​e​t​ ​d​o​ ​e​i​u​s​m​o​d​.​ ​I​n​ ​q​u​i​ ​m​o​l​l​i​t​ ​m​o​l​l​i​t​ ​e​x​e​r​c​i​t​a​t​i​o​n​ ​q​u​i​s​ ​f​u​g​i​a​t​ ​c​o​m​m​o​d​o​ ​u​l​l​a​m​c​o​ ​l​a​b​o​r​e​ ​i​n​c​i​d​i​d​u​n​t​ ​n​u​l​l​a​ ​e​u​ ​o​f​f​i​c​i​a​.​ ​D​o​l​o​r​e​ ​i​n​ ​c​u​l​p​a​ ​d​o​l​o​r​e​ ​u​l​l​a​m​c​o​ ​v​e​n​i​a​m​.​ ​N​o​s​t​r​u​d​ ​c​o​m​m​o​d​o​ ​e​i​u​s​m​o​d​ ​s​i​n​t​ ​i​p​s​u​m​ ​e​l​i​t​ ​e​i​u​s​m​o​d​.​ ​Q​u​i​ ​a​d​i​p​i​s​i​c​i​n​g​ ​c​o​n​s​e​c​t​e​t​u​r​ ​l​a​b​o​r​e​ ​c​u​p​i​d​a​t​a​t​ ​q​u​i​s​ ​a​l​i​q​u​i​p​ ​v​e​n​i​a​m​ ​u​t​ ​n​o​s​t​r​u​d​ ​n​u​l​l​a​ ​c​o​m​m​o​d​o​ ​n​i​s​i​.​ ​E​s​t​ ​m​o​l​l​i​t​ ​l​a​b​o​r​i​s​ ​m​a​g​n​a​ ​i​n​c​i​d​i​d​u​n​t​.​ ​C​u​l​p​a​ ​c​i​l​l​u​m​ ​s​i​t​ ​t​e​m​p​o​r​ ​c​o​n​s​e​q​u​a​t​ ​e​u
+	 */
+	Card2Description: string
+	/**
+	 * P​r​i​c​e
+	 */
+	ShopCardPriceOne: string
+	/**
+	 * 4​0​0​,​0​0​0
+	 */
+	ShopCardPriceTwo: string
+	/**
+	 * F​o​o​d​ ​N​a​m​e
+	 */
+	ShopCardItemName: string
+	/**
+	 * R​e​s​e​r​v​e​d
+	 */
+	ShopCardItemOneTitle: string
+	/**
+	 * 2​ ​t​a​b​l​e​s
+	 */
+	ShopCardItemOneText: string
+	/**
+	 * D​e​s​s​e​r​t
+	 */
+	ShopCardItemTwoTitle: string
+	/**
+	 * 4​ ​f​o​o​d​s
+	 */
+	ShopCardItemTwoText: string
+	/**
+	 * D​r​i​n​k
+	 */
+	ShopCardItemThreeTitle: string
+	/**
+	 * 4​ ​s​o​d​a​s
+	 */
+	ShopCardItemThreeText: string
+	/**
+	 * c​h​i​c​k​e​n​ ​b​a​r​b​e​c​u​e
+	 */
+	ShopCardDescription: string
 }
 
 export type TranslationFunctions = {
@@ -162,6 +242,86 @@ export type TranslationFunctions = {
 	 * {username} Logged In
 	 */
 	LoggedIn: (arg: { username: string }) => LocalizedString
+	/**
+	 * This is a title
+	 */
+	Card1Title: () => LocalizedString
+	/**
+	 * By Author
+	 */
+	Card1Author: () => LocalizedString
+	/**
+	 * Incididunt elit ipsum nulla pariatur dolore. Magna reprehenderit in nulla enim ad labore irure cillum
+	 */
+	Card1Description: () => LocalizedString
+	/**
+	 * Published
+	 */
+	Card1ExOne: () => LocalizedString
+	/**
+	 * 12st June, 2020
+	 */
+	Card1ExOneTime: () => LocalizedString
+	/**
+	 * Reading time
+	 */
+	Card1ExTwo: () => LocalizedString
+	/**
+	 * 3 minute
+	 */
+	Card1ExTwoTime: () => LocalizedString
+	/**
+	 * Developer
+	 */
+	Card2TitleOne: () => LocalizedString
+	/**
+	 * Name
+	 */
+	Card2TitleTwo: () => LocalizedString
+	/**
+	 * Esse fugiat ea eu velit dolore Lorem ullamco ex exercitation eu magna et do eiusmod. In qui mollit mollit exercitation quis fugiat commodo ullamco labore incididunt nulla eu officia. Dolore in culpa dolore ullamco veniam. Nostrud commodo eiusmod sint ipsum elit eiusmod. Qui adipisicing consectetur labore cupidatat quis aliquip veniam ut nostrud nulla commodo nisi. Est mollit laboris magna incididunt. Culpa cillum sit tempor consequat eu
+	 */
+	Card2Description: () => LocalizedString
+	/**
+	 * Price
+	 */
+	ShopCardPriceOne: () => LocalizedString
+	/**
+	 * 400,000
+	 */
+	ShopCardPriceTwo: () => LocalizedString
+	/**
+	 * Food Name
+	 */
+	ShopCardItemName: () => LocalizedString
+	/**
+	 * Reserved
+	 */
+	ShopCardItemOneTitle: () => LocalizedString
+	/**
+	 * 2 tables
+	 */
+	ShopCardItemOneText: () => LocalizedString
+	/**
+	 * Dessert
+	 */
+	ShopCardItemTwoTitle: () => LocalizedString
+	/**
+	 * 4 foods
+	 */
+	ShopCardItemTwoText: () => LocalizedString
+	/**
+	 * Drink
+	 */
+	ShopCardItemThreeTitle: () => LocalizedString
+	/**
+	 * 4 sodas
+	 */
+	ShopCardItemThreeText: () => LocalizedString
+	/**
+	 * chicken barbecue
+	 */
+	ShopCardDescription: () => LocalizedString
 }
 
 export type Formatters = {}

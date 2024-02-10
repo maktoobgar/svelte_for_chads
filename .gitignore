@@ -12,3 +12,4 @@ vite.config.ts.timestamp-*
 venv
 .venv
 .venv.*
+__pycache__

@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+- 🎉 feat: added two profile cards + one shop card
 - 🎉 feat: login form added
 - 🎉 feat: Dialog added
 - 🎉 feat: rateClickLimiter + oneTime functions added

@@ -4,6 +4,9 @@
 	import Input from '@cp/Inputs/Input.svelte';
 	import LanguageChanger from '@cp/LanguageChanger.svelte';
 	import Meta from '@cp/Meta.svelte';
+	import ProfileCard from '@cp/ProfileCard.svelte';
+	import ProfileCard2 from '@cp/ProfileCard2.svelte';
+	import ShopCard from '@cp/ShopCard.svelte';
 	import ThemeSwitcher from '@cp/ThemeSwitcher.svelte';
 	import TypeWriter from '@cp/TypeWriter.svelte';
 	import LL from '@i18n/i18n-svelte';
@@ -130,3 +133,28 @@
 		</div>
 	</div>
 </div>
+
+<ProfileCard
+	title={$LL.Card1Title()}
+	author={$LL.Card1Author()}
+	exOne={$LL.Card1ExOne()}
+	exOneTime={$LL.Card1ExOneTime()}
+	exTwo={$LL.Card1ExTwo()}
+	exTwoTime={$LL.Card1ExTwoTime()}>{$LL.Card1Description()}</ProfileCard
+>
+
+<ProfileCard2 titleOne={$LL.Card2TitleOne()} titleTwo={$LL.Card2TitleTwo()}>
+	{$LL.Card2Description()}
+</ProfileCard2>
+
+<ShopCard
+	priceOne={$LL.ShopCardPriceOne()}
+	priceTwo={$LL.ShopCardPriceTwo()}
+	itemName={$LL.ShopCardItemName()}
+	itemOneTitle={$LL.ShopCardItemOneTitle()}
+	itemOneText={$LL.ShopCardItemOneText()}
+	itemTwoTitle={$LL.ShopCardItemTwoTitle()}
+	itemTwoText={$LL.ShopCardItemTwoText()}
+	itemThreeTitle={$LL.ShopCardItemThreeTitle()}
+	itemThreeText={$LL.ShopCardItemThreeText()}>{$LL.ShopCardDescription()}</ShopCard
+>
