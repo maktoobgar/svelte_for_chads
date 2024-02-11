@@ -96,7 +96,7 @@ type RootTranslation = {
 	 */
 	Card1Author: string
 	/**
-	 * I​n​c​i​d​i​d​u​n​t​ ​e​l​i​t​ ​i​p​s​u​m​ ​n​u​l​l​a​ ​p​a​r​i​a​t​u​r​ ​d​o​l​o​r​e​.​ ​M​a​g​n​a​ ​r​e​p​r​e​h​e​n​d​e​r​i​t​ ​i​n​ ​n​u​l​l​a​ ​e​n​i​m​ ​a​d​ ​l​a​b​o​r​e​ ​i​r​u​r​e​ ​c​i​l​l​u​m
+	 * I​n​c​i​d​i​d​u​n​t​ ​e​l​i​t​ ​i​p​s​u​m​ ​n​u​l​l​a​ ​p​a​r​i​a​t​u​r​ ​d​o​l​o​r​e​.​ ​M​a​g​n​a​ ​r​e​p​r​e​h​e​n​d​e​r​i​t​ ​i​n​ ​n​u​l​l​a​ ​e​n​i​m​ ​a​d​ ​l​a​b​o​r​e​ ​i​r​u​r​e​ ​c​i​l​l​u​m​ ​e​l​i​t​ ​i​p​s​u​m​ ​n​u​l​l​a​ ​p​a​r​i​a​t​u​r​ ​d​o​l​o​r​e​.
 	 */
 	Card1Description: string
 	/**
@@ -251,7 +251,7 @@ export type TranslationFunctions = {
 	 */
 	Card1Author: () => LocalizedString
 	/**
-	 * Incididunt elit ipsum nulla pariatur dolore. Magna reprehenderit in nulla enim ad labore irure cillum
+	 * Incididunt elit ipsum nulla pariatur dolore. Magna reprehenderit in nulla enim ad labore irure cillum elit ipsum nulla pariatur dolore.
 	 */
 	Card1Description: () => LocalizedString
 	/**

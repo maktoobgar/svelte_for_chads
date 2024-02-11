@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+- 🎉 feat: added responsiveness to everything that didn't + scroll snap added
 - 🎉 feat: added two profile cards + one shop card
 - 🎉 feat: login form added
 - 🎉 feat: Dialog added

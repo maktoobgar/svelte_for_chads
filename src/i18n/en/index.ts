@@ -27,7 +27,7 @@ const en = {
 	Card1Title: 'This is a title',
 	Card1Author: 'By Author',
 	Card1Description:
-		'Incididunt elit ipsum nulla pariatur dolore. Magna reprehenderit in nulla enim ad labore irure cillum',
+		'Incididunt elit ipsum nulla pariatur dolore. Magna reprehenderit in nulla enim ad labore irure cillum elit ipsum nulla pariatur dolore.',
 	Card1ExOne: 'Published',
 	Card1ExOneTime: '12st June, 2020',
 	Card1ExTwo: 'Reading time',
