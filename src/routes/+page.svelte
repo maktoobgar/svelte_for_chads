@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Button from '@cp/Button.svelte';
 	import Dialog from '@cp/Dialog.svelte';
+	import Dropdown from '@cp/Dropdown.svelte';
 	import Input from '@cp/Inputs/Input.svelte';
 	import LanguageChanger from '@cp/LanguageChanger.svelte';
 	import Meta from '@cp/Meta.svelte';
@@ -162,5 +163,11 @@
 			itemThreeTitle={$LL.ShopCardItemThreeTitle()}
 			itemThreeText={$LL.ShopCardItemThreeText()}>{$LL.ShopCardDescription()}</ShopCard
 		>
+	</div>
+
+	<div
+		class="flex flex-col lg:flex-row h-screen justify-around items-center bg-background-reverse snap-start"
+	>
+		<Dropdown />
 	</div>
 </div>

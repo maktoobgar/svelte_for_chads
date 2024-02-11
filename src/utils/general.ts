@@ -33,3 +33,30 @@ export const rateClickLimiter = (every: number) => {
 
 	return { click, clickAllowed: clickAllowedWritable };
 };
+
+export function clickOutside(node: HTMLElement | null) {
+	const handleClick = (event: MouseEvent) => {
+		if (node && !node.contains(event.target as Node) && !event.defaultPrevented) {
+			let n: HTMLElement | null = event.target as HTMLElement;
+			let ignore = false;
+			while (true) {
+				if (n === null) break;
+				if (n.hasAttribute('data-ignore-click-outside')) {
+					ignore = true;
+					break;
+				}
+				n = n.parentElement;
+			}
+			if (ignore) return;
+			node.dispatchEvent(new CustomEvent('click_outside', { detail: node }));
+		}
+	};
+
+	document.addEventListener('click', handleClick, true);
+
+	return {
+		destroy() {
+			document.removeEventListener('click', handleClick, true);
+		}
+	};
+}
