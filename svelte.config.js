@@ -23,6 +23,7 @@ const config = {
 		}),
 
 		alias: {
+			'@Layouts': './src/components/Layouts',
 			'@stores': './src/stores',
 			'@icons': './src/lib/icons',
 			'@types': './src/types',

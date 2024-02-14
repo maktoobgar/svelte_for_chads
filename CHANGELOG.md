@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+- 🎉 feat: added Header component
 - 🎉 feat: added DropDownMenu component
 - 🎉 feat: dropdown added
 - 🎉 feat: added responsiveness to everything that didn't + scroll snap added

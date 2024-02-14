@@ -27,6 +27,7 @@
 	export let profile: Profile = null;
 	export let buttonClass = '';
 	export let buttomColor: 'green' | 'red' | 'cyan' | 'primary' | 'secondary' | 'none' | '' = 'none';
+	export let distanceMenu: string = '8px';
 </script>
 
 <div class={className}>
