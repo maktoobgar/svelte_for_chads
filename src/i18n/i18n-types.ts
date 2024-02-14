@@ -167,6 +167,40 @@ type RootTranslation = {
 	 * c​h​i​c​k​e​n​ ​b​a​r​b​e​c​u​e
 	 */
 	ShopCardDescription: string
+	DropDown: {
+		/**
+		 * P​r​o​f​i​l​e
+		 */
+		ViewProfile: string
+		/**
+		 * S​e​t​t​i​n​g​s
+		 */
+		Settings: string
+		/**
+		 * T​e​a​m
+		 */
+		Team: string
+		/**
+		 * I​n​v​i​t​e​ ​C​o​l​l​e​a​g​u​e​s
+		 */
+		InviteColleagues: string
+		/**
+		 * H​e​l​p
+		 */
+		Help: string
+		/**
+		 * S​i​g​n​ ​O​u​t
+		 */
+		SignOut: string
+		/**
+		 * E​r​n​e​s​t​ ​K​h​a​l​i​m​o​v
+		 */
+		Name: string
+		/**
+		 * 0​9​1​0​9​9​9​9​9​9​9
+		 */
+		Description: string
+	}
 }
 
 export type TranslationFunctions = {
@@ -322,6 +356,40 @@ export type TranslationFunctions = {
 	 * chicken barbecue
 	 */
 	ShopCardDescription: () => LocalizedString
+	DropDown: {
+		/**
+		 * Profile
+		 */
+		ViewProfile: () => LocalizedString
+		/**
+		 * Settings
+		 */
+		Settings: () => LocalizedString
+		/**
+		 * Team
+		 */
+		Team: () => LocalizedString
+		/**
+		 * Invite Colleagues
+		 */
+		InviteColleagues: () => LocalizedString
+		/**
+		 * Help
+		 */
+		Help: () => LocalizedString
+		/**
+		 * Sign Out
+		 */
+		SignOut: () => LocalizedString
+		/**
+		 * Ernest Khalimov
+		 */
+		Name: () => LocalizedString
+		/**
+		 * 09109999999
+		 */
+		Description: () => LocalizedString
+	}
 }
 
 export type Formatters = {}

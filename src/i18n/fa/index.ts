@@ -47,7 +47,18 @@ const fa = {
 	ShopCardItemTwoText: '۴ غذا',
 	ShopCardItemThreeTitle: 'نوشیدنی',
 	ShopCardItemThreeText: '۴ نوشابه',
-	ShopCardDescription: 'جوجه کباب'
+	ShopCardDescription: 'جوجه کباب',
+
+	DropDown: {
+		ViewProfile: 'پروفایل',
+		Settings: 'تنظیمات',
+		Team: 'تیم',
+		InviteColleagues: 'دعوت',
+		Help: 'کمک',
+		SignOut: 'خروج',
+		Name: 'آقای بدن',
+		Description: '09109999999'
+	}
 } satisfies Translation;
 
 export default fa;

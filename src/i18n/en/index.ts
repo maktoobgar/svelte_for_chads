@@ -47,7 +47,18 @@ const en = {
 	ShopCardItemTwoText: '4 foods',
 	ShopCardItemThreeTitle: 'Drink',
 	ShopCardItemThreeText: '4 sodas',
-	ShopCardDescription: 'chicken barbecue'
+	ShopCardDescription: 'chicken barbecue',
+
+	DropDown: {
+		ViewProfile: 'Profile',
+		Settings: 'Settings',
+		Team: 'Team',
+		InviteColleagues: 'Invite Colleagues',
+		Help: 'Help',
+		SignOut: 'Sign Out',
+		Name: 'Ernest Khalimov',
+		Description: '09109999999'
+	}
 } satisfies BaseTranslation;
 
 export default en;

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Button from '@cp/Button.svelte';
 	import Dialog from '@cp/Dialog.svelte';
-	import Dropdown from '@cp/Dropdown.svelte';
+	import DropdownMenu from '@cp/DropdownMenu.svelte';
 	import Input from '@cp/Inputs/Input.svelte';
 	import LanguageChanger from '@cp/LanguageChanger.svelte';
 	import Meta from '@cp/Meta.svelte';
@@ -14,6 +14,12 @@
 	import Man from '@icons/Man.svelte';
 	import SecondMan from '@icons/SecondMan.svelte';
 	import ThirdMan from '@icons/ThirdMan.svelte';
+	import ViewProfile from '@icons/ViewProfile.svelte';
+	import Settings from '@icons/Settings.svelte';
+	import Team from '@icons/Team.svelte';
+	import InviteColleagues from '@icons/InviteColleagues.svelte';
+	import Help from '@icons/Help.svelte';
+	import SignOut from '@icons/SignOut.svelte';
 	import { oneTime, rateClickLimiter } from '@utils/general';
 	import { error, info, success } from '@utils/notifier';
 
@@ -31,6 +37,8 @@
 
 	let username = '';
 	let password = '';
+
+	let open = false;
 </script>
 
 <Meta title={$LL.NewProjectsNewTeam()} />
@@ -166,8 +174,38 @@
 	</div>
 
 	<div
-		class="flex flex-col lg:flex-row h-screen justify-around items-center bg-background-reverse snap-start"
+		class="flex flex-col lg:flex-row h-screen justify-around items-center bg-background-reverse snap-start relative"
 	>
-		<Dropdown />
+		<DropdownMenu
+			class="absolute ltr:left-0 rtl:right-0 top-0 p-3"
+			bind:open
+			profile={{
+				name: $LL.DropDown.Name(),
+				description: $LL.DropDown.Description(),
+				href: '#',
+				imgSrc: 'https://i.pinimg.com/originals/25/bd/8b/25bd8b7f6e57cdfd17747b25d753b2ce.jpg'
+			}}
+			items={[
+				{ id: 0, text: $LL.DropDown.ViewProfile(), href: '#', icon: ViewProfile },
+				{ id: 1, text: $LL.DropDown.Settings(), href: '#', icon: Settings, lineBelow: true },
+				{ id: 2, text: $LL.DropDown.Team(), href: '#', icon: Team },
+				{ id: 3, text: $LL.DropDown.InviteColleagues(), href: '#', icon: InviteColleagues },
+				{ id: 4, text: $LL.DropDown.Help(), href: '#', icon: Help, lineBelow: true },
+				{ id: 5, text: $LL.DropDown.SignOut(), href: '#', icon: SignOut }
+			]}
+			><span class="mx-1">{$LL.DropDown.Name()}</span>
+			<svg
+				data-open={open}
+				class="w-5 h-5 mx-1 data-[open=true]:rotate-180"
+				viewBox="0 0 24 24"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<path
+					d="M12 15.713L18.01 9.70299L16.597 8.28799L12 12.888L7.40399 8.28799L5.98999 9.70199L12 15.713Z"
+					fill="currentColor"
+				></path>
+			</svg></DropdownMenu
+		>
 	</div>
 </div>
