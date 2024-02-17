@@ -3,6 +3,7 @@
 	import Button from './Button.svelte';
 	import scaleFade from '@/animations/scale_fade';
 	import { fly } from 'svelte/transition';
+	import LL from '@i18n/i18n-svelte';
 
 	interface Item {
 		id: number;
@@ -20,11 +21,19 @@
 	export let distanceMenu: string = '8';
 	export let transition: 'fly' | 'scale' = 'scale';
 
+	let width = 0;
 	let openClasses = openReverse ? 'rtl:left-0 ltr:right-0' : 'ltr:left-0 rtl:right-0';
-	$: transitionFnc = transition === 'scale' ? scaleFade : fly;
-	$: params = transition === 'scale' ? { duration: 100 } : { duration: 100, y: -20 };
+
+	$: transitionFnc = width < 640 ? fly : transition === 'scale' ? scaleFade : fly;
+	$: params =
+		width < 640
+			? { duration: 400, x: '100%' }
+			: transition === 'scale'
+				? { duration: 100 }
+				: { duration: 100, y: -20 };
 </script>
 
+<svelte:window bind:outerWidth={width} />
 <div class={className}>
 	<div class="relative inline-block">
 		<!-- Dropdown toggle button -->
@@ -39,10 +48,26 @@
 				style={`margin-top: ${distanceMenu}px`}
 				data-open={open}
 				data-open-reverse={openReverse}
-				class={`absolute z-20 w-[300px] py-2 overflow-hidden ltr:origin-top-left rtl:origin-top-right ltr:data-[open-reverse=true]:origin-top-right rtl:data-[open-reverse=true]:origin-top-left bg-white rounded-md shadow-custom dark:bg-gray-800 ${openClasses}`}
+				class={`sm:absolute sm:py-2 sm:w-[300px] sm:rounded-md fixed smMax:bottom-0 smMax:inset-0 smMax:!mt-0 z-[1000] overflow-hidden bg-white dark:bg-gray-800 shadow-custom ltr:origin-top-left rtl:origin-top-right ltr:data-[open-reverse=true]:origin-top-right rtl:data-[open-reverse=true]:origin-top-left ${openClasses}`}
 			>
-				{#each items as item (item.id)}
-					<div>
+				<div class="flex items-center justify-between my-5 mx-5 sm:hidden">
+					<h3>{$LL.Notification.Notifications()}</h3>
+					<button on:click={() => (open = false)}>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							class="w-6 h-6"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+							stroke-width="2"
+						>
+							<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+						</svg>
+					</button>
+				</div>
+				<hr class="border-gray-200 dark:border-gray-700 border-[1px] mx-5 sm:hidden" />
+				<div class="overflow-y-scroll">
+					{#each items as item (item.id)}
 						<Button
 							as="a"
 							color="none"
@@ -58,10 +83,10 @@
 						</Button>
 
 						{#if item.lineBelow}
-							<hr class="border-gray-200 dark:border-gray-700" />
+							<hr class="border-gray-200 dark:border-gray-700 mx-5" />
 						{/if}
-					</div>
-				{/each}
+					{/each}
+				</div>
 			</div>
 		{/if}
 	</div>

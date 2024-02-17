@@ -62,9 +62,14 @@ const en = {
 
 	Notification: {
 		Min: 'm ago',
+		Hour: 'h ago',
+		Notifications: 'Notifications',
 		MyImage: 'My Image',
+		Post: 'Post',
 		RepliedOn:
-			'<span class="font-bold ltr:pr-1 rtl:pl-1" href="#">{someone:string}</span>replied on<span class="px-1">{what:string}</span>. {ago:string}'
+			'<span class="font-bold ltr:pr-1 rtl:pl-1" href="#">{someone:string}</span>replied on<span class="px-1">{what:string}</span>. {ago:string}',
+		LikedOn:
+			'<span class="font-bold ltr:pr-1 rtl:pl-1" href="#">{someone:string}</span>liked your<span class="px-1">{what:string}</span>. {ago:string}'
 	}
 } satisfies BaseTranslation;
 

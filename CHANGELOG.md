@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+- 🎉 feat: open menu items + notifications take full screen when screen size goes small
 - 🐛 fix: added origin so that it would scale on the right side
 - 🎉 feat: added dir writable to i18n store
 - 🎉 feat: added animations

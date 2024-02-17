@@ -62,9 +62,14 @@ const fa = {
 
 	Notification: {
 		Min: ' دقیقه پیش',
+		Hour: ' ساعت پیش',
 		MyImage: 'تصویر من',
+		Notifications: 'اعلانات',
+		Post: 'عکس',
 		RepliedOn:
-			'<span class="font-bold ltr:pr-1 rtl:pl-1" href="#">{someone}</span>پاسخ داد به<span class="px-1">{what}</span>. {ago}'
+			'<span class="font-bold ltr:pr-1 rtl:pl-1" href="#">{someone}</span>پاسخ داد به<span class="px-1">{what}</span>. {ago}',
+		LikedOn:
+			'<span class="font-bold ltr:pr-1 rtl:pl-1" href="#">{someone}</span>،<span class="px-1">{what}</span>شما را پسندید. {ago}'
 	}
 } satisfies Translation;
 

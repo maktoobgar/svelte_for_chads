@@ -3,7 +3,7 @@
 	import Button from './Button.svelte';
 	import type { ComponentType } from 'svelte';
 	import scaleFade from '@/animations/scale_fade';
-	import { fly } from 'svelte/transition';
+	import { fade, fly } from 'svelte/transition';
 
 	interface Item {
 		id: number;
@@ -33,11 +33,18 @@
 	export let transition: 'fly' | 'scale' = 'scale';
 
 	let openClasses = openReverse ? 'rtl:left-0 ltr:right-0' : 'ltr:left-0 rtl:right-0';
+	let width = 0;
 
-	$: transitionFnc = transition === 'scale' ? scaleFade : fly;
-	$: params = transition === 'scale' ? { duration: 100 } : { duration: 100, y: -10 };
+	$: transitionFnc = width < 640 ? fly : transition === 'scale' ? scaleFade : fly;
+	$: params =
+		width < 640
+			? { duration: 500, y: '100%' }
+			: transition === 'scale'
+				? { duration: 100 }
+				: { duration: 100, y: -10 };
 </script>
 
+<svelte:window bind:outerWidth={width} />
 <div class={className}>
 	<div class="relative inline-block">
 		<!-- Dropdown toggle button -->
@@ -46,12 +53,16 @@
 		<!-- Dropdown menu -->
 		{#if open}
 			<div
+				class="fixed inset-0 bg-glass-20 z-[1000] backdrop-blur-sm sm:hidden"
+				transition:fade={{ duration: 100 }}
+			></div>
+			<div
 				use:clickOutside
 				data-open-reverse={openReverse}
 				transition:transitionFnc={params}
 				style={`margin-top: ${distanceMenu}px`}
 				on:click_outside={() => (open = false)}
-				class={`absolute z-20 w-56 py-2 overflow-hidden bg-white rounded-md shadow-custom ltr:origin-top-left rtl:origin-top-right ltr:data-[open-reverse=true]:origin-top-right rtl:data-[open-reverse=true]:origin-top-left dark:bg-gray-800 ${openClasses}`}
+				class={`sm:absolute sm:py-2 sm:w-56 sm:rounded-md fixed smMax:bottom-0 inset-x-0 z-[1000] overflow-hidden bg-white dark:bg-gray-800 shadow-custom ltr:origin-top-left rtl:origin-top-right ltr:data-[open-reverse=true]:origin-top-right rtl:data-[open-reverse=true]:origin-top-left ${openClasses}`}
 			>
 				{#if profile}
 					<Button

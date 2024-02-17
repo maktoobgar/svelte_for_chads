@@ -25,6 +25,7 @@
 	import Header from '@Layouts/Header.svelte';
 	import Notifications from '@cp/Notifications.svelte';
 	import { dir } from '@stores/i18n';
+	import { read } from '$app/server';
 
 	let dialog: Dialog;
 
@@ -183,7 +184,6 @@
 	>
 		<Header
 			bind:openNotifications
-			imgSrc="https://i.pinimg.com/originals/25/bd/8b/25bd8b7f6e57cdfd17747b25d753b2ce.jpg"
 			items={[
 				{ id: 0, text: $LL.DropDown.ViewProfile(), href: '#', icon: ViewProfile },
 				{ id: 1, text: $LL.DropDown.Settings(), href: '#', icon: Settings, lineBelow: true },
@@ -205,12 +205,19 @@
 					imgSrc:
 						'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80',
 					read: true
+				},
+				{
+					id: 1,
+					lineBelow: true,
+					text: $LL.Notification.LikedOn({
+						someone: 'John Jason',
+						what: $LL.Notification.Post(),
+						ago: '2' + $LL.Notification.Hour()
+					}),
+					href: '#',
+					imgSrc: 'https://i.pinimg.com/originals/25/bd/8b/25bd8b7f6e57cdfd17747b25d753b2ce.jpg',
+					read: true
 				}
-				// {
-				// 	id: 1,
-				// 	lineBelow: true,
-				// 	text: $LL.Notification.
-				// }
 			]}
 		/>
 		<div class="h-full w-full container lg:pt-[76px] sm:pt-[60px] pt-[49px]">
