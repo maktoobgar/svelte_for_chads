@@ -201,6 +201,23 @@ type RootTranslation = {
 		 */
 		Description: string
 	}
+	Notification: {
+		/**
+		 * m​ ​a​g​o
+		 */
+		Min: string
+		/**
+		 * M​y​ ​I​m​a​g​e
+		 */
+		MyImage: string
+		/**
+		 * <​s​p​a​n​ ​c​l​a​s​s​=​"​f​o​n​t​-​b​o​l​d​ ​l​t​r​:​p​r​-​1​ ​r​t​l​:​p​l​-​1​"​ ​h​r​e​f​=​"​#​"​>​{​s​o​m​e​o​n​e​}​<​/​s​p​a​n​>​r​e​p​l​i​e​d​ ​o​n​<​s​p​a​n​ ​c​l​a​s​s​=​"​p​x​-​1​"​>​{​w​h​a​t​}​<​/​s​p​a​n​>​.​ ​{​a​g​o​}
+		 * @param {string} ago
+		 * @param {string} someone
+		 * @param {string} what
+		 */
+		RepliedOn: RequiredParams<'ago' | 'someone' | 'what'>
+	}
 }
 
 export type TranslationFunctions = {
@@ -389,6 +406,20 @@ export type TranslationFunctions = {
 		 * 09109999999
 		 */
 		Description: () => LocalizedString
+	}
+	Notification: {
+		/**
+		 * m ago
+		 */
+		Min: () => LocalizedString
+		/**
+		 * My Image
+		 */
+		MyImage: () => LocalizedString
+		/**
+		 * <span class="font-bold ltr:pr-1 rtl:pl-1" href="#">{someone}</span>replied on<span class="px-1">{what}</span>. {ago}
+		 */
+		RepliedOn: (arg: { ago: string, someone: string, what: string }) => LocalizedString
 	}
 }
 

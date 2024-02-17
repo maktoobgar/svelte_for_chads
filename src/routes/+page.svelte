@@ -23,6 +23,7 @@
 	import { oneTime, rateClickLimiter } from '@utils/general';
 	import { error, info, success } from '@utils/notifier';
 	import Header from '@Layouts/Header.svelte';
+	import Notifications from '@cp/Notifications.svelte';
 
 	let dialog: Dialog;
 
@@ -40,6 +41,8 @@
 	let password = '';
 
 	let open = false;
+
+	let openNotifications = false;
 </script>
 
 <Meta title={$LL.NewProjectsNewTeam()} />
@@ -178,6 +181,7 @@
 		class="flex flex-col lg:flex-row h-screen justify-around items-center bg-background-reverse snap-start relative"
 	>
 		<Header
+			bind:openNotifications
 			imgSrc="https://i.pinimg.com/originals/25/bd/8b/25bd8b7f6e57cdfd17747b25d753b2ce.jpg"
 			items={[
 				{ id: 0, text: $LL.DropDown.ViewProfile(), href: '#', icon: ViewProfile },
@@ -187,11 +191,32 @@
 				{ id: 4, text: $LL.DropDown.Help(), href: '#', icon: Help, lineBelow: true },
 				{ id: 5, text: $LL.DropDown.SignOut(), href: '#', icon: SignOut }
 			]}
+			notifItems={[
+				{
+					id: 0,
+					lineBelow: true,
+					text: $LL.Notification.RepliedOn({
+						someone: 'James Charles',
+						what: `<span class="!text-blue-500 hover:underline" href=${'#'}>${$LL.Notification.MyImage()}</span>`,
+						ago: '5' + $LL.Notification.Min()
+					}),
+					href: '#',
+					imgSrc:
+						'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80',
+					read: true
+				}
+				// {
+				// 	id: 1,
+				// 	lineBelow: true,
+				// 	text: $LL.Notification.
+				// }
+			]}
 		/>
 		<div class="h-full w-full container lg:pt-[76px] sm:pt-[60px] pt-[49px]">
 			<div class="h-full relative">
 				<DropdownMenu
 					bind:open
+					transition="fly"
 					class="absolute ltr:left-0 rtl:right-0 top-0 p-3"
 					profile={{
 						name: $LL.DropDown.Name(),
@@ -207,20 +232,27 @@
 						{ id: 4, text: $LL.DropDown.Help(), href: '#', icon: Help, lineBelow: true },
 						{ id: 5, text: $LL.DropDown.SignOut(), href: '#', icon: SignOut }
 					]}
-					><span class="mx-1">{$LL.DropDown.Name()}</span>
-					<svg
-						data-open={open}
-						class="w-5 h-5 mx-1 data-[open=true]:rotate-180"
-						viewBox="0 0 24 24"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-					>
-						<path
-							d="M12 15.713L18.01 9.70299L16.597 8.28799L12 12.888L7.40399 8.28799L5.98999 9.70199L12 15.713Z"
-							fill="currentColor"
-						></path>
-					</svg></DropdownMenu
 				>
+					<Button
+						data={{ 'data-ignore-click-outside': true }}
+						on:click={() => (open = !open)}
+						class="group bg-white dark:bg-gray-800"
+						color="none"
+						><span class="mx-1">{$LL.DropDown.Name()}</span>
+						<svg
+							data-open={open}
+							class="w-5 h-5 mx-1 data-[open=true]:rotate-180"
+							viewBox="0 0 24 24"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								d="M12 15.713L18.01 9.70299L16.597 8.28799L12 12.888L7.40399 8.28799L5.98999 9.70199L12 15.713Z"
+								fill="currentColor"
+							></path>
+						</svg></Button
+					>
+				</DropdownMenu>
 			</div>
 		</div>
 	</div>

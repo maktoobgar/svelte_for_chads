@@ -58,6 +58,13 @@ const en = {
 		SignOut: 'Sign Out',
 		Name: 'Ernest Khalimov',
 		Description: '09109999999'
+	},
+
+	Notification: {
+		Min: 'm ago',
+		MyImage: 'My Image',
+		RepliedOn:
+			'<span class="font-bold ltr:pr-1 rtl:pl-1" href="#">{someone:string}</span>replied on<span class="px-1">{what:string}</span>. {ago:string}'
 	}
 } satisfies BaseTranslation;
 

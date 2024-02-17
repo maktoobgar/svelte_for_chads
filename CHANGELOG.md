@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+- 🎉 feat: added animations
 - 🎉 feat: added Header component
 - 🎉 feat: added DropDownMenu component
 - 🎉 feat: dropdown added

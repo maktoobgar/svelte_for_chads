@@ -11,6 +11,7 @@
 	export let color: 'green' | 'red' | 'cyan' | 'primary' | 'secondary' | 'none' | '' = '';
 	export let as: 'button' | 'a' = 'button';
 	export let href: string = '';
+	export let disabled: boolean = false;
 
 	$: colorClasses =
 		color === 'green'
@@ -32,6 +33,7 @@
 	<button
 		{type}
 		{...data}
+		{disabled}
 		class={`shadow-custom dark:shadow-custom-dark rounded-[8px] px-5 py-3 flex items-center justify-center ${colorClasses} ${className}`}
 		on:click={() => dispatch('click')}
 		use:ripple><slot /></button

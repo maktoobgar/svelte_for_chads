@@ -58,6 +58,13 @@ const fa = {
 		SignOut: 'خروج',
 		Name: 'آقای بدن',
 		Description: '09109999999'
+	},
+
+	Notification: {
+		Min: ' دقیقه پیش',
+		MyImage: 'تصویر من',
+		RepliedOn:
+			'<span class="font-bold ltr:pr-1 rtl:pl-1" href="#">{someone}</span>پاسخ داد به<span class="px-1">{what}</span>. {ago}'
 	}
 } satisfies Translation;
 
