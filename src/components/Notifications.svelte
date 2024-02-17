@@ -38,7 +38,8 @@
 				on:click_outside={() => (open = false)}
 				style={`margin-top: ${distanceMenu}px`}
 				data-open={open}
-				class={`absolute z-20 w-[300px] py-2 overflow-hidden origin-top-right bg-white rounded-md shadow-custom dark:bg-gray-800 ${openClasses}`}
+				data-open-reverse={openReverse}
+				class={`absolute z-20 w-[300px] py-2 overflow-hidden ltr:origin-top-left rtl:origin-top-right ltr:data-[open-reverse=true]:origin-top-right rtl:data-[open-reverse=true]:origin-top-left bg-white rounded-md shadow-custom dark:bg-gray-800 ${openClasses}`}
 			>
 				{#each items as item (item.id)}
 					<div>

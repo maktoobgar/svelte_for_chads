@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+- 🐛 fix: added origin so that it would scale on the right side
 - 🎉 feat: added dir writable to i18n store
 - 🎉 feat: added animations
 - 🎉 feat: added Header component

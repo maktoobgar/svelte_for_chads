@@ -217,7 +217,7 @@
 			<div class="h-full relative">
 				<DropdownMenu
 					bind:open
-					transition={$dir === 'ltr' ? 'fly' : 'scale'}
+					transition="scale"
 					class="absolute ltr:left-0 rtl:right-0 top-0 p-3"
 					profile={{
 						name: $LL.DropDown.Name(),

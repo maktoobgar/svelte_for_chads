@@ -47,10 +47,11 @@
 		{#if open}
 			<div
 				use:clickOutside
+				data-open-reverse={openReverse}
 				transition:transitionFnc={params}
 				style={`margin-top: ${distanceMenu}px`}
 				on:click_outside={() => (open = false)}
-				class={`absolute z-20 w-56 py-2 overflow-hidden origin-top-right bg-white rounded-md shadow-custom dark:bg-gray-800 ${openClasses}`}
+				class={`absolute z-20 w-56 py-2 overflow-hidden bg-white rounded-md shadow-custom ltr:origin-top-left rtl:origin-top-right ltr:data-[open-reverse=true]:origin-top-right rtl:data-[open-reverse=true]:origin-top-left dark:bg-gray-800 ${openClasses}`}
 			>
 				{#if profile}
 					<Button
