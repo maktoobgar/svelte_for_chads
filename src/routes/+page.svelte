@@ -24,6 +24,7 @@
 	import { error, info, success } from '@utils/notifier';
 	import Header from '@Layouts/Header.svelte';
 	import Notifications from '@cp/Notifications.svelte';
+	import { dir } from '@stores/i18n';
 
 	let dialog: Dialog;
 
@@ -216,7 +217,7 @@
 			<div class="h-full relative">
 				<DropdownMenu
 					bind:open
-					transition="fly"
+					transition={$dir === 'ltr' ? 'fly' : 'scale'}
 					class="absolute ltr:left-0 rtl:right-0 top-0 p-3"
 					profile={{
 						name: $LL.DropDown.Name(),

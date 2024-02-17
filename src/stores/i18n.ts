@@ -11,7 +11,9 @@ const langInit =
 	typeof localStorage !== 'undefined' && isLanguage(localStorage.getItem('language'))
 		? (localStorage.getItem('language') as Language)
 		: 'fa';
+const dirInit = langInit === 'fa' ? 'rtl' : 'ltr';
 const language = writable<Language>(langInit);
+export const dir = writable<'ltr' | 'rtl'>(dirInit);
 
 // Load all locals
 loadAllLocales();
@@ -40,11 +42,13 @@ export const setLanguage = (value: Language) => {
 			document.documentElement.classList.add('font-vazir-latin');
 			document.documentElement.classList.remove('font-vazir');
 			document.dir = 'ltr';
+			dir.set('ltr');
 			break;
 		case 'fa':
 			document.documentElement.classList.remove('font-vazir-latin');
 			document.documentElement.classList.add('font-vazir');
 			document.dir = 'rtl';
+			dir.set('rtl');
 			break;
 	}
 	setLocale(value);

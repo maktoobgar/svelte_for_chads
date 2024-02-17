@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+- 🎉 feat: added dir writable to i18n store
 - 🎉 feat: added animations
 - 🎉 feat: added Header component
 - 🎉 feat: added DropDownMenu component
