@@ -43,7 +43,7 @@
 >
 	<label
 		for={id}
-		class={`block select-none text-xs font-medium !text-gray-700 dark:!text-gray-200 cursor-pointer pb-1 ${labelClass}`}
+		class={`block select-none font-medium !text-gray-700 dark:!text-gray-200 cursor-pointer pb-1 ${labelClass}`}
 		>{label}</label
 	>
 

@@ -123,6 +123,10 @@ h6 {
 	@apply font-bold text-lg capitalize;
 }
 
+label {
+	@apply text-xs md:text-sm;
+}
+
 @layer utilities {
 	/* Removes Scroll */
 	.scroll-none {
