@@ -68,6 +68,7 @@
 			<div class="flex">
 				<!-- Notifications -->
 				<Notifications
+					class="flex items-center"
 					distanceMenu="42"
 					bind:open={openNotifications}
 					items={notifItems}
@@ -89,6 +90,15 @@
 						</svg>
 					</button>
 				</Notifications>
+				<button type="button" class="flex items-center focus:outline-none lgMax:hidden">
+					<div class="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
+						<img
+							src="https://i.pinimg.com/originals/25/bd/8b/25bd8b7f6e57cdfd17747b25d753b2ce.jpg"
+							class="object-cover w-full h-full"
+							alt="avatar"
+						/>
+					</div>
+				</button>
 				<!-- On and Off Buttons -->
 				<button
 					on:click={() => (open = !open)}

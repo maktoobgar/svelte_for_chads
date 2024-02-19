@@ -69,7 +69,7 @@
 		{:else if selectedOptions.length > 0}
 			<button
 				on:click={() => (open = !open)}
-				class="relative p-3 mt-2 text-lg bg-pure-white dark:bg-gray-700 w-full ltr:text-left rtl:text-right capitalize"
+				class="relative p-3 mt-2 text-lg bg-pure-white dark:bg-gray-800 w-full ltr:text-left rtl:text-right capitalize"
 			>
 				{selectedOptions[0].content}
 				{#if single && selectedOptions.length > 0}
@@ -129,7 +129,7 @@
 							}
 						}}
 						data={{ 'data-selected': optionsSelectedStates[index] }}
-						class="!shadow-none w-full !justify-start rounded-none flex items-center capitalize data-[selected=true]:bg-primary-200"
+						class="!shadow-none w-full !justify-start rounded-none flex items-center capitalize data-[selected=true]:bg-secondary-100 dark:data-[selected=true]:bg-secondary-800"
 						as="button"
 						color="none"
 						type="button"
@@ -139,7 +139,7 @@
 								id={item.id.toString()}
 								type="checkbox"
 								inputClass="!shadow-none"
-								class="ltr:pr-2 rtl:pl-2 !py-0"
+								class="ltr:pr-2 rtl:pl-2 !py-0 smMax:hidden"
 								value={optionsSelectedStates[index]}
 							/>
 						{/if}

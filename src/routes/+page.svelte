@@ -418,7 +418,6 @@
 						{ id: 4, content: $LL.MultiSelect.FifthItem(), value: 'Whatever' },
 						{ id: 5, content: $LL.MultiSelect.SixthItem(), value: 'Whatever' }
 					]}
-					single
 				/>
 			</div>
 		</div>
