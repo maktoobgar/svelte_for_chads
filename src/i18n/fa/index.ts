@@ -63,13 +63,26 @@ const fa = {
 	Notification: {
 		Min: ' دقیقه پیش',
 		Hour: ' ساعت پیش',
-		MyImage: 'تصویر من',
+		YourImage: 'تصویر شما',
+		YourPost: 'پست شما',
 		Notifications: 'اعلانات',
-		Post: 'عکس',
 		RepliedOn:
-			'<span class="font-bold ltr:pr-1 rtl:pl-1" href="#">{someone}</span>پاسخ داد به<span class="px-1">{what}</span>. {ago}',
+			'<span class="font-bold" href="#">{someone}</span> به<span class="px-1">{what}</span>پاسخ داد. {ago}',
 		LikedOn:
-			'<span class="font-bold ltr:pr-1 rtl:pl-1" href="#">{someone}</span>،<span class="px-1">{what}</span>شما را پسندید. {ago}'
+			'<span class="font-bold" href="#">{someone}</span><span class="px-1">{what}</span>را پسندید. {ago}',
+		Followed:
+			'<span class="font-bold ltr:pr-1 rtl:pl-1" href="#">{someone}</span> شما را دنبال کرد . {ago}'
+	},
+
+	MultiSelect: {
+		AddItem: 'اضافه کردن مورد',
+		Label: 'گزینه ها',
+		FirstItem: 'آیتم اول',
+		SecondItem: 'آیتم دوم',
+		ThirdItem: 'آیتم سوم',
+		ForthItem: 'آیتم چهارم',
+		FifthItem: 'آیتم پنجم',
+		SixthItem: 'آیتم ششم'
 	}
 } satisfies Translation;
 

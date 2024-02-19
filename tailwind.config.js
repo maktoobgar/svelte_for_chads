@@ -106,6 +106,7 @@ export default {
 					900: 'var(--green-900)'
 				},
 				// Black
+				'pure-white': 'var(--pure-white)',
 				white: 'var(--white)',
 				black: 'var(--black)',
 				black: {

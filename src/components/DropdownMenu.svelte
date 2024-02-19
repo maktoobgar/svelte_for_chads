@@ -11,7 +11,6 @@
 		href: string;
 		icon?: ComponentType;
 		lineBelow?: boolean;
-		read?: boolean;
 	}
 
 	interface ProfileInterface {
@@ -91,12 +90,10 @@
 				{/if}
 
 				{#each items as item (item.id)}
-					<!-- TODO: add read status color change -->
 					<Button
 						as="a"
 						color="none"
 						href={item.href}
-						data={{ 'data-read': item.read }}
 						class="group bg-white dark:bg-gray-800 !shadow-none w-full !justify-start !rounded-none !p-3 capitalize text-sm data-[read=true]:hover:bg-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700 data-[read=true]:dark:hover:bg-gray-900"
 					>
 						<div class="w-5 h-5 mx-1">

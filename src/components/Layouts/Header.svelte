@@ -36,8 +36,9 @@
 			</div>
 
 			<!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+			<!-- If you want to make it go to the center, add this: lg:w-auto -->
 			<div
-				class="absolute inset-x-0 top-full w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center lgMax:group-data-[open=false]:opacity-0 lgMax:ltr:group-data-[open=false]:-translate-x-full lgMax:group-data-[open=true]:translate-x-0 lgMax:group-data-[open=true]:opacity-100 lgMax:rtl:group-data-[open=false]:translate-x-full lgMax:shadow"
+				class="lg:container absolute inset-x-0 top-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center lgMax:group-data-[open=false]:opacity-0 lgMax:ltr:group-data-[open=false]:-translate-x-full lgMax:group-data-[open=true]:translate-x-0 lgMax:group-data-[open=true]:opacity-100 lgMax:rtl:group-data-[open=false]:translate-x-full lgMax:shadow"
 			>
 				<!-- Items -->
 				<div

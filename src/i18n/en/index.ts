@@ -64,12 +64,25 @@ const en = {
 		Min: 'm ago',
 		Hour: 'h ago',
 		Notifications: 'Notifications',
-		MyImage: 'My Image',
-		Post: 'Post',
+		YourImage: 'Your Image',
+		YourPost: 'Your Post',
 		RepliedOn:
 			'<span class="font-bold ltr:pr-1 rtl:pl-1" href="#">{someone:string}</span>replied on<span class="px-1">{what:string}</span>. {ago:string}',
 		LikedOn:
-			'<span class="font-bold ltr:pr-1 rtl:pl-1" href="#">{someone:string}</span>liked your<span class="px-1">{what:string}</span>. {ago:string}'
+			'<span class="font-bold ltr:pr-1 rtl:pl-1" href="#">{someone:string}</span>liked<span class="px-1">{what:string}</span>. {ago:string}',
+		Followed:
+			'<span class="font-bold ltr:pr-1 rtl:pl-1" href="#">{someone:string}</span> started following you . {ago:string}'
+	},
+
+	MultiSelect: {
+		AddItem: 'add item',
+		Label: 'Options',
+		FirstItem: 'first item',
+		SecondItem: 'second item',
+		ThirdItem: 'third item',
+		ForthItem: 'forth item',
+		FifthItem: 'fifth item',
+		SixthItem: 'sixth item'
 	}
 } satisfies BaseTranslation;
 

@@ -215,13 +215,13 @@ type RootTranslation = {
 		 */
 		Notifications: string
 		/**
-		 * M​y​ ​I​m​a​g​e
+		 * Y​o​u​r​ ​I​m​a​g​e
 		 */
-		MyImage: string
+		YourImage: string
 		/**
-		 * P​o​s​t
+		 * Y​o​u​r​ ​P​o​s​t
 		 */
-		Post: string
+		YourPost: string
 		/**
 		 * <​s​p​a​n​ ​c​l​a​s​s​=​"​f​o​n​t​-​b​o​l​d​ ​l​t​r​:​p​r​-​1​ ​r​t​l​:​p​l​-​1​"​ ​h​r​e​f​=​"​#​"​>​{​s​o​m​e​o​n​e​}​<​/​s​p​a​n​>​r​e​p​l​i​e​d​ ​o​n​<​s​p​a​n​ ​c​l​a​s​s​=​"​p​x​-​1​"​>​{​w​h​a​t​}​<​/​s​p​a​n​>​.​ ​{​a​g​o​}
 		 * @param {string} ago
@@ -230,12 +230,52 @@ type RootTranslation = {
 		 */
 		RepliedOn: RequiredParams<'ago' | 'someone' | 'what'>
 		/**
-		 * <​s​p​a​n​ ​c​l​a​s​s​=​"​f​o​n​t​-​b​o​l​d​ ​l​t​r​:​p​r​-​1​ ​r​t​l​:​p​l​-​1​"​ ​h​r​e​f​=​"​#​"​>​{​s​o​m​e​o​n​e​}​<​/​s​p​a​n​>​l​i​k​e​d​ ​y​o​u​r​<​s​p​a​n​ ​c​l​a​s​s​=​"​p​x​-​1​"​>​{​w​h​a​t​}​<​/​s​p​a​n​>​.​ ​{​a​g​o​}
+		 * <​s​p​a​n​ ​c​l​a​s​s​=​"​f​o​n​t​-​b​o​l​d​ ​l​t​r​:​p​r​-​1​ ​r​t​l​:​p​l​-​1​"​ ​h​r​e​f​=​"​#​"​>​{​s​o​m​e​o​n​e​}​<​/​s​p​a​n​>​l​i​k​e​d​<​s​p​a​n​ ​c​l​a​s​s​=​"​p​x​-​1​"​>​{​w​h​a​t​}​<​/​s​p​a​n​>​.​ ​{​a​g​o​}
 		 * @param {string} ago
 		 * @param {string} someone
 		 * @param {string} what
 		 */
 		LikedOn: RequiredParams<'ago' | 'someone' | 'what'>
+		/**
+		 * <​s​p​a​n​ ​c​l​a​s​s​=​"​f​o​n​t​-​b​o​l​d​ ​l​t​r​:​p​r​-​1​ ​r​t​l​:​p​l​-​1​"​ ​h​r​e​f​=​"​#​"​>​{​s​o​m​e​o​n​e​}​<​/​s​p​a​n​>​ ​s​t​a​r​t​e​d​ ​f​o​l​l​o​w​i​n​g​ ​y​o​u​ ​.​ ​{​a​g​o​}
+		 * @param {string} ago
+		 * @param {string} someone
+		 */
+		Followed: RequiredParams<'ago' | 'someone'>
+	}
+	MultiSelect: {
+		/**
+		 * a​d​d​ ​i​t​e​m
+		 */
+		AddItem: string
+		/**
+		 * O​p​t​i​o​n​s
+		 */
+		Label: string
+		/**
+		 * f​i​r​s​t​ ​i​t​e​m
+		 */
+		FirstItem: string
+		/**
+		 * s​e​c​o​n​d​ ​i​t​e​m
+		 */
+		SecondItem: string
+		/**
+		 * t​h​i​r​d​ ​i​t​e​m
+		 */
+		ThirdItem: string
+		/**
+		 * f​o​r​t​h​ ​i​t​e​m
+		 */
+		ForthItem: string
+		/**
+		 * f​i​f​t​h​ ​i​t​e​m
+		 */
+		FifthItem: string
+		/**
+		 * s​i​x​t​h​ ​i​t​e​m
+		 */
+		SixthItem: string
 	}
 }
 
@@ -440,21 +480,59 @@ export type TranslationFunctions = {
 		 */
 		Notifications: () => LocalizedString
 		/**
-		 * My Image
+		 * Your Image
 		 */
-		MyImage: () => LocalizedString
+		YourImage: () => LocalizedString
 		/**
-		 * Post
+		 * Your Post
 		 */
-		Post: () => LocalizedString
+		YourPost: () => LocalizedString
 		/**
 		 * <span class="font-bold ltr:pr-1 rtl:pl-1" href="#">{someone}</span>replied on<span class="px-1">{what}</span>. {ago}
 		 */
 		RepliedOn: (arg: { ago: string, someone: string, what: string }) => LocalizedString
 		/**
-		 * <span class="font-bold ltr:pr-1 rtl:pl-1" href="#">{someone}</span>liked your<span class="px-1">{what}</span>. {ago}
+		 * <span class="font-bold ltr:pr-1 rtl:pl-1" href="#">{someone}</span>liked<span class="px-1">{what}</span>. {ago}
 		 */
 		LikedOn: (arg: { ago: string, someone: string, what: string }) => LocalizedString
+		/**
+		 * <span class="font-bold ltr:pr-1 rtl:pl-1" href="#">{someone}</span> started following you . {ago}
+		 */
+		Followed: (arg: { ago: string, someone: string }) => LocalizedString
+	}
+	MultiSelect: {
+		/**
+		 * add item
+		 */
+		AddItem: () => LocalizedString
+		/**
+		 * Options
+		 */
+		Label: () => LocalizedString
+		/**
+		 * first item
+		 */
+		FirstItem: () => LocalizedString
+		/**
+		 * second item
+		 */
+		SecondItem: () => LocalizedString
+		/**
+		 * third item
+		 */
+		ThirdItem: () => LocalizedString
+		/**
+		 * forth item
+		 */
+		ForthItem: () => LocalizedString
+		/**
+		 * fifth item
+		 */
+		FifthItem: () => LocalizedString
+		/**
+		 * sixth item
+		 */
+		SixthItem: () => LocalizedString
 	}
 }
 

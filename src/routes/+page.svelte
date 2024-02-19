@@ -26,6 +26,7 @@
 	import Notifications from '@cp/Notifications.svelte';
 	import { dir } from '@stores/i18n';
 	import { read } from '$app/server';
+	import MultiSelect from '@cp/Inputs/MultiSelect.svelte';
 
 	let dialog: Dialog;
 
@@ -195,10 +196,9 @@
 			notifItems={[
 				{
 					id: 0,
-					lineBelow: true,
 					text: $LL.Notification.RepliedOn({
 						someone: 'James Charles',
-						what: `<span class="!text-blue-500 hover:underline" href=${'#'}>${$LL.Notification.MyImage()}</span>`,
+						what: `<span class="!text-blue-500 group-data-[read=true]:!text-blue-400 hover:underline" href=${'#'}>${$LL.Notification.YourImage()}</span>`,
 						ago: '5' + $LL.Notification.Min()
 					}),
 					href: '#',
@@ -208,15 +208,34 @@
 				},
 				{
 					id: 1,
-					lineBelow: true,
 					text: $LL.Notification.LikedOn({
 						someone: 'John Jason',
-						what: $LL.Notification.Post(),
+						what: `<span class="!text-blue-500 group-data-[read=true]:!text-blue-400 hover:underline" href=${'#'}>${$LL.Notification.YourPost()}</span>`,
 						ago: '2' + $LL.Notification.Hour()
 					}),
 					href: '#',
 					imgSrc: 'https://i.pinimg.com/originals/25/bd/8b/25bd8b7f6e57cdfd17747b25d753b2ce.jpg',
 					read: true
+				},
+				{
+					id: 2,
+					text: $LL.Notification.Followed({
+						someone: 'Kevin Stacy',
+						ago: '3' + $LL.Notification.Hour()
+					}),
+					href: '#',
+					imgSrc:
+						'https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'
+				},
+				{
+					id: 3,
+					text: $LL.Notification.Followed({
+						someone: 'Jasmin Just',
+						ago: '12' + $LL.Notification.Min()
+					}),
+					href: '#',
+					imgSrc:
+						'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=398&q=80'
 				}
 			]}
 		/>
@@ -225,7 +244,7 @@
 				<DropdownMenu
 					bind:open
 					transition="scale"
-					class="absolute ltr:left-0 rtl:right-0 top-0 p-3"
+					class="py-3"
 					profile={{
 						name: $LL.DropDown.Name(),
 						description: $LL.DropDown.Description(),
@@ -242,8 +261,8 @@
 					]}
 				>
 					<Button
-						data={{ 'data-ignore-click-outside': true }}
 						on:click={() => (open = !open)}
+						data={{ 'data-ignore-click-outside': true }}
 						class="group bg-white dark:bg-gray-800"
 						color="none"
 						><span class="mx-1">{$LL.DropDown.Name()}</span>
@@ -261,6 +280,19 @@
 						</svg></Button
 					>
 				</DropdownMenu>
+				<MultiSelect
+					id="1"
+					label={$LL.MultiSelect.Label()}
+					placeholder={$LL.MultiSelect.AddItem()}
+					options={[
+						{ id: 0, content: $LL.MultiSelect.FirstItem(), value: 'Whatever' },
+						{ id: 1, content: $LL.MultiSelect.SecondItem(), value: 'Whatever' },
+						{ id: 2, content: $LL.MultiSelect.ThirdItem(), value: 'Whatever' },
+						{ id: 3, content: $LL.MultiSelect.ForthItem(), value: 'Whatever' },
+						{ id: 4, content: $LL.MultiSelect.FifthItem(), value: 'Whatever' },
+						{ id: 5, content: $LL.MultiSelect.SixthItem(), value: 'Whatever' }
+					]}
+				/>
 			</div>
 		</div>
 	</div>
