@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+- 🐛 fix: small margin problem fixed
 - 🎉 feat: added MultiSelect component
 - 🎉 feat: open menu items + notifications take full screen when screen size goes small
 - 🐛 fix: added origin so that it would scale on the right side
