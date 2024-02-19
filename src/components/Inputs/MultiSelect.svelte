@@ -69,7 +69,7 @@
 		{:else if selectedOptions.length > 0}
 			<button
 				on:click={() => (open = !open)}
-				class="relative p-3 mt-2 text-lg bg-pure-white dark:bg-gray-700 w-full ltr:text-left rtl:text-right"
+				class="relative p-3 mt-2 text-lg bg-pure-white dark:bg-gray-700 w-full ltr:text-left rtl:text-right capitalize"
 			>
 				{selectedOptions[0].content}
 				{#if single && selectedOptions.length > 0}
