@@ -15,7 +15,7 @@
 </script>
 
 <div
-	transition:transition={{ duration: 200 }}
+	transition:transition={{ duration: hasAnimation ? 200 : 0 }}
 	class={`p-2 bg-gray-100 dark:bg-gray-700 rounded-[8px] relative ltr:pr-8 rtl:pl-8 shadow-custom dark:shadow-custom-dark capitalize ${className}`}
 >
 	{@html content}

@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+- 🎉 feat: added one single item select to MultiSelect component
 - 🐛 fix: small margin problem fixed
 - 🎉 feat: added MultiSelect component
 - 🎉 feat: open menu items + notifications take full screen when screen size goes small

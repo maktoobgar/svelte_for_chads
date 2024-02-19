@@ -365,12 +365,12 @@
 				}
 			]}
 		/>
-		<div class="h-full w-full container lg:pt-[76px] sm:pt-[60px] pt-[49px]">
-			<div class="h-full relative">
+		<div class="h-full w-full container lg:pt-[76px] sm:pt-[60px] pt-[53px]">
+			<div class="h-full relative px-5 pt-5">
 				<DropdownMenu
 					bind:open
 					transition="scale"
-					class="py-3"
+					class="pb-3"
 					profile={{
 						name: $LL.DropDown.Name(),
 						description: $LL.DropDown.Description(),
@@ -418,6 +418,8 @@
 						{ id: 4, content: $LL.MultiSelect.FifthItem(), value: 'Whatever' },
 						{ id: 5, content: $LL.MultiSelect.SixthItem(), value: 'Whatever' }
 					]}
+					hasAnimation={false}
+					single
 				/>
 			</div>
 		</div>

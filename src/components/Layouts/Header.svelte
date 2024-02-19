@@ -60,7 +60,7 @@
 							{/if}
 						</Button>
 						{#if item.lineBelow}
-							<hr class="border-gray-200 dark:border-gray-700" />
+							<hr class="border-black-50 dark:border-black-700" />
 						{/if}
 					{/each}
 				</div>

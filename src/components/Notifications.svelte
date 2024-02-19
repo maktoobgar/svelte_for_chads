@@ -67,8 +67,8 @@
 						</svg>
 					</button>
 				</div>
-				<hr class="border-gray-200 dark:border-gray-700 border-[1px] mx-5 sm:hidden" />
-				<div class="overflow-y-scroll pt-2 sm:max-h-[250px]">
+				<hr class="border-black-50 dark:border-black-700 border-[1px] mx-5 sm:hidden" />
+				<div class="overflow-y-scroll sm:max-h-[250px]">
 					{#each items as item (item.id)}
 						<Button
 							as="a"
