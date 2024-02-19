@@ -4,6 +4,8 @@
 	import { fade } from 'svelte/transition';
 	import MultiSelectOption from './MultiSelectOption.svelte';
 	import Button from '@cp/Button.svelte';
+	import Empty from '@icons/empty.svelte';
+	import LL from '@i18n/i18n-svelte';
 
 	interface Item {
 		id: number;
@@ -55,6 +57,7 @@
 				content={item.content}
 			/>
 		{/each}
+
 		<!-- Options that are chosen -->
 		<input
 			{id}
@@ -68,30 +71,37 @@
 	{#if open}
 		<div
 			transition:fade={{ duration: 100 }}
-			class="absolute top-full left-0 right-0 overflow-y-scroll max-h-[200px] rounded-b-[8px] dark:bg-gray-800 bg-pure-white shadow-custom dark:shadow-custom-dark"
+			class="absolute top-full left-0 right-0 max-h-[200px] rounded-b-[8px] overflow-y-scroll dark:bg-gray-800 bg-pure-white shadow-custom dark:shadow-custom-dark"
 		>
-			{#each filteredOptions as item, index (item.id)}
-				<Button
-					on:click={() => {
-						if (optionsSelectedStates[index]) {
-							selectedOptions = selectedOptions.filter((v) => v.id !== item.id);
-						} else {
-							selectedOptions = [...selectedOptions, item];
-						}
-					}}
-					class="!shadow-none w-full !justify-start rounded-none flex items-center capitalize"
-					as="button"
-					color="none"
-					type="button"
-					><Input
-						id={item.id.toString()}
-						type="checkbox"
-						inputClass="!shadow-none"
-						class="ltr:pr-2 rtl:pl-2 !py-0"
-						value={optionsSelectedStates[index]}
-					/>{item.content}</Button
-				>
-			{/each}
+			{#if filteredOptions.length > 0}
+				{#each filteredOptions as item, index (item.id)}
+					<Button
+						on:click={() => {
+							if (optionsSelectedStates[index]) {
+								selectedOptions = selectedOptions.filter((v) => v.id !== item.id);
+							} else {
+								selectedOptions = [...selectedOptions, item];
+							}
+						}}
+						class="!shadow-none w-full !justify-start rounded-none flex items-center capitalize"
+						as="button"
+						color="none"
+						type="button"
+						><Input
+							id={item.id.toString()}
+							type="checkbox"
+							inputClass="!shadow-none"
+							class="ltr:pr-2 rtl:pl-2 !py-0"
+							value={optionsSelectedStates[index]}
+						/>{item.content}</Button
+					>
+				{/each}
+			{:else}
+				<div class="flex items-center justify-center p-5 space-x-5 rtl:space-x-reverse">
+					<h3 class="select-none">{$LL.MultiSelect.NoItems()}...</h3>
+					<Empty class="w-[50px] h-[50px] md:w-[80px] md:h-[80px] fill-black-700 dark:fill-white" />
+				</div>
+			{/if}
 		</div>
 	{/if}
 </div>

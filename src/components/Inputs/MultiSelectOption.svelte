@@ -1,15 +1,21 @@
 <script lang="ts">
 	import Button from '@cp/Button.svelte';
 	import { createEventDispatcher } from 'svelte';
+	import none from '@animations/none';
+	import { scale } from 'svelte/transition';
 
 	const dispatch = createEventDispatcher();
 
 	let className = '';
 	export { className as class };
 	export let content: string = '';
+	export let hasAnimation: boolean = true;
+
+	$: transition = hasAnimation ? scale : none;
 </script>
 
 <div
+	transition:transition={{ duration: 200 }}
 	class={`p-2 bg-gray-100 dark:bg-gray-700 rounded-[8px] relative ltr:pr-8 rtl:pl-8 shadow-custom dark:shadow-custom-dark capitalize ${className}`}
 >
 	{@html content}

@@ -82,7 +82,8 @@ const fa = {
 		ThirdItem: 'آیتم سوم',
 		ForthItem: 'آیتم چهارم',
 		FifthItem: 'آیتم پنجم',
-		SixthItem: 'آیتم ششم'
+		SixthItem: 'آیتم ششم',
+		NoItems: 'بدون محتوا'
 	}
 } satisfies Translation;
 

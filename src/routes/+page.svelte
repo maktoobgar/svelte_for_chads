@@ -23,9 +23,6 @@
 	import { oneTime, rateClickLimiter } from '@utils/general';
 	import { error, info, success } from '@utils/notifier';
 	import Header from '@Layouts/Header.svelte';
-	import Notifications from '@cp/Notifications.svelte';
-	import { dir } from '@stores/i18n';
-	import { read } from '$app/server';
 	import MultiSelect from '@cp/Inputs/MultiSelect.svelte';
 
 	let dialog: Dialog;
@@ -49,7 +46,7 @@
 </script>
 
 <Meta title={$LL.NewProjectsNewTeam()} />
-<div class="snap-y snap-mandatory h-screen overflow-scroll">
+<div class="snap-y snap-mandatory h-screen overflow-scroll scroll-none">
 	<div class="relative flex justify-center items-center min-h-screen overflow-hidden snap-start">
 		<ThemeSwitcher class="absolute left-2 top-2" />
 		<LanguageChanger class="absolute right-2 top-2" />
@@ -229,6 +226,135 @@
 				},
 				{
 					id: 3,
+					text: $LL.Notification.Followed({
+						someone: 'Jasmin Just',
+						ago: '12' + $LL.Notification.Min()
+					}),
+					href: '#',
+					imgSrc:
+						'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=398&q=80'
+				},
+				{
+					id: 4,
+					text: $LL.Notification.RepliedOn({
+						someone: 'James Charles',
+						what: `<span class="!text-blue-500 group-data-[read=true]:!text-blue-400 hover:underline" href=${'#'}>${$LL.Notification.YourImage()}</span>`,
+						ago: '5' + $LL.Notification.Min()
+					}),
+					href: '#',
+					imgSrc:
+						'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80',
+					read: true
+				},
+				{
+					id: 5,
+					text: $LL.Notification.LikedOn({
+						someone: 'John Jason',
+						what: `<span class="!text-blue-500 group-data-[read=true]:!text-blue-400 hover:underline" href=${'#'}>${$LL.Notification.YourPost()}</span>`,
+						ago: '2' + $LL.Notification.Hour()
+					}),
+					href: '#',
+					imgSrc: 'https://i.pinimg.com/originals/25/bd/8b/25bd8b7f6e57cdfd17747b25d753b2ce.jpg',
+					read: true
+				},
+				{
+					id: 6,
+					text: $LL.Notification.Followed({
+						someone: 'Kevin Stacy',
+						ago: '3' + $LL.Notification.Hour()
+					}),
+					href: '#',
+					imgSrc:
+						'https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'
+				},
+				{
+					id: 7,
+					text: $LL.Notification.Followed({
+						someone: 'Jasmin Just',
+						ago: '12' + $LL.Notification.Min()
+					}),
+					href: '#',
+					imgSrc:
+						'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=398&q=80'
+				},
+				{
+					id: 8,
+					text: $LL.Notification.RepliedOn({
+						someone: 'James Charles',
+						what: `<span class="!text-blue-500 group-data-[read=true]:!text-blue-400 hover:underline" href=${'#'}>${$LL.Notification.YourImage()}</span>`,
+						ago: '5' + $LL.Notification.Min()
+					}),
+					href: '#',
+					imgSrc:
+						'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80',
+					read: true
+				},
+				{
+					id: 9,
+					text: $LL.Notification.LikedOn({
+						someone: 'John Jason',
+						what: `<span class="!text-blue-500 group-data-[read=true]:!text-blue-400 hover:underline" href=${'#'}>${$LL.Notification.YourPost()}</span>`,
+						ago: '2' + $LL.Notification.Hour()
+					}),
+					href: '#',
+					imgSrc: 'https://i.pinimg.com/originals/25/bd/8b/25bd8b7f6e57cdfd17747b25d753b2ce.jpg',
+					read: true
+				},
+				{
+					id: 10,
+					text: $LL.Notification.Followed({
+						someone: 'Kevin Stacy',
+						ago: '3' + $LL.Notification.Hour()
+					}),
+					href: '#',
+					imgSrc:
+						'https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'
+				},
+				{
+					id: 11,
+					text: $LL.Notification.Followed({
+						someone: 'Jasmin Just',
+						ago: '12' + $LL.Notification.Min()
+					}),
+					href: '#',
+					imgSrc:
+						'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=398&q=80'
+				},
+				{
+					id: 12,
+					text: $LL.Notification.RepliedOn({
+						someone: 'James Charles',
+						what: `<span class="!text-blue-500 group-data-[read=true]:!text-blue-400 hover:underline" href=${'#'}>${$LL.Notification.YourImage()}</span>`,
+						ago: '5' + $LL.Notification.Min()
+					}),
+					href: '#',
+					imgSrc:
+						'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80',
+					read: true
+				},
+				{
+					id: 13,
+					text: $LL.Notification.LikedOn({
+						someone: 'John Jason',
+						what: `<span class="!text-blue-500 group-data-[read=true]:!text-blue-400 hover:underline" href=${'#'}>${$LL.Notification.YourPost()}</span>`,
+						ago: '2' + $LL.Notification.Hour()
+					}),
+					href: '#',
+					imgSrc: 'https://i.pinimg.com/originals/25/bd/8b/25bd8b7f6e57cdfd17747b25d753b2ce.jpg',
+					read: true
+				},
+				{
+					id: 14,
+					text: $LL.Notification.Followed({
+						someone: 'Kevin Stacy',
+						ago: '3' + $LL.Notification.Hour()
+					}),
+					href: '#',
+					imgSrc:
+						'https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'
+				},
+				{
+					id: 15,
 					text: $LL.Notification.Followed({
 						someone: 'Jasmin Just',
 						ago: '12' + $LL.Notification.Min()

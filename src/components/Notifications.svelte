@@ -50,7 +50,7 @@
 				style={`margin-top: ${distanceMenu}px`}
 				data-open={open}
 				data-open-reverse={openReverse}
-				class={`sm:absolute sm:w-[300px] sm:rounded-md fixed smMax:bottom-0 smMax:inset-0 smMax:!mt-0 z-[1000] overflow-hidden bg-white dark:bg-gray-800 shadow-custom ltr:origin-top-left rtl:origin-top-right ltr:data-[open-reverse=true]:origin-top-right rtl:data-[open-reverse=true]:origin-top-left ${openClasses}`}
+				class={`flex flex-col sm:absolute sm:w-[300px] sm:rounded-md fixed smMax:bottom-0 smMax:inset-0 smMax:!mt-0 z-[1000] overflow-hidden bg-white dark:bg-gray-800 shadow-custom ltr:origin-top-left rtl:origin-top-right ltr:data-[open-reverse=true]:origin-top-right rtl:data-[open-reverse=true]:origin-top-left ${openClasses}`}
 			>
 				<div class="flex items-center justify-between my-5 mx-5 sm:hidden">
 					<h3>{$LL.Notification.Notifications()}</h3>
@@ -68,7 +68,7 @@
 					</button>
 				</div>
 				<hr class="border-gray-200 dark:border-gray-700 border-[1px] mx-5 sm:hidden" />
-				<div class="overflow-y-scroll pt-2 max-h-[250px]">
+				<div class="overflow-y-scroll pt-2 sm:max-h-[250px]">
 					{#each items as item (item.id)}
 						<Button
 							as="a"
@@ -92,7 +92,11 @@
 						{/if}
 					{/each}
 				</div>
-				<Button as="a" href={notificationsHref} class="py-2 mt-2 font-bold rounded-t-none w-full"
+				<div class="flex-grow"></div>
+				<Button
+					as="a"
+					href={notificationsHref}
+					class="py-2 mt-2 font-bold rounded-t-none w-full smMax:rounded-b-none"
 					>See all notifications</Button
 				>
 			</div>

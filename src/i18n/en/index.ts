@@ -82,7 +82,8 @@ const en = {
 		ThirdItem: 'third item',
 		ForthItem: 'forth item',
 		FifthItem: 'fifth item',
-		SixthItem: 'sixth item'
+		SixthItem: 'sixth item',
+		NoItems: 'No Content'
 	}
 } satisfies BaseTranslation;
 

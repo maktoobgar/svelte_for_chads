@@ -276,6 +276,10 @@ type RootTranslation = {
 		 * s​i​x​t​h​ ​i​t​e​m
 		 */
 		SixthItem: string
+		/**
+		 * N​o​ ​C​o​n​t​e​n​t
+		 */
+		NoItems: string
 	}
 }
 
@@ -533,6 +537,10 @@ export type TranslationFunctions = {
 		 * sixth item
 		 */
 		SixthItem: () => LocalizedString
+		/**
+		 * No Content
+		 */
+		NoItems: () => LocalizedString
 	}
 }
 
