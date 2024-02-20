@@ -83,7 +83,8 @@ const fa = {
 		ForthItem: 'آیتم چهارم',
 		FifthItem: 'آیتم پنجم',
 		SixthItem: 'آیتم ششم',
-		NoItems: 'بدون محتوا'
+		NoItems: 'بدون محتوا',
+		Limit: 'شما می توانید حداکثر {limit} مورد را انتخاب کنید'
 	}
 } satisfies Translation;
 

@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { clickOutside } from '@utils/general';
 	import Input from '@cp/Inputs/Input.svelte';
-	import { fade, slide } from 'svelte/transition';
+	import { slide } from 'svelte/transition';
 	import MultiSelectOption from './MultiSelectOption.svelte';
 	import Button from '@cp/Button.svelte';
 	import Empty from '@icons/empty.svelte';
 	import LL from '@i18n/i18n-svelte';
-	import scaleFade from '@animations/scale_fade';
 	import { easeOut } from '@animations/easings';
+	import { error } from '@utils/notifier';
 
 	interface Item {
 		id: number;
@@ -27,6 +27,7 @@
 	export let open: boolean = false;
 	export let single: boolean = false;
 	export let hasAnimation: boolean = true;
+	export let limit: number | null = null;
 	export { className as class };
 
 	$: inputValueLowercase = inputValue.toLowerCase();
@@ -55,7 +56,7 @@
 	>
 
 	<div
-		class={`flex flex-wrap relative space-y-2 items-center bg-pure-white mt-1 w-full outline-none rounded-[8px] group-data-[open=true]:rounded-b-none overflow-hidden border-gray-200 shadow-custom dark:shadow-custom-dark dark:border-gray-700 dark:bg-gray-800 dark:text-white sm:text-sm space-x-3 rtl:space-x-reverse pb-2 ${inputClass}`}
+		class={`flex flex-wrap relative space-y-2 items-center bg-pure-white mt-1 w-full outline-none rounded-[8px] group-data-[open=true]:rounded-b-none overflow-hidden border-gray-200 shadow-lg dark:border-gray-700 dark:bg-gray-800 dark:text-white sm:text-sm space-x-3 rtl:space-x-reverse pb-2 ${inputClass}`}
 	>
 		{#if !single}
 			{#each selectedOptions as item (item.id)}
@@ -105,8 +106,8 @@
 
 	{#if open}
 		<div
-			transition:slide={{ duration: 130, easing: easeOut }}
-			class="absolute top-full left-0 right-0 max-h-[200px] rounded-b-[8px] overflow-y-scroll dark:bg-gray-800 bg-pure-white shadow-custom dark:shadow-custom-dark"
+			transition:slide={{ duration: 150, easing: easeOut }}
+			class="absolute top-full left-0 right-0 max-h-[200px] rounded-b-[8px] overflow-y-scroll dark:bg-gray-800 bg-pure-white shadow-lg"
 		>
 			{#if filteredOptions.length > 0}
 				{#each filteredOptions as item, index (item.id)}
@@ -124,7 +125,11 @@
 								if (optionsSelectedStates[index]) {
 									selectedOptions = selectedOptions.filter((v) => v.id !== item.id);
 								} else {
-									selectedOptions = [...selectedOptions, item];
+									if (limit && limit > 0) {
+										if (selectedOptions.length < limit)
+											selectedOptions = [...selectedOptions, item];
+										else error($LL.MultiSelect.Limit({ limit: limit }));
+									} else selectedOptions = [...selectedOptions, item];
 								}
 							}
 						}}

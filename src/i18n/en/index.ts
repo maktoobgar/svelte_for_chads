@@ -83,7 +83,8 @@ const en = {
 		ForthItem: 'forth item',
 		FifthItem: 'fifth item',
 		SixthItem: 'sixth item',
-		NoItems: 'No Content'
+		NoItems: 'No Content',
+		Limit: 'You can choose maximum of {limit:number} items'
 	}
 } satisfies BaseTranslation;
 

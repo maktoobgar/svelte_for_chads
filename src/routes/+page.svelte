@@ -389,7 +389,7 @@
 					<Button
 						on:click={() => (open = !open)}
 						data={{ 'data-ignore-click-outside': true }}
-						class="group bg-white dark:bg-gray-800"
+						class="group bg-white dark:bg-gray-800 !shadow-lg"
 						color="none"
 						><span class="mx-1">{$LL.DropDown.Name()}</span>
 						<svg
@@ -418,6 +418,7 @@
 						{ id: 4, content: $LL.MultiSelect.FifthItem(), value: 'Whatever' },
 						{ id: 5, content: $LL.MultiSelect.SixthItem(), value: 'Whatever' }
 					]}
+					limit={2}
 				/>
 			</div>
 		</div>

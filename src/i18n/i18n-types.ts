@@ -280,6 +280,11 @@ type RootTranslation = {
 		 * N​o​ ​C​o​n​t​e​n​t
 		 */
 		NoItems: string
+		/**
+		 * Y​o​u​ ​c​a​n​ ​c​h​o​o​s​e​ ​m​a​x​i​m​u​m​ ​o​f​ ​{​l​i​m​i​t​}​ ​i​t​e​m​s
+		 * @param {number} limit
+		 */
+		Limit: RequiredParams<'limit'>
 	}
 }
 
@@ -541,6 +546,10 @@ export type TranslationFunctions = {
 		 * No Content
 		 */
 		NoItems: () => LocalizedString
+		/**
+		 * You can choose maximum of {limit} items
+		 */
+		Limit: (arg: { limit: number }) => LocalizedString
 	}
 }
 
