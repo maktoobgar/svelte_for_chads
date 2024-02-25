@@ -1,3 +1,4 @@
+import type { Language } from '@stores/i18n';
 import { writable } from 'svelte/store';
 
 export const oneTime = (run: Function | null) => {
@@ -59,4 +60,26 @@ export function clickOutside(node: HTMLElement | null) {
 			document.removeEventListener('click', handleClick, true);
 		}
 	};
+}
+
+export function DateFormatter(date: any, language: Language) {
+	let options: Intl.DateTimeFormatOptions;
+	let locals: string;
+	if (language === 'fa') {
+		options = {
+			day: 'numeric',
+			month: 'long',
+			year: 'numeric',
+			calendar: 'persian'
+		};
+		locals = 'fa-IR';
+	} else {
+		options = {
+			day: '2-digit',
+			month: 'short',
+			year: 'numeric'
+		};
+		locals = 'en-GB';
+	}
+	return new Intl.DateTimeFormat(locals, options).format(date);
 }

@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+- 🎉 feat: table component added
 - 🎉 feat: added limit for multiselect component
 - 🎉 feat: added one single item select to MultiSelect component
 - 🐛 fix: small margin problem fixed

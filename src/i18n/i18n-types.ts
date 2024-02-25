@@ -167,6 +167,90 @@ type RootTranslation = {
 	 * c​h​i​c​k​e​n​ ​b​a​r​b​e​c​u​e
 	 */
 	ShopCardDescription: string
+	Table: {
+		/**
+		 * a​d​d
+		 */
+		Add: string
+		/**
+		 * n​e​x​t
+		 */
+		Next: string
+		/**
+		 * p​r​e​v​i​o​u​s
+		 */
+		Previous: string
+		/**
+		 * u​s​e​r​s
+		 */
+		Users: string
+		/**
+		 * v​i​e​w​ ​a​l​l
+		 */
+		ViewAll: string
+		/**
+		 * a​p​p​r​o​v​e​d
+		 */
+		Approved: string
+		/**
+		 * n​e​w
+		 */
+		New: string
+		/**
+		 * y​o​u​ ​c​a​n​ ​f​i​n​d​ ​y​o​u​r​ ​b​e​s​t​ ​f​r​i​e​n​d​s​ ​h​e​r​e​.
+		 */
+		Description: string
+		/**
+		 * s​e​a​r​c​h
+		 */
+		Search: string
+		/**
+		 * p​a​g​e
+		 */
+		Page: string
+		/**
+		 * o​f
+		 */
+		Of: string
+		Columns: {
+			/**
+			 * n​a​m​e
+			 */
+			Name: string
+			/**
+			 * u​s​e​r​n​a​m​e
+			 */
+			Username: string
+			/**
+			 * d​e​s​c​r​i​p​t​i​o​n
+			 */
+			Description: string
+			/**
+			 * c​r​e​a​t​e​d​ ​a​t
+			 */
+			CreatedAt: string
+			/**
+			 * u​p​d​a​t​e​d​ ​a​t
+			 */
+			UpdatedAt: string
+			/**
+			 * s​t​a​t​u​s
+			 */
+			Status: string
+			/**
+			 * a​b​o​u​t
+			 */
+			About: string
+			/**
+			 * u​s​e​r​s
+			 */
+			Users: string
+			/**
+			 * l​i​c​e​n​s​e​ ​u​s​e
+			 */
+			LicenseUse: string
+		}
+	}
 	DropDown: {
 		/**
 		 * P​r​o​f​i​l​e
@@ -441,6 +525,90 @@ export type TranslationFunctions = {
 	 * chicken barbecue
 	 */
 	ShopCardDescription: () => LocalizedString
+	Table: {
+		/**
+		 * add
+		 */
+		Add: () => LocalizedString
+		/**
+		 * next
+		 */
+		Next: () => LocalizedString
+		/**
+		 * previous
+		 */
+		Previous: () => LocalizedString
+		/**
+		 * users
+		 */
+		Users: () => LocalizedString
+		/**
+		 * view all
+		 */
+		ViewAll: () => LocalizedString
+		/**
+		 * approved
+		 */
+		Approved: () => LocalizedString
+		/**
+		 * new
+		 */
+		New: () => LocalizedString
+		/**
+		 * you can find your best friends here.
+		 */
+		Description: () => LocalizedString
+		/**
+		 * search
+		 */
+		Search: () => LocalizedString
+		/**
+		 * page
+		 */
+		Page: () => LocalizedString
+		/**
+		 * of
+		 */
+		Of: () => LocalizedString
+		Columns: {
+			/**
+			 * name
+			 */
+			Name: () => LocalizedString
+			/**
+			 * username
+			 */
+			Username: () => LocalizedString
+			/**
+			 * description
+			 */
+			Description: () => LocalizedString
+			/**
+			 * created at
+			 */
+			CreatedAt: () => LocalizedString
+			/**
+			 * updated at
+			 */
+			UpdatedAt: () => LocalizedString
+			/**
+			 * status
+			 */
+			Status: () => LocalizedString
+			/**
+			 * about
+			 */
+			About: () => LocalizedString
+			/**
+			 * users
+			 */
+			Users: () => LocalizedString
+			/**
+			 * license use
+			 */
+			LicenseUse: () => LocalizedString
+		}
+	}
 	DropDown: {
 		/**
 		 * Profile

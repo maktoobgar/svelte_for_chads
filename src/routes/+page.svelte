@@ -24,6 +24,9 @@
 	import { error, info, success } from '@utils/notifier';
 	import Header from '@Layouts/Header.svelte';
 	import MultiSelect from '@cp/Inputs/MultiSelect.svelte';
+	import TableRequester from '@cp/Table/TableRequester.svelte';
+	import User from '@/types/user';
+	import UserTable from '@/types/user_table';
 
 	let dialog: Dialog;
 
@@ -422,5 +425,50 @@
 				/>
 			</div>
 		</div>
+	</div>
+
+	<div class="flex h-screen justify-around items-center bg-background snap-start">
+		<TableRequester
+			url="/users"
+			addUrl={'/add_user'}
+			name={$LL.Table.Users()}
+			description={$LL.Table.Description()}
+			tConstructor={User}
+			tTableConstructor={UserTable}
+			columns={[
+				{
+					id: 0,
+					name: $LL.Table.Columns.Name(),
+					colName: 'profile',
+					type: 'profile',
+					sort: false
+				},
+				{
+					id: 1,
+					name: $LL.Table.Columns.Description(),
+					colName: 'description',
+					type: '',
+					sort: true
+				},
+				{
+					id: 2,
+					name: $LL.Table.Columns.CreatedAt(),
+					colName: 'created_at',
+					type: 'date',
+					sort: true
+				},
+				{
+					id: 3,
+					name: $LL.Table.Columns.UpdatedAt(),
+					colName: 'updated_at',
+					type: 'date',
+					sort: true
+				}
+			]}
+			filterItems={[
+				{ id: 0, title: $LL.Table.ViewAll(), autoActive: true },
+				{ id: 1, title: $LL.Table.Approved(), key: 'approved', value: 'true' }
+			]}
+		/>
 	</div>
 </div>

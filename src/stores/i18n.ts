@@ -2,14 +2,15 @@ import { writable } from 'svelte/store';
 import { setLocale } from '@i18n/i18n-svelte';
 import { loadAllLocales } from '@/i18n/i18n-util.sync';
 import { i18n } from '@/i18n/i18n-util';
+import { languageKey } from '@/const/keys';
 
 const langTypeList = ['fa', 'en'] as const;
 export type Language = (typeof langTypeList)[number];
 export const isLanguage = (x: any): x is Language => langTypeList.includes(x);
 
 const langInit =
-	typeof localStorage !== 'undefined' && isLanguage(localStorage.getItem('language'))
-		? (localStorage.getItem('language') as Language)
+	typeof localStorage !== 'undefined' && isLanguage(localStorage.getItem(languageKey))
+		? (localStorage.getItem(languageKey) as Language)
 		: 'fa';
 const dirInit = langInit === 'fa' ? 'rtl' : 'ltr';
 const language = writable<Language>(langInit);
@@ -52,7 +53,7 @@ export const setLanguage = (value: Language) => {
 			break;
 	}
 	setLocale(value);
-	localStorage.setItem('language', value);
+	localStorage.setItem(languageKey, value);
 	language.set(value);
 };
 

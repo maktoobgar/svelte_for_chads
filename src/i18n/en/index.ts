@@ -49,6 +49,31 @@ const en = {
 	ShopCardItemThreeText: '4 sodas',
 	ShopCardDescription: 'chicken barbecue',
 
+	Table: {
+		Add: 'add',
+		Next: 'next',
+		Previous: 'previous',
+		Users: 'users',
+		ViewAll: 'view all',
+		Approved: 'approved',
+		New: 'new',
+		Description: 'you can find your best friends here.',
+		Search: 'search',
+		Page: 'page',
+		Of: 'of',
+		Columns: {
+			Name: 'name',
+			Username: 'username',
+			Description: 'description',
+			CreatedAt: 'created at',
+			UpdatedAt: 'updated at',
+			Status: 'status',
+			About: 'about',
+			Users: 'users',
+			LicenseUse: 'license use'
+		}
+	},
+
 	DropDown: {
 		ViewProfile: 'Profile',
 		Settings: 'Settings',

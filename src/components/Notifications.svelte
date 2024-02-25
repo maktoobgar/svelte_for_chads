@@ -8,7 +8,7 @@
 	interface Item {
 		id: number;
 		text?: string;
-		href: string;
+		href?: string;
 		imgSrc?: string;
 		lineBelow?: boolean;
 		read?: boolean;
@@ -37,7 +37,7 @@
 
 <svelte:window bind:outerWidth={width} />
 <div class={className}>
-	<div class="relative inline-block">
+	<div class="relative flex items-center">
 		<!-- Dropdown toggle button -->
 		<slot />
 

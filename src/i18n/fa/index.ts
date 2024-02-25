@@ -49,6 +49,31 @@ const fa = {
 	ShopCardItemThreeText: '۴ نوشابه',
 	ShopCardDescription: 'جوجه کباب',
 
+	Table: {
+		Add: 'اضافه کردن',
+		Next: 'بعدی',
+		Previous: 'قبلی',
+		Users: 'کاربران',
+		ViewAll: 'همه',
+		Approved: 'تایید شده',
+		New: 'جدید',
+		Description: 'بهترین دوستان خودتان را در اینجا پیدا کنید.',
+		Search: 'جست و جو',
+		Page: 'صفحه',
+		Of: 'از',
+		Columns: {
+			Name: 'نام',
+			Username: 'نام کاربری',
+			Description: 'توضیحات',
+			CreatedAt: 'تاریخ ایجاد',
+			UpdatedAt: 'تاریخ به روزرسانی',
+			Status: 'وضعیت',
+			About: 'درباره',
+			Users: 'کاربران',
+			LicenseUse: 'مجوز استفاده'
+		}
+	},
+
 	DropDown: {
 		ViewProfile: 'پروفایل',
 		Settings: 'تنظیمات',
