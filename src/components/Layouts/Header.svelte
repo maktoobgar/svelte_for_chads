@@ -76,7 +76,7 @@
 					<!-- Notifications -->
 					<Notifications
 						class="flex items-center"
-						distanceMenu="150"
+						distanceMenu="70"
 						bind:open={openNotifications}
 						items={notifItems}
 						openReverse

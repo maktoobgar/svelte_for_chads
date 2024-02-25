@@ -367,7 +367,12 @@
 						'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=398&q=80'
 				}
 			]}
-		/>
+			><svelte:fragment slot="icon">
+				<h3 class="font-vibur">
+					<a href="/" class="dark:!text-primary-100 !text-primary-500">SvelteChad</a>
+				</h3>
+			</svelte:fragment></Header
+		>
 		<div class="h-full w-full container lg:pt-[76px] sm:pt-[60px] pt-[53px]">
 			<div class="h-full relative px-5 pt-5">
 				<DropdownMenu
@@ -427,10 +432,10 @@
 		</div>
 	</div>
 
-	<div class="flex h-screen justify-around items-center bg-background snap-start">
+	<div class="flex h-screen justify-around items-center bg-background snap-start p-3">
 		<TableRequester
 			url="/users"
-			addUrl={'/add_user'}
+			addButton={'#'}
 			name={$LL.Table.Users()}
 			description={$LL.Table.Description()}
 			tConstructor={User}

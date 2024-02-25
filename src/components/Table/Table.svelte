@@ -17,7 +17,7 @@
 	export let columns: ColumnItem[] = [];
 	export let items: Item[] = [];
 	export let optionsButton: boolean = false;
-	export let addUrl: string = '';
+	export let addButton: string | (() => void) = '';
 	export let pageNumber: number = 1;
 	export let allPages: number = 10;
 	export let select: boolean = false;
@@ -60,12 +60,13 @@
 			</p>
 		</div>
 
-		{#if addUrl}
+		{#if addButton}
 			<div class="flex items-center mt-4 gap-x-3">
 				<Button
-					as="a"
+					as={typeof addButton === 'string' ? 'a' : 'button'}
 					color="green"
-					href={addUrl}
+					href={typeof addButton === 'string' ? addButton : ''}
+					on:click={typeof addButton === 'string' ? () => {} : addButton}
 					class="flex items-center justify-center w-1/2 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 rounded-lg shrink-0 sm:w-auto gap-x-2"
 				>
 					<svg

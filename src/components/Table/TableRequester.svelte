@@ -10,7 +10,7 @@
 
 	export let url: string;
 	export let name: string;
-	export let addUrl: string;
+	export let addButton: string | (() => void);
 	export let description: string;
 	export let select = false;
 	export let columns: ColumnItem[] = [];
@@ -126,7 +126,7 @@
 	{activeFilterItem}
 	{onFilterItemSelect}
 	{allPages}
-	{addUrl}
+	{addButton}
 	{name}
 	{description}
 	{columns}

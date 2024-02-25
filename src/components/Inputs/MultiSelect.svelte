@@ -97,9 +97,10 @@
 			<input
 				{id}
 				{placeholder}
+				data-empty={selectedOptions.length === 0}
 				bind:value={inputValue}
 				on:focus={() => (open = true)}
-				class="flex-grow outline-none py-3 px-3 border-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white capitalize sm:text-sm !mt-2"
+				class="flex-grow outline-none py-3 px-5 border-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white capitalize sm:text-sm !mt-2 data-[empty=false]:px-3"
 			/>
 		{/if}
 	</div>

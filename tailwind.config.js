@@ -17,7 +17,8 @@ export default {
 		},
 		fontFamily: {
 			vazir: ['Vazir', 'sans-serif'],
-			'vazir-latin': ['Vazir-Latin', 'sans-serif']
+			'vazir-latin': ['Vazir-Latin', 'sans-serif'],
+			vibur: ['Vibur', 'sans-serif']
 		},
 		extend: {
 			// Colors
