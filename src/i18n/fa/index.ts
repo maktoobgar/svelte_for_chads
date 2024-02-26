@@ -49,6 +49,19 @@ const fa = {
 	ShopCardItemThreeText: '۴ نوشابه',
 	ShopCardDescription: 'جوجه کباب',
 
+	RadioButton: {
+		Question: 'تجربه خود پس از استفاده از این قالب را بیان کنید.',
+		Demo: [
+			{ Title: 'عالی', Description: 'از این تجربه لذت بردی' },
+			{ Title: 'خوب', Description: 'خوب بود ولی ترجیح میدی راه خودتو بری' },
+			{
+				Title: 'اممم...',
+				Description: 'بزار فقط اینطوری بگیم که صرفا از هر کاری که داری انجام میدی بیشتر لذت میبری'
+			},
+			{ Title: 'نه', Description: 'برو همون react اتو استفاده کن... برو نبینمت' }
+		]
+	},
+
 	Table: {
 		Add: 'اضافه کردن',
 		Next: 'بعدی',

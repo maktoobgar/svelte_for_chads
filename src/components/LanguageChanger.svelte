@@ -5,7 +5,10 @@
 	export { className as class };
 </script>
 
-<button class={`p-3 ${className}`} on:click={() => setLanguage($language === 'en' ? 'fa' : 'en')}>
+<button
+	class={`p-3 flex justify-center items-center ${className}`}
+	on:click={() => setLanguage($language === 'en' ? 'fa' : 'en')}
+>
 	<svg
 		class="fill-secondary-800 dark:fill-white"
 		xmlns="http://www.w3.org/2000/svg"

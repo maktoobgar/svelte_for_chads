@@ -49,6 +49,16 @@ const en = {
 	ShopCardItemThreeText: '4 sodas',
 	ShopCardDescription: 'chicken barbecue',
 
+	RadioButton: {
+		Question: 'Describe the experience of using this chad boilerplate.',
+		Demo: [
+			{ Title: 'Good', Description: 'You really enjoyed' },
+			{ Title: 'Ok', Description: "You enjoyed but you'd rather do what you do" },
+			{ Title: 'Well...', Description: "Let's just say you enjoy what you do" },
+			{ Title: 'Nope', Description: "Just go use React... don't talk to me" }
+		]
+	},
+
 	Table: {
 		Add: 'add',
 		Next: 'next',

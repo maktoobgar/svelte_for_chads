@@ -10,7 +10,6 @@
 	export let type: HTMLInputTypeAttribute = 'text';
 	export let inputClass = '';
 	export let labelClass = '';
-	export let groupId = '';
 	export { className as class };
 
 	function typeAction(node: HTMLInputElement) {
@@ -27,15 +26,7 @@
 		>
 	{/if}
 
-	{#if type !== 'checkbox' && type !== 'radio'}
-		<input
-			use:typeAction
-			{id}
-			{placeholder}
-			bind:value
-			class={`mt-1 w-full outline-none py-3 px-3 rounded-[8px] border-gray-200 shadow-custom dark:shadow-custom-dark dark:border-gray-700 dark:bg-gray-800 dark:text-white sm:text-sm ${inputClass}`}
-		/>
-	{:else if type === 'checkbox'}
+	{#if type === 'checkbox'}
 		<input
 			type="checkbox"
 			{id}
@@ -43,12 +34,11 @@
 			bind:checked={value}
 			class={`mt-1 w-full outline-none py-3 px-3 rounded-[8px] border-gray-200 shadow-custom dark:shadow-custom-dark dark:border-gray-700 dark:bg-gray-800 dark:text-white sm:text-sm ${inputClass}`}
 		/>
-	{:else if type === 'radio'}
+	{:else}
 		<input
-			type="radio"
+			use:typeAction
 			{id}
 			{placeholder}
-			name={groupId.toString()}
 			bind:value
 			class={`mt-1 w-full outline-none py-3 px-3 rounded-[8px] border-gray-200 shadow-custom dark:shadow-custom-dark dark:border-gray-700 dark:bg-gray-800 dark:text-white sm:text-sm ${inputClass}`}
 		/>

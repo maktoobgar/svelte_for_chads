@@ -27,6 +27,7 @@
 	import TableRequester from '@cp/Table/TableRequester.svelte';
 	import User from '@/types/user';
 	import UserTable from '@/types/user_table';
+	import RadioGroup from '@cp/Inputs/RadioGroup.svelte';
 
 	let dialog: Dialog;
 
@@ -474,6 +475,44 @@
 				{ id: 0, title: $LL.Table.ViewAll(), autoActive: true },
 				{ id: 1, title: $LL.Table.Approved(), key: 'approved', value: 'true' }
 			]}
+		/>
+	</div>
+
+	<div
+		class="flex flex-col h-screen justify-center items-center bg-background-reverse snap-start relative"
+	>
+		<RadioGroup
+			items={[
+				{
+					id: '0',
+					title: $LL.RadioButton.Demo[0].Title(),
+					description: $LL.RadioButton.Demo[0].Description(),
+					value: null
+				},
+				{
+					id: '1',
+					title: $LL.RadioButton.Demo[1].Title(),
+					description: $LL.RadioButton.Demo[1].Description(),
+					value: null
+				},
+				{
+					id: '2',
+					title: $LL.RadioButton.Demo[2].Title(),
+					description: $LL.RadioButton.Demo[2].Description(),
+					value: null
+				},
+				{
+					id: '3',
+					title: $LL.RadioButton.Demo[3].Title(),
+					description: $LL.RadioButton.Demo[3].Description(),
+					value: null
+				}
+			]}
+			class="max-w-[500px] w-full px-3"
+			label={$LL.RadioButton.Question()}
+			name="survey"
+			color="blue"
+			hideInput
 		/>
 	</div>
 </div>

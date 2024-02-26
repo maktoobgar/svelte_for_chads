@@ -167,6 +167,54 @@ type RootTranslation = {
 	 * c​h​i​c​k​e​n​ ​b​a​r​b​e​c​u​e
 	 */
 	ShopCardDescription: string
+	RadioButton: {
+		/**
+		 * D​e​s​c​r​i​b​e​ ​t​h​e​ ​e​x​p​e​r​i​e​n​c​e​ ​o​f​ ​u​s​i​n​g​ ​t​h​i​s​ ​c​h​a​d​ ​b​o​i​l​e​r​p​l​a​t​e​.
+		 */
+		Question: string
+		Demo: {
+			'0': {
+				/**
+				 * G​o​o​d
+				 */
+				Title: string
+				/**
+				 * Y​o​u​ ​r​e​a​l​l​y​ ​e​n​j​o​y​e​d
+				 */
+				Description: string
+			}
+			'1': {
+				/**
+				 * O​k
+				 */
+				Title: string
+				/**
+				 * Y​o​u​ ​e​n​j​o​y​e​d​ ​b​u​t​ ​y​o​u​'​d​ ​r​a​t​h​e​r​ ​d​o​ ​w​h​a​t​ ​y​o​u​ ​d​o
+				 */
+				Description: string
+			}
+			'2': {
+				/**
+				 * W​e​l​l​.​.​.
+				 */
+				Title: string
+				/**
+				 * L​e​t​'​s​ ​j​u​s​t​ ​s​a​y​ ​y​o​u​ ​e​n​j​o​y​ ​w​h​a​t​ ​y​o​u​ ​d​o
+				 */
+				Description: string
+			}
+			'3': {
+				/**
+				 * N​o​p​e
+				 */
+				Title: string
+				/**
+				 * J​u​s​t​ ​g​o​ ​u​s​e​ ​R​e​a​c​t​.​.​.​ ​d​o​n​'​t​ ​t​a​l​k​ ​t​o​ ​m​e
+				 */
+				Description: string
+			}
+		}
+	}
 	Table: {
 		/**
 		 * a​d​d
@@ -525,6 +573,54 @@ export type TranslationFunctions = {
 	 * chicken barbecue
 	 */
 	ShopCardDescription: () => LocalizedString
+	RadioButton: {
+		/**
+		 * Describe the experience of using this chad boilerplate.
+		 */
+		Question: () => LocalizedString
+		Demo: {
+			'0': {
+				/**
+				 * Good
+				 */
+				Title: () => LocalizedString
+				/**
+				 * You really enjoyed
+				 */
+				Description: () => LocalizedString
+			}
+			'1': {
+				/**
+				 * Ok
+				 */
+				Title: () => LocalizedString
+				/**
+				 * You enjoyed but you'd rather do what you do
+				 */
+				Description: () => LocalizedString
+			}
+			'2': {
+				/**
+				 * Well...
+				 */
+				Title: () => LocalizedString
+				/**
+				 * Let's just say you enjoy what you do
+				 */
+				Description: () => LocalizedString
+			}
+			'3': {
+				/**
+				 * Nope
+				 */
+				Title: () => LocalizedString
+				/**
+				 * Just go use React... don't talk to me
+				 */
+				Description: () => LocalizedString
+			}
+		}
+	}
 	Table: {
 		/**
 		 * add
