@@ -32,50 +32,47 @@
 
 	{#each items as item (item.id)}
 		<Button
-			class="block !w-full !p-0 border border-gray-100 bg-white hover:bg-black-20 hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:bg-gray-800 group-data-[color=blue]:has-[:checked]:border-blue-500 group-data-[color=red]:has-[:checked]:border-red-500 group-data-[color=green]:has-[:checked]:border-green-500 group-data-[color=cyan]:has-[:checked]:border-cyan-500 group-data-[color=primary]:has-[:checked]:border-primary-500 group-data-[color=secondary]:has-[:checked]:border-secondary-500"
-			on:click={() => (selectedItem = item)}
 			color="none"
+			class="flex w-full !items-start border-none !justify-start has-[:checked]:ring-2 ltr:!text-left rtl:!text-right gap-4 rounded-lg border border-gray-200 p-4 transition hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-900 group-data-[color=red]:has-[:checked]:ring-red-500 group-data-[color=blue]:has-[:checked]:ring-blue-500 group-data-[color=cyan]:has-[:checked]:ring-cyan-500 group-data-[color=green]:has-[:checked]:ring-green-500 group-data-[color=primary]:has-[:checked]:ring-primary-500 group-data-[color=secondary]:has-[:checked]:ring-secondary-500 group-data-[color=blue]:has-[:checked]:bg-blue-50 group-data-[color=cyan]:has-[:checked]:bg-cyan-50 group-data-[color=red]:has-[:checked]:bg-red-50 group-data-[color=green]:has-[:checked]:bg-green-50 group-data-[color=primary]:has-[:checked]:bg-primary-50 group-data-[color=blue]:has-[:checked]:bg-secondary-50 dark:group-data-[color=blue]:has-[:checked]:bg-blue-700/10 dark:group-data-[color=red]:has-[:checked]:bg-red-700/10 dark:group-data-[color=green]:has-[:checked]:bg-green-700/10 dark:group-data-[color=cyan]:has-[:checked]:bg-cyan-700/10 dark:group-data-[color=primary]:has-[:checked]:bg-primary-glass-10 dark:group-data-[color=secondary]:has-[:checked]:bg-secondary-glass-10"
+			on:click={() => {
+				selectedItem = item;
+			}}
 		>
-			<div class="flex !w-full justify-between gap-4 p-4 text-sm font-medium">
+			{#if !hideInput}
 				<div
-					class="flex space-y-2 flex-col ltr:text-left rtl:text-right group-data-[hide-input=true]:flex-row group-data-[hide-input=true]:justify-between group-data-[hide-input=true]:space-y-0 group-data-[hide-input=true]:space-x-5 group-data-[hide-input=true]:rtl:space-x-reverse w-full"
+					class="flex items-center mt-[6px] size-5 min-w-5 cursor-pointer rounded-full shadow-sm has-[:checked]:ring-offset-2 has-[:checked]:ring-2 group-data-[color=red]:bg-red-500 group-data-[color=red]:has-[:checked]:ring-red-500 group-data-[color=blue]:bg-blue-500 group-data-[color=blue]:has-[:checked]:ring-blue-500 group-data-[color=cyan]:bg-cyan-500 group-data-[color=cyan]:has-[:checked]:ring-cyan-500 group-data-[color=green]:bg-green-500 group-data-[color=green]:has-[:checked]:ring-green-500 group-data-[color=primary]:bg-primary-500 group-data-[color=primary]:has-[:checked]:ring-primary-500 group-data-[color=secondary]:bg-secondary-500 group-data-[color=secondary]:has-[:checked]:ring-secondary-500"
 				>
-					<p class="text-gray-700 dark:text-gray-200 ltr:first-letter:capitalize">
-						{item.title}
-					</p>
-
-					{#if item.description}
-						<p
-							class="text-gray-900 dark:text-white group-data-[hide-input=true]:text-right ltr:first-letter:capitalize group-data-[hide-input=true]:ltr:text-right group-data-[hide-input=true]:rtl:text-left"
-						>
-							{item.description}
-						</p>
+					{#if selectedItem === item}
+						<svg class="p-1 fill-white" viewBox="0 0 448 512">
+							<path
+								d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+							/>
+						</svg>
 					{/if}
-				</div>
-
-				{#if !hideInput}
-					<div
-						class="block size-5 min-w-5 cursor-pointer rounded-full shadow-sm has-[:checked]:ring-offset-2 has-[:checked]:ring-2 group-data-[color=red]:bg-red-500 group-data-[color=red]:has-[:checked]:ring-red-500 group-data-[color=blue]:bg-blue-500 group-data-[color=blue]:has-[:checked]:ring-blue-500 group-data-[color=cyan]:bg-cyan-500 group-data-[color=cyan]:has-[:checked]:ring-cyan-500 group-data-[color=green]:bg-green-500 group-data-[color=green]:has-[:checked]:ring-green-500 group-data-[color=primary]:bg-primary-500 group-data-[color=primary]:has-[:checked]:ring-primary-500 group-data-[color=secondary]:bg-secondary-500 group-data-[color=secondary]:has-[:checked]:ring-secondary-500"
-					>
-						<input
-							{name}
-							type="radio"
-							id={item.id}
-							on:change={() => (selectedItem = item)}
-							class="sr-only border-gray-300 text-blue-500 dark:border-gray-700 dark:bg-gray-800 dark:ring-offset-gray-900"
-							checked={item === selectedItem}
-						/>
-					</div>
-				{:else}
 					<input
 						{name}
-						type="radio"
+						type="checkbox"
 						id={item.id}
-						on:change={() => (selectedItem = item)}
-						class="sr-only border-gray-300 text-blue-500 dark:border-gray-700 dark:bg-gray-800 dark:ring-offset-gray-900"
-						checked={item === selectedItem}
+						class="sr-only"
+						checked={selectedItem === item}
 					/>
-				{/if}
+				</div>
+			{:else}
+				<input
+					{name}
+					type="checkbox"
+					id={item.id}
+					class="sr-only"
+					checked={selectedItem === item}
+				/>
+			{/if}
+
+			<div>
+				<strong class="font-medium text-gray-900 dark:text-white">{item.title}</strong>
+
+				<p class="mt-1 text-pretty text-sm text-gray-700 dark:text-gray-200">
+					{item.description}
+				</p>
 			</div>
 		</Button>
 	{/each}
