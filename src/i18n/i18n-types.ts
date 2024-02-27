@@ -167,6 +167,10 @@ type RootTranslation = {
 	 * c​h​i​c​k​e​n​ ​b​a​r​b​e​c​u​e
 	 */
 	ShopCardDescription: string
+	/**
+	 * J​u​s​t​ ​a​n​s​w​e​r​ ​t​h​e​ ​q​u​e​s​t​i​o​n
+	 */
+	Tooltip: string
 	RadioButton: {
 		/**
 		 * D​e​s​c​r​i​b​e​ ​t​h​e​ ​e​x​p​e​r​i​e​n​c​e​ ​o​f​ ​u​s​i​n​g​ ​t​h​i​s​ ​c​h​a​d​ ​b​o​i​l​e​r​p​l​a​t​e​.
@@ -573,6 +577,10 @@ export type TranslationFunctions = {
 	 * chicken barbecue
 	 */
 	ShopCardDescription: () => LocalizedString
+	/**
+	 * Just answer the question
+	 */
+	Tooltip: () => LocalizedString
 	RadioButton: {
 		/**
 		 * Describe the experience of using this chad boilerplate.

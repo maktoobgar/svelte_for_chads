@@ -49,6 +49,8 @@ const fa = {
 	ShopCardItemThreeText: '۴ نوشابه',
 	ShopCardDescription: 'جوجه کباب',
 
+	Tooltip: 'فقط سوالو جواب بده',
+
 	RadioButton: {
 		Question: 'تجربه خود پس از استفاده از این قالب را بیان کنید.',
 		Demo: [

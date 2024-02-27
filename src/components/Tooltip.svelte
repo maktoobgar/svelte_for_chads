@@ -2,6 +2,7 @@
 	import { fade } from 'svelte/transition';
 	import { watchResize } from 'svelte-watch-resize';
 
+	export let text = 'This is a tooltip';
 	export let hover = false;
 	export let xDirection: 'left' | 'right' | 'center' = 'center'; // left and right off the box has to be done by code
 	export let yDirection: 'top' | 'bottom' | 'center' = 'top'; // ignore center, top and bottom works fine
@@ -67,12 +68,12 @@
 				tooltipWidth = node.clientWidth;
 				tooltipHeight = node.clientHeight;
 			}}
-			class="absolute z-[10] flex items-center justify-center w-48 p-3 text-gray-600 bg-pure-white rounded-lg shadow-lg dark:bg-gray-800 dark:text-white"
+			class="absolute z-[10] flex items-center justify-center max-w-[300px] p-3 text-gray-600 bg-pure-white rounded-lg shadow-lg dark:bg-gray-800 dark:text-white"
 			style={`left: ${left !== null ? left + 'px' : 'auto'}; right: ${right !== null ? right + 'px' : 'auto'}; top: ${top !== null ? top + 'px' : 'auto'}; bottom: ${bottom !== null ? bottom + 'px' : 'auto'};`}
-			in:fade={{ duration: 200 }}
+			in:fade={{ duration: 200, delay: 100 }}
 			out:fade={{ duration: 200 }}
 		>
-			<span class="truncate">This is a tooltip</span>
+			<span class="truncate">{@html text}</span>
 
 			<svg
 				data-x-direction={xDirection}

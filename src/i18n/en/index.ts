@@ -49,6 +49,8 @@ const en = {
 	ShopCardItemThreeText: '4 sodas',
 	ShopCardDescription: 'chicken barbecue',
 
+	Tooltip: 'Just answer the question',
+
 	RadioButton: {
 		Question: 'Describe the experience of using this chad boilerplate.',
 		Demo: [
