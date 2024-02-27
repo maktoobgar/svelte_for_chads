@@ -15,13 +15,14 @@
 	}
 
 	let className = '';
-	export { className as class };
+	export let id: string;
 	export let openReverse = false;
 	export let open = false;
 	export let items: Item[] = [];
 	export let distanceMenu: string = '8';
 	export let transition: 'fly' | 'scale' = 'scale';
 	export let notificationsHref: string = '';
+	export { className as class };
 
 	let width = 0;
 	let openClasses = openReverse ? 'rtl:left-0 ltr:right-0' : 'ltr:left-0 rtl:right-0';
@@ -44,6 +45,7 @@
 		<!-- Dropdown menu -->
 		{#if open}
 			<div
+				{id}
 				use:clickOutside
 				transition:transitionFnc={params}
 				on:click_outside={() => (open = false)}

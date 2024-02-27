@@ -23,6 +23,7 @@
 	type Profile = ProfileInterface | null;
 
 	let className = '';
+	export let id: string = '';
 	export let openReverse = false;
 	export let open = false;
 	export { className as class };
@@ -56,6 +57,7 @@
 				transition:fade={{ duration: 100 }}
 			></div>
 			<div
+				{id}
 				use:clickOutside
 				data-open-reverse={openReverse}
 				transition:transitionFnc={params}

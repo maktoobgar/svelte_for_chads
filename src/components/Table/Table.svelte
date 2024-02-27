@@ -42,7 +42,7 @@
 	});
 </script>
 
-<section class="container px-4 mx-auto">
+<section class="container px-4 mx-auto overflow-hidden">
 	<div class="sm:flex sm:items-center sm:justify-between">
 		<div>
 			<div class="flex items-center gap-x-3">

@@ -2,6 +2,7 @@
 	import { easeOut } from '@animations/easings';
 	import Button from '@cp/Button.svelte';
 	import Notifications from '@cp/Notifications.svelte';
+	import { uidGenerator } from '@utils/general';
 	import type { ComponentType } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
 
@@ -23,6 +24,8 @@
 	export let items: Item[] = [];
 	export let notifItems: NotifItem[] = [];
 	export let openNotifications = false;
+
+	const notifId = uidGenerator();
 </script>
 
 {#key 'header'}
@@ -75,6 +78,7 @@
 				<div class="flex">
 					<!-- Notifications -->
 					<Notifications
+						id={notifId}
 						class="flex items-center"
 						distanceMenu="70"
 						bind:open={openNotifications}
@@ -82,7 +86,7 @@
 						openReverse
 					>
 						<button
-							data-ignore-click-outside={true}
+							data-ignore-click-outside={notifId}
 							class="mx-4 text-gray-600 transition-colors duration-300 transform lg:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
 							on:click={() => (openNotifications = !openNotifications)}
 						>

@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+- 🎉 feat: added tooltip + bug fix on table and notification and dropdownMenu components
 - 🎉 feat: RadioGroup added
 - 🎉 feat: table component added
 - 🎉 feat: added limit for multiselect component

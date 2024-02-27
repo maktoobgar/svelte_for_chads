@@ -42,7 +42,10 @@ export function clickOutside(node: HTMLElement | null) {
 			let ignore = false;
 			while (true) {
 				if (n === null) break;
-				if (n.hasAttribute('data-ignore-click-outside')) {
+				if (
+					n.hasAttribute('data-ignore-click-outside') &&
+					n.getAttribute('data-ignore-click-outside') === node.id
+				) {
 					ignore = true;
 					break;
 				}
@@ -82,4 +85,11 @@ export function DateFormatter(date: any, language: Language) {
 		locals = 'en-GB';
 	}
 	return new Intl.DateTimeFormat(locals, options).format(date);
+}
+
+export function uidGenerator() {
+	var S4 = function () {
+		return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+	};
+	return S4() + S4() + '-' + S4() + '-' + S4() + '-' + S4() + '-' + S4() + S4() + S4();
 }

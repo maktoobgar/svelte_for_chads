@@ -44,6 +44,7 @@
 		"axios": "^1.6.7",
 		"npm-run-all": "^4.1.5",
 		"svelte-french-toast": "^1.2.0",
+		"svelte-watch-resize": "^1.0.3",
 		"sveltekit-i18n": "^2.4.2",
 		"typesafe-i18n": "^5.26.2"
 	}
