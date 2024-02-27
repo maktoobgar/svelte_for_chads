@@ -29,7 +29,7 @@
 	import UserTable from '@/types/user_table';
 	import RadioGroup from '@cp/Inputs/RadioGroup.svelte';
 	import Tooltip from '@cp/Tooltip.svelte';
-	import Checkbox from '@cp/Inputs/Checkbox.svelte';
+	import CheckboxGroup from '@cp/Inputs/CheckboxGroup.svelte';
 
 	let dialog: Dialog;
 
@@ -544,7 +544,7 @@
 	</div>
 
 	<div class="flex flex-col h-screen justify-center items-center bg-background snap-start relative">
-		<Checkbox
+		<CheckboxGroup
 			items={[
 				{
 					id: '0',
