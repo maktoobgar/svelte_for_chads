@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Button from '@cp/Button.svelte';
+	import CheckboxRadio from './CheckboxRadio.svelte';
 
 	interface Item {
 		id: string;
@@ -15,6 +16,7 @@
 	export let selectedItem: Item | null = null;
 	export let color: 'green' | 'red' | 'cyan' | 'blue' | 'primary' | 'secondary' = 'primary';
 	export let hideInput = false;
+	export let type: 'cardStack' | 'cardRow' | 'simple' = 'cardStack';
 	export { className as class };
 </script>
 
@@ -30,50 +32,51 @@
 		<label for={name} class="font-bold text-lg">{label}</label>
 	{/if}
 
-	{#each items as item (item.id)}
-		<Button
-			color="none"
-			class="flex w-full !items-start border-none !justify-start has-[:checked]:ring-2 ltr:!text-left rtl:!text-right gap-4 rounded-lg border border-gray-200 p-4 transition hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-900 group-data-[color=red]:has-[:checked]:ring-red-500 group-data-[color=blue]:has-[:checked]:ring-blue-500 group-data-[color=cyan]:has-[:checked]:ring-cyan-500 group-data-[color=green]:has-[:checked]:ring-green-500 group-data-[color=primary]:has-[:checked]:ring-primary-500 group-data-[color=secondary]:has-[:checked]:ring-secondary-500 group-data-[color=blue]:has-[:checked]:bg-blue-50 group-data-[color=cyan]:has-[:checked]:bg-cyan-50 group-data-[color=red]:has-[:checked]:bg-red-50 group-data-[color=green]:has-[:checked]:bg-green-50 group-data-[color=primary]:has-[:checked]:bg-primary-50 group-data-[color=blue]:has-[:checked]:bg-secondary-50 dark:group-data-[color=blue]:has-[:checked]:bg-blue-700/10 dark:group-data-[color=red]:has-[:checked]:bg-red-700/10 dark:group-data-[color=green]:has-[:checked]:bg-green-700/10 dark:group-data-[color=cyan]:has-[:checked]:bg-cyan-700/10 dark:group-data-[color=primary]:has-[:checked]:bg-primary-glass-10 dark:group-data-[color=secondary]:has-[:checked]:bg-secondary-glass-10"
-			on:click={() => {
-				selectedItem = item;
-			}}
-		>
-			{#if !hideInput}
-				<div
-					class="flex items-center mt-[6px] size-5 min-w-5 cursor-pointer rounded-full shadow-sm has-[:checked]:ring-offset-2 has-[:checked]:ring-2 group-data-[color=red]:bg-red-500 group-data-[color=red]:has-[:checked]:ring-red-500 group-data-[color=blue]:bg-blue-500 group-data-[color=blue]:has-[:checked]:ring-blue-500 group-data-[color=cyan]:bg-cyan-500 group-data-[color=cyan]:has-[:checked]:ring-cyan-500 group-data-[color=green]:bg-green-500 group-data-[color=green]:has-[:checked]:ring-green-500 group-data-[color=primary]:bg-primary-500 group-data-[color=primary]:has-[:checked]:ring-primary-500 group-data-[color=secondary]:bg-secondary-500 group-data-[color=secondary]:has-[:checked]:ring-secondary-500"
-				>
-					{#if selectedItem === item}
-						<svg class="p-1 fill-white" viewBox="0 0 448 512">
-							<path
-								d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-							/>
-						</svg>
-					{/if}
-					<input
-						{name}
-						type="checkbox"
-						id={item.id}
-						class="sr-only"
-						checked={selectedItem === item}
-					/>
-				</div>
-			{:else}
-				<input
-					{name}
-					type="checkbox"
+	{#if type !== 'simple'}
+		{#each items as item (item.id)}
+			<Button
+				color="none"
+				class="flex w-full !items-start !justify-start has-[:checked]:ring-2 ltr:!text-left rtl:!text-right gap-4 rounded-lg border p-4 transition hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-900 group-data-[color=red]:has-[:checked]:ring-red-500 group-data-[color=blue]:has-[:checked]:ring-blue-500 group-data-[color=cyan]:has-[:checked]:ring-cyan-500 group-data-[color=green]:has-[:checked]:ring-green-500 group-data-[color=primary]:has-[:checked]:ring-primary-500 group-data-[color=secondary]:has-[:checked]:ring-secondary-500 group-data-[color=blue]:has-[:checked]:bg-blue-50 group-data-[color=cyan]:has-[:checked]:bg-cyan-50 group-data-[color=red]:has-[:checked]:bg-red-50 group-data-[color=green]:has-[:checked]:bg-green-50 group-data-[color=primary]:has-[:checked]:bg-primary-50 group-data-[color=blue]:has-[:checked]:bg-secondary-50 dark:group-data-[color=blue]:has-[:checked]:bg-blue-700/10 dark:group-data-[color=red]:has-[:checked]:bg-red-700/10 dark:group-data-[color=green]:has-[:checked]:bg-green-700/10 dark:group-data-[color=cyan]:has-[:checked]:bg-cyan-700/10 dark:group-data-[color=primary]:has-[:checked]:bg-primary-glass-10 dark:group-data-[color=secondary]:has-[:checked]:bg-secondary-glass-10"
+				on:click={() => {
+					selectedItem = item;
+				}}
+			>
+				<CheckboxRadio
 					id={item.id}
-					class="sr-only"
+					{name}
+					{hideInput}
+					class="mt-[2px]"
 					checked={selectedItem === item}
+					type="radio"
 				/>
-			{/if}
 
-			<div>
-				<strong class="font-medium text-gray-900 dark:text-white">{item.title}</strong>
+				<div class={`w-full ${type === 'cardRow' ? 'flex justify-between' : 'space-y-1'}`}>
+					<strong class="font-medium text-gray-900 dark:text-white">{item.title}</strong>
 
-				<p class="mt-1 text-pretty text-sm text-gray-700 dark:text-gray-200">
-					{item.description}
-				</p>
-			</div>
-		</Button>
-	{/each}
+					<p
+						class={`text-pretty text-sm text-gray-700 dark:text-gray-200 ${type === 'cardRow' && 'ltr:text-right rtl:text-left'}`}
+					>
+						{item.description}
+					</p>
+				</div>
+			</Button>
+		{/each}
+	{:else}
+		<div class="space-y-3">
+			{#each items as item (item.id)}
+				<CheckboxRadio
+					id={item.id}
+					{name}
+					{hideInput}
+					class="py-2"
+					on:change={() => {
+						selectedItem = item;
+					}}
+					checked={selectedItem === item}
+					type="radio"
+					label={item.title}
+				/>
+			{/each}
+		</div>
+	{/if}
 </fieldset>

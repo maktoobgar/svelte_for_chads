@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+- 🎉 feat: added simple and card styles to the CheckboxGroups and RadioGroups
 - 🎉 feat: added Checkbox component
 - 🎉 feat: added tooltip + bug fix on table and notification and dropdownMenu components
 - 🎉 feat: RadioGroup added

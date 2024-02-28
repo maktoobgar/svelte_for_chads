@@ -487,7 +487,7 @@
 	>
 		<div>
 			<div class="mx-[12px]">
-				<Tooltip text={$LL.Tooltip()} xDirection="left" yDirection="bottom">
+				<Tooltip text={$LL.Tooltip()} xDirection="right" yDirection="center">
 					<div
 						class="text-gray-600 transition-colors duration-200 focus:outline-none dark:text-gray-200 dark:hover:text-blue-400 hover:text-blue-500"
 					>
@@ -511,25 +511,25 @@
 			<RadioGroup
 				items={[
 					{
-						id: '0',
+						id: '0r',
 						title: $LL.RadioButton.Demo[0].Title(),
 						description: $LL.RadioButton.Demo[0].Description(),
 						value: null
 					},
 					{
-						id: '1',
+						id: '1r',
 						title: $LL.RadioButton.Demo[1].Title(),
 						description: $LL.RadioButton.Demo[1].Description(),
 						value: null
 					},
 					{
-						id: '2',
+						id: '2r',
 						title: $LL.RadioButton.Demo[2].Title(),
 						description: $LL.RadioButton.Demo[2].Description(),
 						value: null
 					},
 					{
-						id: '3',
+						id: '3r',
 						title: $LL.RadioButton.Demo[3].Title(),
 						description: $LL.RadioButton.Demo[3].Description(),
 						value: null
@@ -539,46 +539,72 @@
 				label={$LL.RadioButton.Question()}
 				name="survey"
 				color="primary"
+				type="simple"
 			/>
 		</div>
 	</div>
 
 	<div class="flex flex-col h-screen justify-center items-center bg-background snap-start relative">
-		<CheckboxGroup
-			items={[
-				{
-					id: '0',
-					name: 'First',
-					title: $LL.RadioButton.Demo[0].Title(),
-					description: $LL.RadioButton.Demo[0].Description(),
-					value: null
-				},
-				{
-					id: '1',
-					name: 'Second',
-					title: $LL.RadioButton.Demo[1].Title(),
-					description: $LL.RadioButton.Demo[1].Description(),
-					value: null
-				},
-				{
-					id: '2',
-					name: 'Third',
-					title: $LL.RadioButton.Demo[2].Title(),
-					description: $LL.RadioButton.Demo[2].Description(),
-					value: null
-				},
-				{
-					id: '3',
-					name: 'Forth',
-					title: $LL.RadioButton.Demo[3].Title(),
-					description: $LL.RadioButton.Demo[3].Description(),
-					value: null
-				}
-			]}
-			label={$LL.RadioButton.Question()}
-			class="max-w-[500px] w-full px-3"
-			name="options"
-			color="secondary"
-		/>
+		<div>
+			<div class="mx-[12px]">
+				<Tooltip text={$LL.Tooltip()} xDirection="center" yDirection="top">
+					<div
+						class="text-gray-600 transition-colors duration-200 focus:outline-none dark:text-gray-200 dark:hover:text-blue-400 hover:text-blue-500"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke-width="2"
+							stroke="currentColor"
+							class="w-6 h-6"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z"
+							/>
+						</svg>
+					</div>
+				</Tooltip>
+			</div>
+			<CheckboxGroup
+				items={[
+					{
+						id: '0c',
+						name: 'First',
+						title: $LL.RadioButton.Demo[0].Title(),
+						description: $LL.RadioButton.Demo[0].Description(),
+						value: null
+					},
+					{
+						id: '1c',
+						name: 'Second',
+						title: $LL.RadioButton.Demo[1].Title(),
+						description: $LL.RadioButton.Demo[1].Description(),
+						value: null
+					},
+					{
+						id: '2c',
+						name: 'Third',
+						title: $LL.RadioButton.Demo[2].Title(),
+						description: $LL.RadioButton.Demo[2].Description(),
+						value: null
+					},
+					{
+						id: '3c',
+						name: 'Forth',
+						title: $LL.RadioButton.Demo[3].Title(),
+						description: $LL.RadioButton.Demo[3].Description(),
+						value: null
+					}
+				]}
+				label={$LL.RadioButton.Question()}
+				class="max-w-[500px] w-full px-3"
+				name="options"
+				color="secondary"
+				type="simple"
+			/>
+		</div>
 	</div>
 </div>
