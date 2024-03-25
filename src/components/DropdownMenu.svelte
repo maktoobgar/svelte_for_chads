@@ -47,8 +47,9 @@
 <svelte:window bind:outerWidth={width} />
 <div class={className}>
 	<div class="relative inline-block">
-		<!-- Dropdown toggle button -->
-		<slot />
+		<div data-ignore-click-outside={id} class="contents">
+			<slot />
+		</div>
 
 		<!-- Dropdown menu -->
 		{#if open}

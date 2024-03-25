@@ -6,7 +6,7 @@
 	import LL from '@i18n/i18n-svelte';
 
 	interface Item {
-		id: number;
+		id: string;
 		text?: string;
 		href?: string;
 		imgSrc?: string;
@@ -40,7 +40,9 @@
 <div class={className}>
 	<div class="relative flex items-center">
 		<!-- Dropdown toggle button -->
-		<slot />
+		<div data-ignore-click-outside={id} class="contents">
+			<slot />
+		</div>
 
 		<!-- Dropdown menu -->
 		{#if open}

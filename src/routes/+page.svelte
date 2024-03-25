@@ -30,6 +30,8 @@
 	import RadioGroup from '@cp/Inputs/RadioGroup.svelte';
 	import Tooltip from '@cp/Tooltip.svelte';
 	import CheckboxGroup from '@cp/Inputs/CheckboxGroup.svelte';
+	import Navbar from '@cp/Navbar.svelte';
+	import { fade } from 'svelte/transition';
 
 	let dialog: Dialog;
 
@@ -47,7 +49,7 @@
 	let password = '';
 
 	let open = false;
-	let new_open = false;
+	let openNavbar = false;
 
 	let openNotifications = false;
 </script>
@@ -184,22 +186,21 @@
 		>
 	</div>
 
-	<div
-		class="flex flex-col lg:flex-row h-screen justify-around items-center bg-background-reverse snap-start relative"
-	>
+	<div class="flex flex-col h-screen bg-background-reverse snap-start relative">
 		<Header
 			bind:openNotifications
+			container
 			items={[
-				{ id: 0, text: $LL.DropDown.ViewProfile(), href: '#', icon: ViewProfile },
-				{ id: 1, text: $LL.DropDown.Settings(), href: '#', icon: Settings, lineBelow: true },
-				{ id: 2, text: $LL.DropDown.Team(), href: '#', icon: Team },
-				{ id: 3, text: $LL.DropDown.InviteColleagues(), href: '#', icon: InviteColleagues },
-				{ id: 4, text: $LL.DropDown.Help(), href: '#', icon: Help, lineBelow: true },
-				{ id: 5, text: $LL.DropDown.SignOut(), href: '#', icon: SignOut }
+				{ id: '0', text: $LL.DropDown.ViewProfile(), href: '#', icon: ViewProfile },
+				{ id: '1', text: $LL.DropDown.Settings(), href: '#', icon: Settings, lineBelow: true },
+				{ id: '2', text: $LL.DropDown.Team(), href: '#', icon: Team },
+				{ id: '3', text: $LL.DropDown.InviteColleagues(), href: '#', icon: InviteColleagues },
+				{ id: '4', text: $LL.DropDown.Help(), href: '#', icon: Help, lineBelow: true },
+				{ id: '5', text: $LL.DropDown.SignOut(), href: '#', icon: SignOut }
 			]}
 			notifItems={[
 				{
-					id: 0,
+					id: '0',
 					text: $LL.Notification.RepliedOn({
 						someone: 'James Charles',
 						what: `<span class="!text-blue-500 group-data-[read=true]:!text-blue-400 hover:underline" href=${'#'}>${$LL.Notification.YourImage()}</span>`,
@@ -211,7 +212,7 @@
 					read: true
 				},
 				{
-					id: 1,
+					id: '1',
 					text: $LL.Notification.LikedOn({
 						someone: 'John Jason',
 						what: `<span class="!text-blue-500 group-data-[read=true]:!text-blue-400 hover:underline" href=${'#'}>${$LL.Notification.YourPost()}</span>`,
@@ -222,7 +223,7 @@
 					read: true
 				},
 				{
-					id: 2,
+					id: '2',
 					text: $LL.Notification.Followed({
 						someone: 'Kevin Stacy',
 						ago: '3' + $LL.Notification.Hour()
@@ -232,7 +233,7 @@
 						'https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'
 				},
 				{
-					id: 3,
+					id: '3',
 					text: $LL.Notification.Followed({
 						someone: 'Jasmin Just',
 						ago: '12' + $LL.Notification.Min()
@@ -242,7 +243,7 @@
 						'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=398&q=80'
 				},
 				{
-					id: 4,
+					id: '4',
 					text: $LL.Notification.RepliedOn({
 						someone: 'James Charles',
 						what: `<span class="!text-blue-500 group-data-[read=true]:!text-blue-400 hover:underline" href=${'#'}>${$LL.Notification.YourImage()}</span>`,
@@ -254,7 +255,7 @@
 					read: true
 				},
 				{
-					id: 5,
+					id: '5',
 					text: $LL.Notification.LikedOn({
 						someone: 'John Jason',
 						what: `<span class="!text-blue-500 group-data-[read=true]:!text-blue-400 hover:underline" href=${'#'}>${$LL.Notification.YourPost()}</span>`,
@@ -265,7 +266,7 @@
 					read: true
 				},
 				{
-					id: 6,
+					id: '6',
 					text: $LL.Notification.Followed({
 						someone: 'Kevin Stacy',
 						ago: '3' + $LL.Notification.Hour()
@@ -275,7 +276,7 @@
 						'https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'
 				},
 				{
-					id: 7,
+					id: '7',
 					text: $LL.Notification.Followed({
 						someone: 'Jasmin Just',
 						ago: '12' + $LL.Notification.Min()
@@ -285,7 +286,7 @@
 						'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=398&q=80'
 				},
 				{
-					id: 8,
+					id: '8',
 					text: $LL.Notification.RepliedOn({
 						someone: 'James Charles',
 						what: `<span class="!text-blue-500 group-data-[read=true]:!text-blue-400 hover:underline" href=${'#'}>${$LL.Notification.YourImage()}</span>`,
@@ -297,7 +298,7 @@
 					read: true
 				},
 				{
-					id: 9,
+					id: '9',
 					text: $LL.Notification.LikedOn({
 						someone: 'John Jason',
 						what: `<span class="!text-blue-500 group-data-[read=true]:!text-blue-400 hover:underline" href=${'#'}>${$LL.Notification.YourPost()}</span>`,
@@ -308,7 +309,7 @@
 					read: true
 				},
 				{
-					id: 10,
+					id: '10',
 					text: $LL.Notification.Followed({
 						someone: 'Kevin Stacy',
 						ago: '3' + $LL.Notification.Hour()
@@ -318,7 +319,7 @@
 						'https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'
 				},
 				{
-					id: 11,
+					id: '11',
 					text: $LL.Notification.Followed({
 						someone: 'Jasmin Just',
 						ago: '12' + $LL.Notification.Min()
@@ -328,7 +329,7 @@
 						'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=398&q=80'
 				},
 				{
-					id: 12,
+					id: '12',
 					text: $LL.Notification.RepliedOn({
 						someone: 'James Charles',
 						what: `<span class="!text-blue-500 group-data-[read=true]:!text-blue-400 hover:underline" href=${'#'}>${$LL.Notification.YourImage()}</span>`,
@@ -340,7 +341,7 @@
 					read: true
 				},
 				{
-					id: 13,
+					id: '13',
 					text: $LL.Notification.LikedOn({
 						someone: 'John Jason',
 						what: `<span class="!text-blue-500 group-data-[read=true]:!text-blue-400 hover:underline" href=${'#'}>${$LL.Notification.YourPost()}</span>`,
@@ -351,7 +352,7 @@
 					read: true
 				},
 				{
-					id: 14,
+					id: '14',
 					text: $LL.Notification.Followed({
 						someone: 'Kevin Stacy',
 						ago: '3' + $LL.Notification.Hour()
@@ -361,7 +362,7 @@
 						'https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'
 				},
 				{
-					id: 15,
+					id: '15',
 					text: $LL.Notification.Followed({
 						someone: 'Jasmin Just',
 						ago: '12' + $LL.Notification.Min()
@@ -377,7 +378,7 @@
 				</h3>
 			</svelte:fragment></Header
 		>
-		<div class="h-full w-full container lg:pt-[76px] sm:pt-[60px] pt-[53px]">
+		<div class="container flex-grow mx-auto">
 			<div class="h-full relative px-5 pt-5">
 				<DropdownMenu
 					id="0"
@@ -401,7 +402,6 @@
 				>
 					<Button
 						on:click={() => (open = !open)}
-						data={{ 'data-ignore-click-outside': 0 }}
 						class="group bg-white dark:bg-gray-800 !shadow-lg"
 						color="none"
 						><span class="mx-1">{$LL.DropDown.Name()}</span>
@@ -432,6 +432,7 @@
 						{ id: 5, content: $LL.MultiSelect.SixthItem(), value: 'Whatever' }
 					]}
 					limit={2}
+					single
 				/>
 			</div>
 		</div>
@@ -603,8 +604,49 @@
 				class="max-w-[500px] w-full px-3"
 				name="options"
 				color="secondary"
-				type="simple"
+				type="cardRow"
 			/>
 		</div>
+	</div>
+
+	<div
+		class="flex flex-col h-screen justify-center items-center bg-background-reverse snap-start relative"
+	>
+		<Button
+			data={{ 'data-open': openNavbar }}
+			class="group !shadow-none"
+			color="none"
+			on:click={() => (openNavbar = !openNavbar)}
+		>
+			{#if !openNavbar}
+				<svg
+					transition:fade
+					xmlns="http://www.w3.org/2000/svg"
+					class="w-6 h-6 group-data-[open=true]:hidden"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+					stroke-width="2"
+				>
+					<path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
+				</svg>
+			{:else}
+				<svg
+					transition:fade
+					xmlns="http://www.w3.org/2000/svg"
+					class="w-6 h-6 group-data-[open=false]:hidden"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+					stroke-width="2"
+				>
+					<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+				</svg>
+			{/if}
+		</Button>
+		<Navbar
+			open={openNavbar}
+			items={[{ id: '0', component: Input, props: { id: '0', label: 'shut it' } }]}
+		></Navbar>
 	</div>
 </div>

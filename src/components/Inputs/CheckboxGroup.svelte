@@ -55,7 +55,7 @@
 						id={item.id}
 						name={item.name}
 						{hideInput}
-						class="mt-[2px]"
+						class={`${type === 'cardStack' && 'mt-[2px]'}`}
 						checked={selectedItems.findIndex((v) => v.id === item.id) !== -1}
 						type="checkbox"
 					/>

@@ -45,7 +45,7 @@
 					id={item.id}
 					{name}
 					{hideInput}
-					class="mt-[2px]"
+					class={`${type === 'cardStack' && 'mt-[2px]'}`}
 					checked={selectedItem === item}
 					type="radio"
 				/>

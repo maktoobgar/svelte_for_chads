@@ -1,4 +1,5 @@
 import type { Language } from '@stores/i18n';
+import type customObject from '@/types/general/my_object';
 import { writable } from 'svelte/store';
 
 export const oneTime = (run: Function | null) => {
@@ -65,6 +66,10 @@ export function clickOutside(node: HTMLElement | null) {
 	};
 }
 
+export function none(node: HTMLElement | null) {
+	return { destroy() {} };
+}
+
 export function DateFormatter(date: any, language: Language) {
 	let options: Intl.DateTimeFormatOptions;
 	let locals: string;
@@ -92,4 +97,10 @@ export function uidGenerator() {
 		return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
 	};
 	return S4() + S4() + '-' + S4() + '-' + S4() + '-' + S4() + '-' + S4() + S4() + S4();
+}
+
+export function objToObjCopy(target: customObject, source: customObject) {
+	Object.keys(target).forEach((key: string) => {
+		if (key in source) target[key] = source[key];
+	});
 }

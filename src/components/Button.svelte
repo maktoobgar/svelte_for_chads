@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { none } from '@utils/general';
 	import { createEventDispatcher } from 'svelte';
 	import { ripple } from 'svelte-ripple-action';
 
@@ -12,21 +13,27 @@
 	export let as: 'button' | 'a' = 'button';
 	export let href: string = '';
 	export let disabled: boolean = false;
+	export let rippleOff: boolean = false;
+
+	const commonClasses =
+		'shadow-custom dark:shadow-custom-dark rounded-[8px] px-5 py-3 flex items-center justify-center select-none capitalize';
+
+	$: rippleOrNoRipple = rippleOff ? none : ripple;
 
 	$: colorClasses =
 		color === 'green'
-			? 'bg-green-300 hover:bg-green-500 dark:bg-green-900 dark:hover:bg-green-700'
+			? 'text-white bg-green-600 hover:bg-green-700 dark:bg-green-900 dark:hover:bg-green-700 disabled:bg-gray-300 dark:disabled:bg-gray-700'
 			: color === 'red'
-				? 'bg-red-300 hover:bg-red-500 dark:bg-red-900 dark:hover:bg-red-700'
+				? 'text-white bg-red-600 hover:bg-red-700 dark:bg-red-900 dark:hover:bg-red-700 disabled:bg-gray-300 dark:disabled:bg-gray-700'
 				: color === 'cyan'
-					? 'bg-cyan-300 hover:bg-cyan-500 dark:bg-cyan-900 dark:hover:bg-cyan-700'
+					? 'text-white bg-cyan-600 hover:bg-cyan-700 dark:bg-cyan-900 dark:hover:bg-cyan-700 disabled:bg-gray-300 dark:disabled:bg-gray-700'
 					: color === 'secondary'
-						? 'bg-secondary-300 hover:bg-secondary-500 dark:bg-secondary-900 dark:hover:bg-secondary-700'
+						? 'text-white bg-secondary-600 hover:bg-secondary-700 dark:bg-secondary-900 dark:hover:bg-secondary-700 disabled:bg-gray-300 dark:disabled:bg-gray-700'
 						: color === 'primary'
-							? 'bg-primary-300 hover:bg-primary-500 dark:bg-primary-900 dark:hover:bg-primary-700'
+							? 'text-white bg-primary-500 hover:bg-primary-600 dark:bg-primary-500 dark:hover:bg-primary-400 disabled:bg-gray-300 dark:disabled:bg-gray-700'
 							: color === 'none'
 								? ''
-								: 'bg-glass-5 hover:bg-glass-20 dark:bg-white-glass-10 dark:hover:bg-white-glass-30';
+								: 'text-black-600 dark:text-white bg-glass-5 hover:bg-glass-20 dark:bg-white-glass-10 dark:hover:bg-white-glass-30 disabled:bg-gray-300 dark:disabled:bg-gray-700';
 </script>
 
 {#if as === 'button'}
@@ -34,16 +41,20 @@
 		{type}
 		{...data}
 		{disabled}
-		class={`shadow-custom dark:shadow-custom-dark rounded-[8px] px-5 py-3 flex items-center justify-center ${colorClasses} ${className}`}
+		class="{commonClasses} {colorClasses} {className}"
 		on:click={() => dispatch('click')}
-		use:ripple><slot /></button
+		use:rippleOrNoRipple
 	>
+		<slot />
+	</button>
 {:else}
 	<a
 		{href}
 		{...data}
-		class={`shadow-custom dark:shadow-custom-dark rounded-[8px] px-5 py-3 flex items-center justify-center cursor-pointer select-none ${colorClasses} ${className}`}
+		class="{commonClasses} {colorClasses} {className}"
 		on:click={() => dispatch('click')}
-		use:ripple><slot /></a
+		use:rippleOrNoRipple
 	>
+		<slot />
+	</a>
 {/if}

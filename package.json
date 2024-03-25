@@ -46,6 +46,7 @@
 		"svelte-french-toast": "^1.2.0",
 		"svelte-watch-resize": "^1.0.3",
 		"sveltekit-i18n": "^2.4.2",
-		"typesafe-i18n": "^5.26.2"
+		"typesafe-i18n": "^5.26.2",
+		"vite-plugin-mkcert": "^1.17.5"
 	}
 }

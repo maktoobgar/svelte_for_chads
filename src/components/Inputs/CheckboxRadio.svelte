@@ -14,7 +14,10 @@
 	export { className as class };
 </script>
 
-<label class={`flex items-center space-x-3 cursor-pointer ${className}`} for={id}>
+<label
+	class={`flex items-center space-x-3 rtl:space-x-reverse cursor-pointer ${className}`}
+	for={id}
+>
 	{#if !hideInput}
 		<div
 			data-checked={checked}
