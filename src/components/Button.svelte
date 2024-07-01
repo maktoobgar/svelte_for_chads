@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { none } from '@utils/general';
-	import { createEventDispatcher } from 'svelte';
+	import { type ComponentType, createEventDispatcher, onMount } from 'svelte';
 	import { ripple } from 'svelte-ripple-action';
 
 	const dispatch = createEventDispatcher();
@@ -9,16 +9,30 @@
 	export { className as class };
 	export let data: Object = {};
 	export let type: 'submit' | 'button' = 'button';
-	export let color: 'green' | 'red' | 'cyan' | 'primary' | 'secondary' | 'none' | '' = '';
+	export let color: 'green' | 'red' | 'cyan' | 'primary' | 'secondary' | 'white' | 'none' | '' = '';
 	export let as: 'button' | 'a' = 'button';
 	export let href: string = '';
+	export let icon: ComponentType | null = null;
+	export let rightIcon: boolean = false;
+	export let rightGlass: boolean = false;
 	export let disabled: boolean = false;
 	export let rippleOff: boolean = false;
+	export let noIcon: boolean = false;
+	export let noGlass: boolean = false;
+	export let noAnimation: boolean = false;
+	export let iconClassName: string = '';
 
-	const commonClasses =
-		'shadow-custom dark:shadow-custom-dark rounded-[8px] px-5 py-3 flex items-center justify-center select-none capitalize';
+	let mousedown: boolean | null = null;
 
-	$: rippleOrNoRipple = rippleOff ? none : ripple;
+	$: rippleOrNoRipple = rippleOff || disabled ? none : ripple;
+
+	onMount(() => {
+		document.addEventListener('mouseup', () => (mousedown = mousedown ? false : null), true);
+	});
+
+	const staticIconClassName = `absolute ${rightIcon ? 'right-3' : 'left-3'} top-1/2 -translate-y-1/2 size-6 fill-white`;
+
+	$: defaultClassName = `whitespace-nowrap group w-full font-semibold text-sm shadow-custom dark:shadow-custom-dark rounded-2xl px-5 py-3 flex items-center justify-center select-none capitalize overflow-hidden relative transition-[background-color] ${noAnimation ? '' : 'data-[mousedown=true]:animate-button-down data-[mousedown=false]:animate-click'}`;
 
 	$: colorClasses =
 		color === 'green'
@@ -31,9 +45,11 @@
 						? 'text-white bg-secondary-600 hover:bg-secondary-700 dark:bg-secondary-900 dark:hover:bg-secondary-700 disabled:bg-gray-300 dark:disabled:bg-gray-700'
 						: color === 'primary'
 							? 'text-white bg-primary-500 hover:bg-primary-600 dark:bg-primary-500 dark:hover:bg-primary-400 disabled:bg-gray-300 dark:disabled:bg-gray-700'
-							: color === 'none'
-								? ''
-								: 'text-black-600 dark:text-white bg-glass-5 hover:bg-glass-20 dark:bg-white-glass-10 dark:hover:bg-white-glass-30 disabled:bg-gray-300 dark:disabled:bg-gray-700';
+							: color === 'white'
+								? 'text-black-800 bg-black-20 hover:bg-primary-300 dark:bg-black-20 dark:hover:bg-primary-300 disabled:bg-gray-300 dark:disabled:bg-gray-700'
+								: color === 'none'
+									? ''
+									: 'text-black-600 dark:text-white bg-glass-5 hover:bg-glass-20 dark:bg-white-glass-10 dark:hover:bg-white-glass-30 disabled:bg-gray-300 dark:disabled:bg-gray-700';
 </script>
 
 {#if as === 'button'}
@@ -41,20 +57,58 @@
 		{type}
 		{...data}
 		{disabled}
-		class="{commonClasses} {colorClasses} {className}"
-		on:click={() => dispatch('click')}
+		class="{defaultClassName} {colorClasses} {className}"
+		data-mousedown={mousedown}
+		on:mousedown={() => (mousedown = true)}
+		on:mouseup={() => (mousedown = false)}
+		on:click|stopPropagation={() => dispatch('click')}
 		use:rippleOrNoRipple
 	>
+		{#if !noGlass}
+			<div
+				class="absolute -inset-y-[30px] bg-white-glass-20 rotate-12 {rightGlass
+					? '-right-[10px] left-3/4'
+					: '-left-[10px] right-3/4'}"
+			/>
+		{/if}
 		<slot />
+		{#if !noIcon}
+			{#if icon}
+				<svelte:component this={icon} class="{staticIconClassName} {iconClassName}" />
+			{:else}
+				<svg class="{staticIconClassName} {iconClassName}" viewBox="0 0 24 24">
+					<path
+						d="M19 11H7.83l4.88-4.88c.39-.39.39-1.03 0-1.42a.9959.9959 0 0 0-1.41 0l-6.59 6.59c-.39.39-.39 1.02 0 1.41l6.59 6.59c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L7.83 13H19c.55 0 1-.45 1-1s-.45-1-1-1z"
+					/>
+				</svg>
+			{/if}
+		{/if}
 	</button>
 {:else}
 	<a
 		{href}
 		{...data}
-		class="{commonClasses} {colorClasses} {className}"
+		class="{defaultClassName} {colorClasses} {className}"
+		data-mousedown={mousedown}
+		on:mousedown={() => (mousedown = true)}
+		on:mouseup={() => (mousedown = false)}
 		on:click={() => dispatch('click')}
 		use:rippleOrNoRipple
 	>
+		{#if !noGlass}
+			<div class="absolute -inset-y-[30px] -left-[10px] right-3/4 bg-white-glass-20 rotate-12" />
+		{/if}
 		<slot />
+		{#if !noIcon}
+			{#if icon}
+				<svelte:component this={icon} class="{staticIconClassName} {iconClassName}" />
+			{:else}
+				<svg class="{staticIconClassName} {iconClassName}" viewBox="0 0 24 24">
+					<path
+						d="M19 11H7.83l4.88-4.88c.39-.39.39-1.03 0-1.42a.9959.9959 0 0 0-1.41 0l-6.59 6.59c-.39.39-.39 1.02 0 1.41l6.59 6.59c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L7.83 13H19c.55 0 1-.45 1-1s-.45-1-1-1z"
+					/>
+				</svg>
+			{/if}
+		{/if}
 	</a>
 {/if}

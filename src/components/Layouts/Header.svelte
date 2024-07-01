@@ -58,18 +58,21 @@
 					>
 						<!-- Items -->
 						<div
-							class="flex flex-col -mx-6 lg:flex-row lg:items-center lg:mx-8 lg:space-x-2 lg:rtl:space-x-reverse"
+							class="flex flex-col justify-start -mx-6 lg:flex-row lg:items-center lg:mx-8 lg:space-x-2 lg:rtl:space-x-reverse"
 						>
 							{#each items as item (item.id)}
 								<Button
 									as={item.click ? 'button' : 'a'}
-									color="none"
 									href={item.href}
 									on:click={() => {
 										open = false;
 										item.click && item.click();
 									}}
-									class="bg-white dark:bg-gray-800 !shadow-none justify-center lgMax:rounded-none lgMax:justify-start !p-3 capitalize text-sm hover:bg-gray-100 dark:hover:bg-gray-700 fill-black-700 dark:fill-white"
+									class="bg-white dark:bg-gray-800 !shadow-none justify-center lgMax:rounded-none lgMax:justify-start !p-3 capitalize text-sm hover:bg-gray-100 dark:hover:bg-gray-700 fill-black-700 dark:fill-white lg:!w-fit"
+									color="none"
+									noAnimation
+									noGlass
+									noIcon
 								>
 									<div class="min-w-5 min-h-5 mx-1 lg:hidden">
 										<svelte:component this={item.icon} />
@@ -99,8 +102,10 @@
 						>
 							<Button
 								class="mx-4 text-gray-600 transition-colors duration-300 transform !p-0 !size-8 dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none !rounded-full !shadow-none"
-								color="none"
 								on:click={() => (openNotifications = !openNotifications)}
+								color="none"
+								noIcon
+								noGlass
 							>
 								<svg class="w-6 h-6" viewBox="0 0 24 24" fill="none">
 									<path
@@ -121,6 +126,8 @@
 							href={profile}
 							class="flex items-center focus:outline-none lgMax:hidden !rounded-full !p-0 !shadow-none"
 							color="none"
+							noIcon
+							noGlass
 						>
 							<div class="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
 								<img

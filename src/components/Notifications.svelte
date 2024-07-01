@@ -15,14 +15,14 @@
 	}
 
 	let className = '';
-	export let id: string;
+	export { className as class };
+	export let id: string = '';
 	export let openReverse = false;
 	export let open = false;
 	export let items: Item[] = [];
 	export let distanceMenu: string = '8';
 	export let transition: 'fly' | 'scale' = 'scale';
 	export let notificationsHref: string = '';
-	export { className as class };
 
 	let width = 0;
 	let openClasses = openReverse ? 'rtl:left-0 ltr:right-0' : 'ltr:left-0 rtl:right-0';
@@ -54,7 +54,7 @@
 				style={`margin-top: ${distanceMenu}px`}
 				data-open={open}
 				data-open-reverse={openReverse}
-				class={`flex flex-col sm:absolute sm:top-0 sm:w-[300px] sm:rounded-md fixed smMax:bottom-0 smMax:inset-0 smMax:!mt-0 z-[1000] overflow-hidden bg-white dark:bg-gray-800 shadow-custom ltr:origin-top-left rtl:origin-top-right ltr:data-[open-reverse=true]:origin-top-right rtl:data-[open-reverse=true]:origin-top-left ${openClasses}`}
+				class={`flex flex-col sm:absolute sm:top-0 sm:w-[300px] sm:rounded-md fixed smMax:bottom-0 smMax:inset-0 smMax:!mt-0 z-[1000] overflow-hidden bg-white dark:bg-gray-800 shadow-custom ltr:origin-top-left rtl:origin-top-right ltr:data-[open-reverse=true]:origin-top-right rtl:data-[open-reverse=true]:origin-top-left sm:rounded-b-xl ${openClasses}`}
 			>
 				<div class="flex items-center justify-between my-5 mx-5 sm:hidden">
 					<h3>{$LL.Notification.Notifications()}</h3>
@@ -76,10 +76,12 @@
 					{#each items as item (item.id)}
 						<Button
 							as="a"
-							color="none"
 							href={item.href}
 							data={{ 'data-read': item.read }}
-							class="group bg-white dark:bg-gray-800 !shadow-none w-full !justify-start !rounded-none !p-3 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 data-[read=true]:!bg-gray-200 data-[read=true]:hover:!bg-gray-100 data-[read=true]:dark:!bg-gray-900 data-[read=true]:dark:hover:!bg-gray-700"
+							class="!whitespace-normal group bg-white dark:bg-gray-800 !shadow-none w-full !justify-start !rounded-none !p-3 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 data-[read=true]:!bg-gray-200 data-[read=true]:hover:!bg-gray-100 data-[read=true]:dark:!bg-gray-900 data-[read=true]:dark:hover:!bg-gray-700"
+							color="none"
+							noIcon
+							noGlass
 						>
 							<img
 								class="flex-shrink-0 object-cover w-8 h-8 mx-1 rounded-full"
@@ -101,8 +103,13 @@
 					as="a"
 					href={notificationsHref}
 					class="py-2 mt-2 font-bold rounded-t-none w-full smMax:rounded-b-none"
-					>See all notifications</Button
+					color="none"
+					noAnimation
+					noGlass
+					noIcon
 				>
+					See all notifications
+				</Button>
 			</div>
 		{/if}
 	</div>

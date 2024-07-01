@@ -9,6 +9,9 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
+		prerender: {
+			entries: ['*']
+		},
 		// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
 		// If your environment is not supported or you settled on a specific environment, switch out the adapter.
 		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
@@ -19,6 +22,8 @@ const config = {
 			assets: 'build',
 			fallback: undefined,
 			precompress: false,
+			// @sveltejs/adapter-static: all routes must be fully prerenderable, but found the following routes that are dynamic
+			// I made it false to continue and it didn't compile the page at all
 			strict: true
 		}),
 

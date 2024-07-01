@@ -1,4 +1,5 @@
 @import './fonts.css';
+@import './map.css';
 
 /* This makes the default configs of html disappear */
 @tailwind base;
@@ -8,17 +9,33 @@
 @tailwind utilities;
 
 * {
-	transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+	/* transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-	transition-duration: 400ms;
+	transition-duration: 400ms; */
 	@apply text-black-700;
 }
 
 html {
-	@apply font-normal;
+	@apply font-light;
 	@apply text-sm sm:text-base;
 	/* Hide scrollbars on every other browsers */
 	/* scrollbar-width: none; */
+}
+
+label {
+	@apply text-base !text-gray-700 dark:!text-gray-200 font-medium select-none capitalize;
+}
+
+a,
+a:link {
+	color: inherit;
+	text-decoration: none;
+}
+
+a:visited,
+a:hover,
+a:active {
+	color: inherit;
 }
 
 :is(.dark) {
@@ -123,10 +140,6 @@ h6 {
 	@apply font-bold text-lg capitalize;
 }
 
-label {
-	@apply text-xs md:text-sm;
-}
-
 @layer utilities {
 	/* Removes Scroll */
 	.scroll-none {
@@ -142,4 +155,19 @@ label {
 	.ltr {
 		direction: ltr;
 	}
+}
+
+/* Cropper */
+
+.cropper-bg {
+	@apply backdrop-blur-md;
+	background-image: none !important;
+}
+
+.scrim {
+	z-index: 1000 !important;
+}
+
+.tooltip {
+	z-index: 1000 !important;
 }

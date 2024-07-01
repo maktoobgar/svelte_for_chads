@@ -10,7 +10,7 @@
 	on:click={() => setLanguage($language === 'en' ? 'fa' : 'en')}
 >
 	<svg
-		class="fill-secondary-800 dark:fill-white"
+		class="fill-primary-500 dark:fill-white"
 		xmlns="http://www.w3.org/2000/svg"
 		width="24"
 		height="24"

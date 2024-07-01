@@ -2,7 +2,7 @@
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 	import Table from '@cp/Table/Table.svelte';
-	import get_list from '@/calls/get_list';
+	import get_list_pagination from '@/calls/get_list_pagination';
 	import type ColumnItem from '@/types/table/column_item';
 	import type Sort from '@/types/table/sort';
 	import type Item from '@/types/table/item';
@@ -108,7 +108,7 @@
 	let perPage: number = 5;
 
 	$: internalUrl = generateUrl(pageNumber, perPage, sort, text, activeFilterItem);
-	$: res = get_list<T>(internalUrl, name, tConstructor);
+	$: res = get_list_pagination<T>(internalUrl, name, tConstructor);
 	$: allPages = $res && $res.status === 'success' ? $res.data?.pages || 1 : 1;
 	$: items =
 		$res && $res.status === 'success' && $res.data?.data

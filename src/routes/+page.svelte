@@ -32,6 +32,7 @@
 	import CheckboxGroup from '@cp/Inputs/CheckboxGroup.svelte';
 	import Navbar from '@cp/Navbar.svelte';
 	import { fade } from 'svelte/transition';
+	import Option from '@/types/option';
 
 	let dialog: Dialog;
 
@@ -62,14 +63,13 @@
 		<div
 			class="absolute flex flex-col justify-between left-0 bottom-0 p-3 sm:h-[200px] h-[160px] ltr"
 		>
-			<Button color="green" on:click={successFn}>{$LL.SuccessMsg()}</Button>
-			<Button color="red" on:click={errorFn}>{$LL.ErrorMsg()}</Button>
-			<Button color="cyan" on:click={infoFn}>{$LL.InfoMsg()}</Button>
+			<Button color="green" on:click={successFn} noIcon>{$LL.SuccessMsg()}</Button>
+			<Button color="red" on:click={errorFn} noIcon>{$LL.ErrorMsg()}</Button>
+			<Button color="cyan" on:click={infoFn} noIcon>{$LL.InfoMsg()}</Button>
 		</div>
 		<Dialog
-			isForm={true}
 			contentClass="w-[300px] sm:w-[350px] h-[400px] sm:h-[450px] flex flex-col justify-between"
-			submit={() => {
+			on:submit={() => {
 				dialog.close();
 				username && success($LL.LoggedIn({ username }));
 			}}
@@ -103,7 +103,7 @@
 			</div>
 		</Dialog>
 		<div class="absolute right-0 bottom-0 p-3">
-			<Button on:click={() => dialog.open()}>{$LL.ShowPopup()}</Button>
+			<Button on:click={() => dialog.open()} noIcon>{$LL.ShowPopup()}</Button>
 		</div>
 		<div class="relative lg:w-[512px] sm:w-[384px] w-[256px] lg:h-[512px] sm:h-[384px] h-[256px]">
 			<TypeWriter
@@ -128,12 +128,16 @@
 				class="lg:w-[512px] sm:w-[384px] w-[256px] absolute left-1/2 -bottom-14 -translate-x-1/2 flex justify-between ltr"
 			>
 				<Button
-					class="flex justify-center items-center w-[60px] h-[50px] fill-glass-70 dark:fill-black-20"
+					class="flex justify-center items-center w-[60px] h-[50px] fill-glass-70 dark:fill-black-20 !shadow-none"
 					on:click={() =>
 						click(() => {
 							where = where <= 1 ? 3 : where - 1;
 							run();
 						})}
+					color="none"
+					noIcon
+					noGlass
+					rippleOff
 					><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 512 512"
 						><path
 							d="M459.5 440.6c9.5 7.9 22.8 9.7 34.1 4.4s18.4-16.6 18.4-29V96c0-12.4-7.2-23.7-18.4-29s-24.5-3.6-34.1 4.4L288 214.3V256v41.7L459.5 440.6zM256 352V256 128 96c0-12.4-7.2-23.7-18.4-29s-24.5-3.6-34.1 4.4l-192 160C4.2 237.5 0 246.5 0 256s4.2 18.5 11.5 24.6l192 160c9.5 7.9 22.8 9.7 34.1 4.4s18.4-16.6 18.4-29V352z"
@@ -141,12 +145,16 @@
 					></Button
 				>
 				<Button
-					class="flex justify-center items-center w-[60px] h-[50px] fill-glass-70 dark:fill-black-20"
+					class="flex justify-center items-center w-[60px] h-[50px] fill-glass-70 dark:fill-black-20 !shadow-none"
 					on:click={() =>
 						click(() => {
 							where = where >= 3 ? 1 : where + 1;
 							run();
 						})}
+					color="none"
+					noIcon
+					noGlass
+					rippleOff
 					><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 512 512"
 						><path
 							d="M52.5 440.6c-9.5 7.9-22.8 9.7-34.1 4.4S0 428.4 0 416V96C0 83.6 7.2 72.3 18.4 67s24.5-3.6 34.1 4.4L224 214.3V256v41.7L52.5 440.6zM256 352V256 128 96c0-12.4 7.2-23.7 18.4-29s24.5-3.6 34.1 4.4l192 160c7.3 6.1 11.5 15.1 11.5 24.6s-4.2 18.5-11.5 24.6l-192 160c-9.5 7.9-22.8 9.7-34.1 4.4s-18.4-16.6-18.4-29V352z"
@@ -392,18 +400,20 @@
 						imgSrc: 'https://i.pinimg.com/originals/25/bd/8b/25bd8b7f6e57cdfd17747b25d753b2ce.jpg'
 					}}
 					items={[
-						{ id: 0, text: $LL.DropDown.ViewProfile(), href: '#', icon: ViewProfile },
-						{ id: 1, text: $LL.DropDown.Settings(), href: '#', icon: Settings, lineBelow: true },
-						{ id: 2, text: $LL.DropDown.Team(), href: '#', icon: Team },
-						{ id: 3, text: $LL.DropDown.InviteColleagues(), href: '#', icon: InviteColleagues },
-						{ id: 4, text: $LL.DropDown.Help(), href: '#', icon: Help, lineBelow: true },
-						{ id: 5, text: $LL.DropDown.SignOut(), href: '#', icon: SignOut }
+						{ id: '0', text: $LL.DropDown.ViewProfile(), href: '#', icon: ViewProfile },
+						{ id: '1', text: $LL.DropDown.Settings(), href: '#', icon: Settings, lineBelow: true },
+						{ id: '2', text: $LL.DropDown.Team(), href: '#', icon: Team },
+						{ id: '3', text: $LL.DropDown.InviteColleagues(), href: '#', icon: InviteColleagues },
+						{ id: '4', text: $LL.DropDown.Help(), href: '#', icon: Help, lineBelow: true },
+						{ id: '5', text: $LL.DropDown.SignOut(), href: '#', icon: SignOut }
 					]}
 				>
 					<Button
 						on:click={() => (open = !open)}
 						class="group bg-white dark:bg-gray-800 !shadow-lg"
 						color="none"
+						noIcon
+						noGlass
 						><span class="mx-1">{$LL.DropDown.Name()}</span>
 						<svg
 							data-open={open}
@@ -416,20 +426,20 @@
 								d="M12 15.713L18.01 9.70299L16.597 8.28799L12 12.888L7.40399 8.28799L5.98999 9.70199L12 15.713Z"
 								fill="currentColor"
 							></path>
-						</svg></Button
-					>
+						</svg>
+					</Button>
 				</DropdownMenu>
 				<MultiSelect
 					id="1"
 					label={$LL.MultiSelect.Label()}
 					placeholder={$LL.MultiSelect.AddItem()}
 					options={[
-						{ id: 0, content: $LL.MultiSelect.FirstItem(), value: 'Whatever' },
-						{ id: 1, content: $LL.MultiSelect.SecondItem(), value: 'Whatever' },
-						{ id: 2, content: $LL.MultiSelect.ThirdItem(), value: 'Whatever' },
-						{ id: 3, content: $LL.MultiSelect.ForthItem(), value: 'Whatever' },
-						{ id: 4, content: $LL.MultiSelect.FifthItem(), value: 'Whatever' },
-						{ id: 5, content: $LL.MultiSelect.SixthItem(), value: 'Whatever' }
+						new Option(0, $LL.MultiSelect.FirstItem(), 'Whatever'),
+						new Option(1, $LL.MultiSelect.SecondItem(), 'Whatever'),
+						new Option(2, $LL.MultiSelect.ThirdItem(), 'Whatever'),
+						new Option(3, $LL.MultiSelect.ForthItem(), 'Whatever'),
+						new Option(4, $LL.MultiSelect.FifthItem(), 'Whatever'),
+						new Option(5, $LL.MultiSelect.SixthItem(), 'Whatever')
 					]}
 					limit={2}
 					single
@@ -512,25 +522,25 @@
 			<RadioGroup
 				items={[
 					{
-						id: '0r',
+						id: 0,
 						title: $LL.RadioButton.Demo[0].Title(),
 						description: $LL.RadioButton.Demo[0].Description(),
 						value: null
 					},
 					{
-						id: '1r',
+						id: 1,
 						title: $LL.RadioButton.Demo[1].Title(),
 						description: $LL.RadioButton.Demo[1].Description(),
 						value: null
 					},
 					{
-						id: '2r',
+						id: 2,
 						title: $LL.RadioButton.Demo[2].Title(),
 						description: $LL.RadioButton.Demo[2].Description(),
 						value: null
 					},
 					{
-						id: '3r',
+						id: 3,
 						title: $LL.RadioButton.Demo[3].Title(),
 						description: $LL.RadioButton.Demo[3].Description(),
 						value: null
@@ -572,29 +582,25 @@
 			<CheckboxGroup
 				items={[
 					{
-						id: '0c',
-						name: 'First',
+						id: 0,
 						title: $LL.RadioButton.Demo[0].Title(),
 						description: $LL.RadioButton.Demo[0].Description(),
 						value: null
 					},
 					{
-						id: '1c',
-						name: 'Second',
+						id: 1,
 						title: $LL.RadioButton.Demo[1].Title(),
 						description: $LL.RadioButton.Demo[1].Description(),
 						value: null
 					},
 					{
-						id: '2c',
-						name: 'Third',
+						id: 2,
 						title: $LL.RadioButton.Demo[2].Title(),
 						description: $LL.RadioButton.Demo[2].Description(),
 						value: null
 					},
 					{
-						id: '3c',
-						name: 'Forth',
+						id: 3,
 						title: $LL.RadioButton.Demo[3].Title(),
 						description: $LL.RadioButton.Demo[3].Description(),
 						value: null
@@ -614,9 +620,12 @@
 	>
 		<Button
 			data={{ 'data-open': openNavbar }}
-			class="group !shadow-none"
-			color="none"
+			class="group !shadow-none !w-fit"
 			on:click={() => (openNavbar = !openNavbar)}
+			color="none"
+			noAnimation
+			noGlass
+			noIcon
 		>
 			{#if !openNavbar}
 				<svg

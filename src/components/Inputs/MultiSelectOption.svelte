@@ -22,6 +22,8 @@
 	<Button
 		class="size-[18px] !p-1 !rounded-md !shadow-none !bg-gray-200 hover:!bg-gray-300 dark:!bg-gray-600 !absolute ltr:right-[6px] rtl:left-[6px] top-1/2 -translate-y-1/2"
 		on:click={() => dispatch('click')}
+		noAnimation
+		noIcon
 	>
 		<svg class="dark:fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"
 			><path

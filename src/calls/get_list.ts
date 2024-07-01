@@ -1,7 +1,7 @@
 import { useQuery } from '@sveltestack/svelte-query';
 import axios, { returnMessage, sendError, sendOk, constHeaders } from './axios';
 import { AxiosError } from 'axios';
-import type ListResponse from '@/types/responses/list_response';
+import ErrorResponse from '@/types/responses/error_response';
 
 export default function <T>(
 	url: string,
@@ -10,7 +10,7 @@ export default function <T>(
 	enabled: boolean = true
 ) {
 	const axiosHeaders = constHeaders();
-	return useQuery<T, string, ListResponse<T> | null>(
+	return useQuery<T, string, T[] | null>(
 		'GetList' + name,
 		() =>
 			axios
@@ -18,13 +18,11 @@ export default function <T>(
 				.then((res) => {
 					sendOk(res);
 					if (t_constructor) {
-						const data = res.data.data.map((v: any) => new t_constructor(v));
-						res.data.data = data;
-						return res.data;
+						return res.data.map((v: any) => new t_constructor(v));
 					}
 					return res.data;
 				})
-				.catch((reason: AxiosError) => {
+				.catch((reason: AxiosError<ErrorResponse>) => {
 					sendError(reason.response);
 					throw returnMessage(reason.response);
 				}),

@@ -1,0 +1,12 @@
+version: '3.9'
+
+services:
+  frontend:
+    container_name: svelte for chads
+    image: nginx:alpine
+    restart: always
+    volumes:
+      - ./configs:/etc/nginx/conf.d
+      - ./build:/project
+    ports:
+      - 3333:80

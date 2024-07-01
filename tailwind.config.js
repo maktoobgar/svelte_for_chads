@@ -148,9 +148,18 @@ export default {
 					'0%': { opacity: 1 },
 					'100%': { opacity: 0 }
 				},
+				click: {
+					'0%': { transform: 'scale(.95)' },
+					'40%': { transform: 'scale(1.02)' },
+					'100%': { transform: 'scale(1)' }
+				},
 				'slide-in': {
 					'0%': { transform: 'translateY(30%)' },
 					'100%': { transform: 'translateY(0%)' }
+				},
+				'button-down': {
+					'0%': { transform: 'scale(1)' },
+					'100%': { transform: 'scale(0.95)' }
 				}
 			},
 			// Animations
@@ -158,7 +167,9 @@ export default {
 				'fade-in-and-slide': 'fade-in-and-slide 0.5s ease-out forwards',
 				'fade-in': 'fade-in 0.5s ease-out forwards',
 				'fade-out': 'fade-out 0.5s ease-out forwards',
-				'slide-in': 'slide-in 0.5s ease-out forwards'
+				'slide-in': 'slide-in 0.5s ease-out forwards',
+				click: 'click 0.25s ease-out forwards',
+				'button-down': 'button-down 0.15s ease-out forwards'
 			},
 			boxShadow: {
 				'inner-custom': 'inset 0 0 10px 0 rgba(0, 0, 0, 0.25)',

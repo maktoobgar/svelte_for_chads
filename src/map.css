@@ -1,0 +1,23 @@
+div.leaflet-bottom.leaflet-right {
+	display: none;
+}
+
+.leaflet-top {
+	z-index: auto !important;
+}
+
+.leaflet-bottom {
+	z-index: auto !important;
+}
+
+.leaflet-pane {
+	z-index: auto !important;
+}
+
+.leaflet-marker-icon:not(:hover) {
+	z-index: 1 !important;
+}
+
+.leaflet-marker-icon {
+	z-index: 1 !important;
+}

@@ -1,55 +1,51 @@
 <script lang="ts">
-	import type { EventHandler } from 'svelte/elements';
+	import { easeOut } from '@animations/easings';
+	import Close from '@icons/Close.svelte';
+	import { createEventDispatcher } from 'svelte';
+	import { fade, fly } from 'svelte/transition';
+	import Button from './Button.svelte';
+
+	const dispatch = createEventDispatcher();
 
 	let className: string = '';
-	let _open: boolean = false;
-	let closing: boolean = false;
 	export { className as class };
 	export let contentClass = '';
 	export let closeWhenClickBackground: boolean = true;
-	export let isForm: boolean = false;
-	export let submit: EventHandler<SubmitEvent, HTMLFormElement> | null = null;
-
-	let dialog: HTMLDivElement;
-
-	function modalClose(e: MouseEvent) {
-		if (e.target == dialog) {
-			close();
-		}
-	}
-
-	export function close() {
-		closing = true;
-		dialog.addEventListener(
-			'animationend',
-			() => {
-				_open = false;
-				closing = false;
-			},
-			{ once: true }
-		);
-	}
-
-	export function open() {
-		_open = true;
-	}
+	export let open: boolean = false;
+	export let fullscreenWhenSmall: boolean = false;
+	export let hideButtonWhenFullscreen: boolean = false;
+	export let as: string = 'form';
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
-<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
-<div
-	bind:this={dialog}
-	data-closing={closing}
-	data-open={_open}
-	on:click={closeWhenClickBackground ? modalClose : null}
-	class={`group fixed inset-0 flex justify-center items-center z-[1000] backdrop-blur-lg outline-none bg-glass-40 data-[closing=true]:pointer-events-none data-[open=false]:hidden data-[open=true]:data-[closing=false]:animate-fade-in data-[closing=true]:animate-fade-out ${className}`}
->
-	<svelte:element
-		this={isForm ? 'form' : 'div'}
-		on:submit={isForm ? submit : null}
-		class={`bg-background-reverse shadow-custom dark:shadow-custom-dark p-5 rounded-[8px] animate-slide-in ${contentClass}`}
+{#if open}
+	<div
+		transition:fade={{ duration: 300, easing: easeOut }}
+		on:click|stopPropagation={closeWhenClickBackground ? () => (open = false) : null}
+		class={`group fixed inset-0 flex justify-center items-center z-20 backdrop-blur-lg outline-none bg-glass-40 overflow-y-auto ${className}`}
 	>
-		<slot />
-	</svelte:element>
-</div>
+		<svelte:element
+			this={as}
+			transition:fly={{ duration: 300, y: 30, easing: easeOut }}
+			on:submit|stopPropagation|preventDefault={() => dispatch('submit')}
+			on:click|stopPropagation={() => {}}
+			class={`bg-background-reverse shadow-custom dark:shadow-custom-dark p-5 rounded-2xl ${fullscreenWhenSmall ? 'smMax:size-full smMax:rounded-none' : ''} ${contentClass}`}
+		>
+			<slot />
+			{#if fullscreenWhenSmall && !hideButtonWhenFullscreen}
+				<Button
+					class="!absolute left-3 top-3 !w-fit !p-1 sm:hidden"
+					on:click={() => (open = false)}
+					as="button"
+					color="none"
+					noIcon
+					noGlass
+					noAnimation
+				>
+					<Close class="fill-red-800 size-9" />
+				</Button>
+			{/if}
+		</svelte:element>
+	</div>
+{/if}
