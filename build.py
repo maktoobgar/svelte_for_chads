@@ -65,6 +65,10 @@ def main():
     # Install Requirements
     action(lambda: os.system("npm i"), "Install Requirements")
 
+    # Create Virtual Env If not Found
+    if not os.path.isfile(f".env"):
+        os.system("cp .env.example .env")
+
     # Build Process
     action(lambda: os.system("npm run build"), "Build Project")
 
