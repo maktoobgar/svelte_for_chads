@@ -63,14 +63,14 @@
 		<div
 			class="absolute flex flex-col justify-between left-0 bottom-0 p-3 sm:h-[200px] h-[160px] ltr"
 		>
-			<Button color="green" on:click={successFn} noIcon>{$LL.SuccessMsg()}</Button>
-			<Button color="red" on:click={errorFn} noIcon>{$LL.ErrorMsg()}</Button>
-			<Button color="cyan" on:click={infoFn} noIcon>{$LL.InfoMsg()}</Button>
+			<Button color="green" on:click={successFn}>{$LL.SuccessMsg()}</Button>
+			<Button color="red" on:click={errorFn}>{$LL.ErrorMsg()}</Button>
+			<Button color="cyan" on:click={infoFn}>{$LL.InfoMsg()}</Button>
 		</div>
 		<Dialog
 			contentClass="w-[300px] sm:w-[350px] h-[400px] sm:h-[450px] flex flex-col justify-between"
 			on:submit={() => {
-				dialog.close();
+				dialog.open = false;
 				username && success($LL.LoggedIn({ username }));
 			}}
 			bind:this={dialog}
@@ -96,14 +96,14 @@
 					color="primary"
 					class="flex-grow"
 					on:click={() => {
-						dialog.close();
+						dialog.open = false;
 					}}>{$LL.Cancel()}</Button
 				>
 				<Button color="green" class="flex-grow" type="submit">{$LL.Submit()}</Button>
 			</div>
 		</Dialog>
 		<div class="absolute right-0 bottom-0 p-3">
-			<Button on:click={() => dialog.open()} noIcon>{$LL.ShowPopup()}</Button>
+			<Button on:click={() => dialog.open = true}>{$LL.ShowPopup()}</Button>
 		</div>
 		<div class="relative lg:w-[512px] sm:w-[384px] w-[256px] lg:h-[512px] sm:h-[384px] h-[256px]">
 			<TypeWriter
@@ -135,7 +135,6 @@
 							run();
 						})}
 					color="none"
-					noIcon
 					noGlass
 					rippleOff
 					><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 512 512"
@@ -152,7 +151,6 @@
 							run();
 						})}
 					color="none"
-					noIcon
 					noGlass
 					rippleOff
 					><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 512 512"
@@ -412,7 +410,6 @@
 						on:click={() => (open = !open)}
 						class="group bg-white dark:bg-gray-800 !shadow-lg"
 						color="none"
-						noIcon
 						noGlass
 						><span class="mx-1">{$LL.DropDown.Name()}</span>
 						<svg
@@ -625,7 +622,6 @@
 			color="none"
 			noAnimation
 			noGlass
-			noIcon
 		>
 			{#if !openNavbar}
 				<svg

@@ -59,7 +59,6 @@
 						}}
 						color="none"
 						noGlass
-						noIcon
 					>
 						<CheckboxRadio
 							id={item.id.toString()}

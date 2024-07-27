@@ -3,9 +3,9 @@ import type { Translation } from '../i18n-types';
 const fa = {
 	NewProjectsNewTeam: 'پروژه های جدید، تیم جدید',
 
-	Chad1: 'نگاییدم',
-	Chad2: 'نساییدم',
-	Chad3: 'نمالیدم',
+	Chad1: 'راحت جمعش میکنی',
+	Chad2: 'حواستو جمع کن',
+	Chad3: 'گند نزنی!!',
 
 	Success: 'کارت درسته',
 	Error: 'ی مشکلی هست',

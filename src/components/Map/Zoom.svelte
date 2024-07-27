@@ -12,7 +12,6 @@
 		class="group !rounded-b-none !shadow-none !p-2"
 		color="white"
 		on:click={() => map && map?.zoomOut()}
-		noIcon
 		noGlass
 	>
 		<svg class="size-[24px] fill-gray-500 group-hover:fill-white" viewBox="0 0 24 24">
@@ -23,7 +22,6 @@
 		class="group !rounded-t-none !shadow-none !p-2 border-t-[1px]"
 		color="white"
 		on:click={() => map && map?.zoomIn()}
-		noIcon
 		noGlass
 	>
 		<svg class="size-[24px] fill-gray-500 group-hover:fill-white" viewBox="0 0 24 24">

@@ -69,7 +69,6 @@
 					class="flex items-center justify-center w-1/2 px-5 py-2 text-md tracking-wide text-white transition-colors duration-200 rounded-lg shrink-0 sm:w-auto gap-x-2 stroke-white"
 					color="green"
 					noGlass
-					noIcon
 				>
 					<svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-5 h-5">
 						<path
@@ -101,7 +100,6 @@
 					color="none"
 					noAnimation
 					noGlass
-					noIcon
 				>
 					{item.title}
 				</Button>
@@ -333,7 +331,6 @@
 				class="flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white rounded-md sm:w-auto gap-x-2 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-200 dark:hover:bg-gray-800"
 				color="none"
 				noGlass
-				noIcon
 			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -360,7 +357,6 @@
 				class="flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white rounded-md sm:w-auto gap-x-2 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-200 dark:hover:bg-gray-800"
 				color="none"
 				noGlass
-				noIcon
 			>
 				<span> {$LL.Table.Next()} </span>
 

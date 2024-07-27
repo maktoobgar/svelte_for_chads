@@ -164,7 +164,6 @@
 						color="none"
 						noAnimation
 						noGlass
-						noIcon
 						on:click={(e) => {
 							if (single) dispatch('singleSelected', null);
 							e.stopPropagation();
@@ -217,7 +216,6 @@
 								type="button"
 								noAnimation
 								noGlass
-								noIcon
 							>
 								{#if !single}
 									<Input
@@ -259,7 +257,6 @@
 						type="button"
 						noAnimation
 						noGlass
-						noIcon
 					>
 						{#if !single}
 							<Input
@@ -298,7 +295,6 @@
 						type="button"
 						noAnimation
 						noGlass
-						noIcon
 					>
 						{#if !single}
 							<Input

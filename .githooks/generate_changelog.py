@@ -1,3 +1,7 @@
+import os
+
+CURRENT_DIR = os.path.dirname(os.path.realpath(__file__))
+
 content = """# Changelog
 
 ## [Unreleased]
@@ -34,7 +38,7 @@ content = """# Changelog
 
 
 def main():
-    file = open("CHANGELOG.md", "w")
+    file = open(f"{CURRENT_DIR}/../CHANGELOG.md", "w")
     file.write(content)
 
     file.close()

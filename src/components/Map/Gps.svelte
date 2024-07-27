@@ -47,7 +47,6 @@
 		class="!shadow-none !p-2 pointer-events-auto"
 		color="primary"
 		on:click={() => requestWatchLocation(null)}
-		noIcon
 		noGlass
 	>
 		<svg class="size-[24px] fill-black-20" viewBox="0 0 24 24">

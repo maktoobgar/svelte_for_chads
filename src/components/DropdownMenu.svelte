@@ -73,7 +73,6 @@
 					class="bg-white dark:bg-gray-800 !shadow-none w-full !justify-start !rounded-none !p-3 text-sm hover:bg-gray-100 dark:hover:bg-gray-700"
 					color="none"
 					noGlass
-					noIcon
 				>
 					{#if profile.imgSrc}
 						<img
@@ -106,7 +105,6 @@
 					color="none"
 					noAnimation
 					noGlass
-					noIcon
 				>
 					<div class="w-5 h-5 mx-1">
 						<svelte:component this={item.icon} />

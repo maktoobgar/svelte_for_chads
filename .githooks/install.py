@@ -4,19 +4,21 @@
 import os
 import generate_changelog
 
+CURRENT_DIR = os.path.dirname(os.path.realpath(__file__))
+
 def generate_changelog_template():
-    if not os.path.isfile("CHANGELOG.md"):
+    if not os.path.isfile(f"{CURRENT_DIR}/../CHANGELOG.md"):
         generate_changelog.main()
         print("CHANGELOG.md template added")
 
 def configure_git_config():
     text = "\thooksPath = .githooks"
 
-    if not os.path.exists(".git"):
+    if not os.path.exists(f"{CURRENT_DIR}/../.git"):
         print("no .git folder found")
         return
 
-    f = open(".git/config", "r")
+    f = open(f"{CURRENT_DIR}/../.git/config", "r")
     lines = f.readlines()
     lines_string = ""
     for line in lines:
@@ -30,7 +32,7 @@ def configure_git_config():
         lines_string += line
     f.close()
 
-    f = open(".git/config", "w")
+    f = open(f"{CURRENT_DIR}/../.git/config", "w")
     f.write(lines_string)
     f.close()
 
@@ -38,13 +40,20 @@ def configure_git_config():
 
 def setup_virtual_env():
     # env folder creation
-    print("setting up virtual env")
-    os.system("python3 -m venv env")
+    if not os.path.isdir(f"{CURRENT_DIR}/../env"):
+        print("setting up virtual env")
+        os.system(f"python3 -m venv {CURRENT_DIR}/../env")
+
+def generate_build_file_template():
+    if not os.path.isfile(f"{CURRENT_DIR}/../build.py"):
+        print("setting up build file")
+        os.system(f"cp {CURRENT_DIR}/build_file {CURRENT_DIR}/../build.py")
 
 def main():
     setup_virtual_env()
     configure_git_config()
     generate_changelog_template()
+    generate_build_file_template()
 
 if __name__ == "__main__":
     main()

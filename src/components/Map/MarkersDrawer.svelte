@@ -127,5 +127,5 @@
 </script>
 
 <!-- <div class="absolute bottom-3 right-3 z-10">
-	<Button class="" color="primary" on:click={clearMarkers} noIcon>Clear</Button>
+	<Button class="" color="primary" on:click={clearMarkers}>Clear</Button>
 </div> -->

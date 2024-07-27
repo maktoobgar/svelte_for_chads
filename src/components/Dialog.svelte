@@ -39,7 +39,6 @@
 					on:click={() => (open = false)}
 					as="button"
 					color="none"
-					noIcon
 					noGlass
 					noAnimation
 				>

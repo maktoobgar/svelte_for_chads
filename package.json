@@ -3,8 +3,9 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"dev": "npm-run-all --parallel vite typesafe-i18n",
-		"dev-host": "npm-run-all --parallel vite-host typesafe-i18n",
+		"dev": "npm-run-all --parallel vite typesafe-i18n dev-backend",
+		"dev-host": "npm-run-all --parallel vite-host typesafe-i18n dev-backend",
+		"dev-backend": "json-server --watch db.json -s ./backend-static",
 		"vite": "vite",
 		"vite-host": "vite --host",
 		"build": "vite build",
@@ -22,6 +23,7 @@
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^3.0.0",
 		"@types/eslint": "8.56.0",
+		"@types/leaflet": "^1.9.12",
 		"@typescript-eslint/eslint-plugin": "^6.0.0",
 		"@typescript-eslint/parser": "^6.0.0",
 		"autoprefixer": "^10.4.17",
@@ -44,12 +46,14 @@
 	"dependencies": {
 		"@sveltestack/svelte-query": "^1.6.0",
 		"axios": "^1.6.7",
+		"leaflet": "^1.9.4",
 		"npm-run-all": "^4.1.5",
 		"svelte-french-toast": "^1.2.0",
 		"svelte-intersection-observer": "^1.0.0",
 		"svelte-watch-resize": "^1.0.3",
 		"sveltekit-i18n": "^2.4.2",
 		"typesafe-i18n": "^5.26.2",
-		"vite-plugin-mkcert": "^1.17.5"
+		"vite-plugin-mkcert": "^1.17.5",
+		"workbox-precaching": "^7.1.0"
 	}
 }

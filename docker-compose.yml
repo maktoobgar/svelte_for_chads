@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   frontend:
-    container_name: svelte for chads
+    container_name: svelte_for_chads
     image: nginx:alpine
     restart: always
     volumes:

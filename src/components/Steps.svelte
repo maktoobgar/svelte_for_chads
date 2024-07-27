@@ -57,7 +57,6 @@
 					class="!py-1 !px-1 !shadow-none !rounded-lg flex items-center"
 					color="none"
 					on:click={() => (currentStep = disableMoving ? currentStep : index + 1)}
-					noIcon
 					rippleOff
 					noGlass
 				>

@@ -8,6 +8,15 @@ const config = {
 	// for more information about preprocessors
 	preprocess: vitePreprocess(),
 
+	compilerOptions: {
+		// I have to add this because I am calling functions or changing variables of components with bind:this
+		// from their parents
+		// 
+		// I got rid of this error message:
+		// Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'
+		accessors: true
+	},
+
 	kit: {
 		prerender: {
 			entries: ['*']

@@ -163,7 +163,6 @@
 						: 'outline-green-500'}"
 					rippleOff
 					noGlass
-					noIcon
 					{color}
 				/>
 			</div>

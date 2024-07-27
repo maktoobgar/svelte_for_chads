@@ -80,7 +80,6 @@
 							data={{ 'data-read': item.read }}
 							class="!whitespace-normal group bg-white dark:bg-gray-800 !shadow-none w-full !justify-start !rounded-none !p-3 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 data-[read=true]:!bg-gray-200 data-[read=true]:hover:!bg-gray-100 data-[read=true]:dark:!bg-gray-900 data-[read=true]:dark:hover:!bg-gray-700"
 							color="none"
-							noIcon
 							noGlass
 						>
 							<img
@@ -106,7 +105,6 @@
 					color="none"
 					noAnimation
 					noGlass
-					noIcon
 				>
 					See all notifications
 				</Button>
