@@ -17,7 +17,7 @@ White = "\033[97m"
 i = 1
 
 ############! Change My Name
-SERVICE_NAME = "svelte_for_chads"
+SERVICE_NAME = "service_name"
 
 CURRENT_DIR = os.path.dirname(os.path.realpath(__file__))
 TARGET_DIR = f"/usr/share/{SERVICE_NAME}"

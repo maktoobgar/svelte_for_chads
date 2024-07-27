@@ -23,5 +23,5 @@ A folder called [build](./build) gets created and inside it are all files that y
 ## Host
 
 ```bash
-sudo python3 build.py
+sudo python3 setup.py
 ```

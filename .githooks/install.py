@@ -44,16 +44,16 @@ def setup_virtual_env():
         print("setting up virtual env")
         os.system(f"python3 -m venv {CURRENT_DIR}/../env")
 
-def generate_build_file_template():
-    if not os.path.isfile(f"{CURRENT_DIR}/../build.py"):
-        print("setting up build file")
-        os.system(f"cp {CURRENT_DIR}/build_file {CURRENT_DIR}/../build.py")
+def generate_setup_file_template():
+    if not os.path.isfile(f"{CURRENT_DIR}/../setup.py"):
+        print("setting up setup file")
+        os.system(f"cp {CURRENT_DIR}/setup_file {CURRENT_DIR}/../setup.py")
 
 def main():
     setup_virtual_env()
     configure_git_config()
     generate_changelog_template()
-    generate_build_file_template()
+    generate_setup_file_template()
 
 if __name__ == "__main__":
     main()
