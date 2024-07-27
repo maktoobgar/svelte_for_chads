@@ -41,11 +41,11 @@ def _print_failed_action(failed_text: str):
 def _print_final_success_print():
     print(f"\n{Green}====== Process finished successfully ======{Reset}\n")
 
-def _if_failed_print_failed_action(code: int, failed_text: str):
-    if code != 0:
+def _if_failed_print_failed_action(status: bool, failed_text: str):
+    if not status:
         _print_failed_action(failed_text)
 
-def action(operation: Callable[[], int], start_text: str):
+def action(operation: Callable[[], bool], start_text: str):
     _print_started_action(start_text)
     _if_failed_print_failed_action(operation(), f"Failed to {start_text}")
 
@@ -63,13 +63,13 @@ def main():
         os.mkdir(TARGET_DIR)
 
     # Install Requirements
-    action(lambda: os.system("sleep 3"), "Install Requirements")
+    action(lambda: os.system("sleep 3") == 0, "Install Requirements")
 
     # Build Process
-    action(lambda: os.system("sleep 3"), "Build Project")
+    action(lambda: os.system("sleep 3") == 0, "Build Project")
 
     # Deploy Process
-    action(lambda: os.system("sleep 3"), "Host Project")
+    action(lambda: os.system("sleep 3") == 0, "Host Project")
 
 if __name__ == "__main__":
     main()
