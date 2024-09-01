@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+- 🐛 fix: added DatePicker but code needs some changes + so many bug fixes
 - 🎉 feat: cd added
 - 🎉 feat: header is better now + some components updated
 - 🎉 feat: added simple and card styles to the CheckboxGroups and RadioGroups

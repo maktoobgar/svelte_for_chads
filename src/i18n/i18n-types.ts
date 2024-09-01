@@ -219,90 +219,6 @@ type RootTranslation = {
 			}
 		}
 	}
-	Table: {
-		/**
-		 * a​d​d
-		 */
-		Add: string
-		/**
-		 * n​e​x​t
-		 */
-		Next: string
-		/**
-		 * p​r​e​v​i​o​u​s
-		 */
-		Previous: string
-		/**
-		 * u​s​e​r​s
-		 */
-		Users: string
-		/**
-		 * v​i​e​w​ ​a​l​l
-		 */
-		ViewAll: string
-		/**
-		 * a​p​p​r​o​v​e​d
-		 */
-		Approved: string
-		/**
-		 * n​e​w
-		 */
-		New: string
-		/**
-		 * y​o​u​ ​c​a​n​ ​f​i​n​d​ ​y​o​u​r​ ​b​e​s​t​ ​f​r​i​e​n​d​s​ ​h​e​r​e​.
-		 */
-		Description: string
-		/**
-		 * s​e​a​r​c​h
-		 */
-		Search: string
-		/**
-		 * p​a​g​e
-		 */
-		Page: string
-		/**
-		 * o​f
-		 */
-		Of: string
-		Columns: {
-			/**
-			 * n​a​m​e
-			 */
-			Name: string
-			/**
-			 * u​s​e​r​n​a​m​e
-			 */
-			Username: string
-			/**
-			 * d​e​s​c​r​i​p​t​i​o​n
-			 */
-			Description: string
-			/**
-			 * c​r​e​a​t​e​d​ ​a​t
-			 */
-			CreatedAt: string
-			/**
-			 * u​p​d​a​t​e​d​ ​a​t
-			 */
-			UpdatedAt: string
-			/**
-			 * s​t​a​t​u​s
-			 */
-			Status: string
-			/**
-			 * a​b​o​u​t
-			 */
-			About: string
-			/**
-			 * u​s​e​r​s
-			 */
-			Users: string
-			/**
-			 * l​i​c​e​n​s​e​ ​u​s​e
-			 */
-			LicenseUse: string
-		}
-	}
 	DropDown: {
 		/**
 		 * P​r​o​f​i​l​e
@@ -412,15 +328,117 @@ type RootTranslation = {
 		 * s​i​x​t​h​ ​i​t​e​m
 		 */
 		SixthItem: string
+	}
+	Table: {
 		/**
-		 * N​o​ ​C​o​n​t​e​n​t
+		 * u​s​e​r​s
 		 */
-		NoItems: string
+		Users: string
 		/**
-		 * Y​o​u​ ​c​a​n​ ​c​h​o​o​s​e​ ​m​a​x​i​m​u​m​ ​o​f​ ​{​l​i​m​i​t​}​ ​i​t​e​m​s
-		 * @param {number} limit
+		 * y​o​u​ ​c​a​n​ ​f​i​n​d​ ​y​o​u​r​ ​b​e​s​t​ ​f​r​i​e​n​d​s​ ​h​e​r​e​.
 		 */
-		Limit: RequiredParams<'limit'>
+		Description: string
+		/**
+		 * v​i​e​w​ ​a​l​l
+		 */
+		ViewAll: string
+		/**
+		 * a​p​p​r​o​v​e​d
+		 */
+		Approved: string
+		Columns: {
+			/**
+			 * n​a​m​e
+			 */
+			Name: string
+			/**
+			 * u​s​e​r​n​a​m​e
+			 */
+			Username: string
+			/**
+			 * d​e​s​c​r​i​p​t​i​o​n
+			 */
+			Description: string
+			/**
+			 * c​r​e​a​t​e​d​ ​a​t
+			 */
+			CreatedAt: string
+			/**
+			 * u​p​d​a​t​e​d​ ​a​t
+			 */
+			UpdatedAt: string
+			/**
+			 * s​t​a​t​u​s
+			 */
+			Status: string
+			/**
+			 * a​b​o​u​t
+			 */
+			About: string
+			/**
+			 * u​s​e​r​s
+			 */
+			Users: string
+			/**
+			 * l​i​c​e​n​s​e​ ​u​s​e
+			 */
+			LicenseUse: string
+		}
+	}
+	Errors: {
+		/**
+		 * T​h​e​r​e​ ​a​r​e​ ​s​o​m​e​ ​e​r​r​o​r​s​ ​i​n​ ​s​e​n​t​ ​r​e​q​u​e​s​t
+		 */
+		BadRequestBody: string
+	}
+	Components: {
+		Table: {
+			/**
+			 * a​d​d
+			 */
+			Add: string
+			/**
+			 * n​e​x​t
+			 */
+			Next: string
+			/**
+			 * p​r​e​v​i​o​u​s
+			 */
+			Previous: string
+			/**
+			 * n​e​w
+			 */
+			New: string
+			/**
+			 * s​e​a​r​c​h
+			 */
+			Search: string
+			/**
+			 * p​a​g​e
+			 */
+			Page: string
+			/**
+			 * o​f
+			 */
+			Of: string
+		}
+		MultiSelect: {
+			/**
+			 * N​o​ ​C​o​n​t​e​n​t
+			 */
+			NoItems: string
+			/**
+			 * Y​o​u​ ​c​a​n​ ​c​h​o​o​s​e​ ​m​a​x​i​m​u​m​ ​o​f​ ​{​l​i​m​i​t​}​ ​i​t​e​m​s
+			 * @param {number} limit
+			 */
+			Limit: RequiredParams<'limit'>
+		}
+		ImageEditor: {
+			/**
+			 * ا​ر​س​ا​ل
+			 */
+			Submit: string
+		}
 	}
 }
 
@@ -629,90 +647,6 @@ export type TranslationFunctions = {
 			}
 		}
 	}
-	Table: {
-		/**
-		 * add
-		 */
-		Add: () => LocalizedString
-		/**
-		 * next
-		 */
-		Next: () => LocalizedString
-		/**
-		 * previous
-		 */
-		Previous: () => LocalizedString
-		/**
-		 * users
-		 */
-		Users: () => LocalizedString
-		/**
-		 * view all
-		 */
-		ViewAll: () => LocalizedString
-		/**
-		 * approved
-		 */
-		Approved: () => LocalizedString
-		/**
-		 * new
-		 */
-		New: () => LocalizedString
-		/**
-		 * you can find your best friends here.
-		 */
-		Description: () => LocalizedString
-		/**
-		 * search
-		 */
-		Search: () => LocalizedString
-		/**
-		 * page
-		 */
-		Page: () => LocalizedString
-		/**
-		 * of
-		 */
-		Of: () => LocalizedString
-		Columns: {
-			/**
-			 * name
-			 */
-			Name: () => LocalizedString
-			/**
-			 * username
-			 */
-			Username: () => LocalizedString
-			/**
-			 * description
-			 */
-			Description: () => LocalizedString
-			/**
-			 * created at
-			 */
-			CreatedAt: () => LocalizedString
-			/**
-			 * updated at
-			 */
-			UpdatedAt: () => LocalizedString
-			/**
-			 * status
-			 */
-			Status: () => LocalizedString
-			/**
-			 * about
-			 */
-			About: () => LocalizedString
-			/**
-			 * users
-			 */
-			Users: () => LocalizedString
-			/**
-			 * license use
-			 */
-			LicenseUse: () => LocalizedString
-		}
-	}
 	DropDown: {
 		/**
 		 * Profile
@@ -814,14 +748,116 @@ export type TranslationFunctions = {
 		 * sixth item
 		 */
 		SixthItem: () => LocalizedString
+	}
+	Table: {
 		/**
-		 * No Content
+		 * users
 		 */
-		NoItems: () => LocalizedString
+		Users: () => LocalizedString
 		/**
-		 * You can choose maximum of {limit} items
+		 * you can find your best friends here.
 		 */
-		Limit: (arg: { limit: number }) => LocalizedString
+		Description: () => LocalizedString
+		/**
+		 * view all
+		 */
+		ViewAll: () => LocalizedString
+		/**
+		 * approved
+		 */
+		Approved: () => LocalizedString
+		Columns: {
+			/**
+			 * name
+			 */
+			Name: () => LocalizedString
+			/**
+			 * username
+			 */
+			Username: () => LocalizedString
+			/**
+			 * description
+			 */
+			Description: () => LocalizedString
+			/**
+			 * created at
+			 */
+			CreatedAt: () => LocalizedString
+			/**
+			 * updated at
+			 */
+			UpdatedAt: () => LocalizedString
+			/**
+			 * status
+			 */
+			Status: () => LocalizedString
+			/**
+			 * about
+			 */
+			About: () => LocalizedString
+			/**
+			 * users
+			 */
+			Users: () => LocalizedString
+			/**
+			 * license use
+			 */
+			LicenseUse: () => LocalizedString
+		}
+	}
+	Errors: {
+		/**
+		 * There are some errors in sent request
+		 */
+		BadRequestBody: () => LocalizedString
+	}
+	Components: {
+		Table: {
+			/**
+			 * add
+			 */
+			Add: () => LocalizedString
+			/**
+			 * next
+			 */
+			Next: () => LocalizedString
+			/**
+			 * previous
+			 */
+			Previous: () => LocalizedString
+			/**
+			 * new
+			 */
+			New: () => LocalizedString
+			/**
+			 * search
+			 */
+			Search: () => LocalizedString
+			/**
+			 * page
+			 */
+			Page: () => LocalizedString
+			/**
+			 * of
+			 */
+			Of: () => LocalizedString
+		}
+		MultiSelect: {
+			/**
+			 * No Content
+			 */
+			NoItems: () => LocalizedString
+			/**
+			 * You can choose maximum of {limit} items
+			 */
+			Limit: (arg: { limit: number }) => LocalizedString
+		}
+		ImageEditor: {
+			/**
+			 * ارسال
+			 */
+			Submit: () => LocalizedString
+		}
 	}
 }
 

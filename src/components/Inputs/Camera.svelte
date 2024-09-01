@@ -21,7 +21,7 @@
 	let stream: MediaStream | null = null;
 	let mediaRecorder: MediaRecorder | null = null;
 	let videoLimitInternal: number = videoLimit;
-	let intervalKey: NodeJS.Timeout | null = null;
+	let intervalKey: number | null = null;
 
 	$: if (videoLimitInternal === 0 && videoLimit > 0) {
 		stop();

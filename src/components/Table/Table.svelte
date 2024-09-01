@@ -79,7 +79,7 @@
 					</svg>
 
 					<span class="text-white ltr:capitalize">
-						{$LL.Table.Add()}
+						{$LL.Components.Table.Add()}
 					</span>
 				</Button>
 			</div>
@@ -132,7 +132,7 @@
 
 			<input
 				type="text"
-				placeholder={$LL.Table.Search()}
+				placeholder={$LL.Components.Table.Search()}
 				on:input={handleInput}
 				bind:value={internalText}
 				class="block w-full py-1.5 pr-5 text-gray-700 bg-white md:w-80 placeholder-gray-400/70 pl-11 rtl:pr-11 rtl:pl-5 dark:bg-gray-900 dark:text-gray-300 active:bg-pure-white outline-none ltr:placeholder:capitalize"
@@ -317,9 +317,9 @@
 
 	<div class="mt-6 sm:flex sm:items-center sm:justify-between">
 		<div class="text-sm text-gray-500 dark:text-gray-400 ltr:first-letter:capitalize">
-			{$LL.Table.Page()}
+			{$LL.Components.Table.Page()}
 			<span class="font-medium text-gray-700 dark:text-gray-100"
-				>{`${pageNumber} ${$LL.Table.Of()} ${allPages}`}</span
+				>{`${pageNumber} ${$LL.Components.Table.Of()} ${allPages}`}</span
 			>
 		</div>
 
@@ -347,7 +347,7 @@
 					/>
 				</svg>
 
-				<span> {$LL.Table.Previous()} </span>
+				<span> {$LL.Components.Table.Previous()} </span>
 			</Button>
 
 			<Button
@@ -358,7 +358,7 @@
 				color="none"
 				noGlass
 			>
-				<span> {$LL.Table.Next()} </span>
+				<span> {$LL.Components.Table.Next()} </span>
 
 				<svg
 					xmlns="http://www.w3.org/2000/svg"

@@ -104,7 +104,7 @@
 				if (limit && limit > 0) {
 					if (selectedOptions.length < limit)
 						selectedOptions = [...selectedOptions, convertToT(item)];
-					else error($LL.MultiSelect.Limit({ limit: limit }));
+					else error($LL.Components.MultiSelect.Limit({ limit: limit }));
 				} else selectedOptions = [...selectedOptions, convertToT(item)];
 			}
 		}
@@ -231,7 +231,9 @@
 						{/each}
 					{:else}
 						<div class="flex items-center justify-center p-5 space-x-5 rtl:space-x-reverse">
-							<h6 class="select-none whitespace-nowrap">{$LL.MultiSelect.NoItems()}...</h6>
+							<h6 class="select-none whitespace-nowrap">
+								{$LL.Components.MultiSelect.NoItems()}...
+							</h6>
 							<Empty
 								class="w-[30px] h-[30px] md:w-[50px] md:h-[50px] fill-black-700 dark:fill-white"
 							/>
@@ -272,7 +274,7 @@
 				{/each}
 			{:else}
 				<div class="flex items-center justify-center p-5 space-x-5 rtl:space-x-reverse">
-					<h6 class="select-none whitespace-nowrap">{$LL.MultiSelect.NoItems()}...</h6>
+					<h6 class="select-none whitespace-nowrap">{$LL.Components.MultiSelect.NoItems()}...</h6>
 					<Empty class="w-[30px] h-[30px] md:w-[50px] md:h-[50px] fill-black-700 dark:fill-white" />
 				</div>
 			{/if}
@@ -310,7 +312,7 @@
 				{/each}
 			{:else}
 				<div class="flex items-center justify-center p-5 space-x-5 rtl:space-x-reverse">
-					<h6 class="select-none whitespace-nowrap">{$LL.MultiSelect.NoItems()}...</h6>
+					<h6 class="select-none whitespace-nowrap">{$LL.Components.MultiSelect.NoItems()}...</h6>
 					<Empty class="w-[30px] h-[30px] md:w-[50px] md:h-[50px] fill-black-700 dark:fill-white" />
 				</div>
 			{/if}

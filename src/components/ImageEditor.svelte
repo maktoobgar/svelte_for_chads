@@ -18,7 +18,7 @@
 	}
 
 	function getCroppedImage() {
-		cropper.getCroppedCanvas({ width: 600, height: 600 }).toBlob((blob) => {
+		cropper.getCroppedCanvas({ width: 600, height: 600 }).toBlob((blob: Blob) => {
 			const url = cropper.getCroppedCanvas({ width: 600, height: 600 }).toDataURL();
 			$editor.onCrop && $editor.onCrop(blob, url);
 			editor.set({ ...$editor, enable: false });
@@ -65,7 +65,7 @@
 						d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
 					/>
 				</svg>
-				<span class="text-white">{$LL.ImageEditor.Submit()}</span>
+				<span class="text-white">{$LL.Components.ImageEditor.Submit()}</span>
 			</Button>
 		</div>
 		<img on:load={initCropper} bind:this={img} src={$editor.imgSrc} alt="" />

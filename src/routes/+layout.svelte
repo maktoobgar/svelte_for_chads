@@ -5,6 +5,10 @@
 	import Notifier from '@cp/Notifier.svelte';
 	import Theme from '@cp/Theme.svelte';
 	import { QueryClient, QueryClientProvider } from '@sveltestack/svelte-query';
+	import ImageEditor from '@cp/ImageEditor.svelte';
+	import Editor from '@cp/Editor.svelte';
+	import Layout from '@cp/Layout.svelte';
+	import Global from '@cp/Global.svelte';
 
 	const queryClient = new QueryClient({
 		defaultOptions: {
@@ -15,9 +19,13 @@
 	});
 </script>
 
+<ImageEditor />
 <Notifier />
+<Layout />
+<Global />
 <Theme />
 <I18N />
+<Editor />
 <QueryClientProvider client={queryClient}>
 	<slot />
 </QueryClientProvider>

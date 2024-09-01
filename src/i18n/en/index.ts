@@ -61,31 +61,6 @@ const en = {
 		]
 	},
 
-	Table: {
-		Add: 'add',
-		Next: 'next',
-		Previous: 'previous',
-		Users: 'users',
-		ViewAll: 'view all',
-		Approved: 'approved',
-		New: 'new',
-		Description: 'you can find your best friends here.',
-		Search: 'search',
-		Page: 'page',
-		Of: 'of',
-		Columns: {
-			Name: 'name',
-			Username: 'username',
-			Description: 'description',
-			CreatedAt: 'created at',
-			UpdatedAt: 'updated at',
-			Status: 'status',
-			About: 'about',
-			Users: 'users',
-			LicenseUse: 'license use'
-		}
-	},
-
 	DropDown: {
 		ViewProfile: 'Profile',
 		Settings: 'Settings',
@@ -119,9 +94,59 @@ const en = {
 		ThirdItem: 'third item',
 		ForthItem: 'forth item',
 		FifthItem: 'fifth item',
-		SixthItem: 'sixth item',
-		NoItems: 'No Content',
-		Limit: 'You can choose maximum of {limit:number} items'
+		SixthItem: 'sixth item'
+	},
+
+	Table: {
+		Users: 'users',
+		Description: 'you can find your best friends here.',
+		ViewAll: 'view all',
+		Approved: 'approved',
+
+		Columns: {
+			Name: 'name',
+			Username: 'username',
+			Description: 'description',
+			CreatedAt: 'created at',
+			UpdatedAt: 'updated at',
+			Status: 'status',
+			About: 'about',
+			Users: 'users',
+			LicenseUse: 'license use'
+		}
+	},
+
+	//! Errors Messages (Do Not Delete)
+
+	Errors: {
+		BadRequestBody: 'There are some errors in sent request'
+	},
+
+	//! Components (Do Not Delete)
+
+	Components: {
+		Table: {
+			Add: 'add',
+			Next: 'next',
+			Previous: 'previous',
+			New: 'new',
+			Search: 'search',
+			Page: 'page',
+			Of: 'of'
+		},
+
+		MultiSelect: {
+			NoItems: 'No Content',
+			Limit: 'You can choose maximum of {limit:number} items'
+		},
+
+		ImageEditor: {
+			Submit: 'Submit'
+		},
+
+		DatePicker: {
+			WeekStartsOn: ""
+		}
 	}
 } satisfies BaseTranslation;
 

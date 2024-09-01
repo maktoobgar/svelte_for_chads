@@ -64,31 +64,6 @@ const fa = {
 		]
 	},
 
-	Table: {
-		Add: 'اضافه کردن',
-		Next: 'بعدی',
-		Previous: 'قبلی',
-		Users: 'کاربران',
-		ViewAll: 'همه',
-		Approved: 'تایید شده',
-		New: 'جدید',
-		Description: 'بهترین دوستان خودتان را در اینجا پیدا کنید.',
-		Search: 'جست و جو',
-		Page: 'صفحه',
-		Of: 'از',
-		Columns: {
-			Name: 'نام',
-			Username: 'نام کاربری',
-			Description: 'توضیحات',
-			CreatedAt: 'تاریخ ایجاد',
-			UpdatedAt: 'تاریخ به روزرسانی',
-			Status: 'وضعیت',
-			About: 'درباره',
-			Users: 'کاربران',
-			LicenseUse: 'مجوز استفاده'
-		}
-	},
-
 	DropDown: {
 		ViewProfile: 'پروفایل',
 		Settings: 'تنظیمات',
@@ -122,9 +97,55 @@ const fa = {
 		ThirdItem: 'آیتم سوم',
 		ForthItem: 'آیتم چهارم',
 		FifthItem: 'آیتم پنجم',
-		SixthItem: 'آیتم ششم',
-		NoItems: 'بدون محتوا',
-		Limit: 'شما می توانید حداکثر {limit} مورد را انتخاب کنید'
+		SixthItem: 'آیتم ششم'
+	},
+
+	Table: {
+		Users: 'کاربران',
+		Description: 'بهترین دوستان خودتان را در اینجا پیدا کنید.',
+		ViewAll: 'همه',
+		Approved: 'تایید شده',
+
+		Columns: {
+			Name: 'نام',
+			Username: 'نام کاربری',
+			Description: 'توضیحات',
+			CreatedAt: 'تاریخ ایجاد',
+			UpdatedAt: 'تاریخ به روزرسانی',
+			Status: 'وضعیت',
+			About: 'درباره',
+			Users: 'کاربران',
+			LicenseUse: 'مجوز استفاده'
+		}
+	},
+
+	//! Errors Messages (Do Not Delete)
+
+	Errors: {
+		BadRequestBody: 'خطا در درخواست وجود دارد'
+	},
+
+	//! Components (Do Not Delete)
+
+	Components: {
+		Table: {
+			Add: 'اضافه کردن',
+			Next: 'بعدی',
+			Previous: 'قبلی',
+			New: 'جدید',
+			Search: 'جست و جو',
+			Page: 'صفحه',
+			Of: 'از'
+		},
+
+		MultiSelect: {
+			NoItems: 'بدون محتوا',
+			Limit: 'شما می توانید حداکثر {limit} مورد را انتخاب کنید'
+		},
+
+		ImageEditor: {
+			Submit: 'ارسال'
+		}
 	}
 } satisfies Translation;
 
