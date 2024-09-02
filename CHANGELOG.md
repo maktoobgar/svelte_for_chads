@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+- 🐛 fix: fixed colors for notifier
 - 🎉 feat: added date picker + many changes and bug fixes
 - 🐛 fix: added DatePicker but code needs some changes + so many bug fixes
 - 🎉 feat: cd added
