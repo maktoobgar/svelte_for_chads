@@ -38,7 +38,7 @@
 {#key 'header'}
 	<header
 		data-open={open}
-		class="group sticky inset-x-0 top-0 bg-white dark:bg-gray-800 shadow-custom z-10"
+		class="group sticky inset-x-0 top-0 bg-gray-200 shadow-custom z-10"
 		in:fly={{ y: -50, duration: 150, delay: 150, easing: easeOut }}
 		out:fly={{ y: -50, duration: 150, easing: easeOut }}
 	>
@@ -68,7 +68,7 @@
 										open = false;
 										item.click && item.click();
 									}}
-									class="bg-white dark:bg-gray-800 !shadow-none justify-center lgMax:rounded-none lgMax:justify-start !p-3 capitalize text-sm hover:bg-gray-100 dark:hover:bg-gray-700 fill-black-700 dark:fill-white lg:!w-fit"
+									class="bg-gray-200 !shadow-none justify-center lgMax:rounded-none lgMax:justify-start !p-3 capitalize text-sm hover:bg-gray-100 fill-gray-700 lg:!w-fit"
 									color="none"
 									noAnimation
 									noGlass
@@ -82,7 +82,7 @@
 									{/if}
 								</Button>
 								{#if item.lineBelow}
-									<hr class="border-black-700 dark:border-black-200" />
+									<hr class="border-gray-700" />
 								{/if}
 							{/each}
 						</div>
@@ -100,7 +100,7 @@
 							openReverse
 						>
 							<Button
-								class="mx-4 text-gray-600 transition-colors duration-300 transform !p-0 !size-8 dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none !rounded-full !shadow-none"
+								class="mx-4 text-gray-600 transition-colors duration-300 transform !p-0 !size-8 hover:text-gray-700 focus:text-gray-700 focus:outline-none !rounded-full !shadow-none"
 								on:click={() => (openNotifications = !openNotifications)}
 								color="none"
 								noGlass
@@ -139,13 +139,13 @@
 					<button
 						on:click={() => (open = !open)}
 						type="button"
-						class="lg:hidden text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400"
+						class="lg:hidden text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600"
 						aria-label="toggle menu"
 					>
 						{#if !open && items.length > 0}
 							<svg
 								transition:fade
-								class="w-6 h-6 stroke-black-800 dark:stroke-white group-data-[open=true]:hidden"
+								class="w-6 h-6 stroke-gray-800 group-data-[open=true]:hidden"
 								viewBox="0 0 24 24"
 								stroke-width="2"
 							>
@@ -155,7 +155,7 @@
 						{#if open && items.length > 0}
 							<svg
 								transition:fade
-								class="w-6 h-6 stroke-black-800 dark:stroke-white group-data-[open=false]:hidden"
+								class="w-6 h-6 stroke-gray-800 group-data-[open=false]:hidden"
 								viewBox="0 0 24 24"
 								stroke-width="2"
 							>

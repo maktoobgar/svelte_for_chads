@@ -64,13 +64,13 @@
 			transition:transitionFnc={params}
 			style={`margin-top: ${distanceMenu}px`}
 			on:click_outside={() => (open = false)}
-			class={`sm:absolute sm:py-2 sm:w-56 sm:rounded-md fixed smMax:bottom-0 inset-x-0 z-[1000] overflow-hidden bg-white dark:bg-gray-800 shadow-custom ltr:origin-top-left rtl:origin-top-right ltr:data-[open-reverse=true]:origin-top-right rtl:data-[open-reverse=true]:origin-top-left ${openClasses}`}
+			class={`sm:absolute sm:py-2 sm:w-56 sm:rounded-md fixed smMax:bottom-0 inset-x-0 z-[1000] overflow-hidden bg-gray-200 shadow-custom ltr:origin-top-left rtl:origin-top-right ltr:data-[open-reverse=true]:origin-top-right rtl:data-[open-reverse=true]:origin-top-left ${openClasses}`}
 		>
 			{#if profile}
 				<Button
 					as="a"
 					href={profile.href}
-					class="bg-white dark:bg-gray-800 !shadow-none w-full !justify-start !rounded-none !p-3 text-sm hover:bg-gray-100 dark:hover:bg-gray-700"
+					class="bg-gray-200 !shadow-none w-full !justify-start !rounded-none !p-3 text-sm hover:bg-gray-100"
 					color="none"
 					noGlass
 				>
@@ -82,15 +82,15 @@
 						/>
 					{/if}
 					<div class="mx-1">
-						<h1 class="text-sm font-semibold text-gray-700 dark:text-gray-200 capitalize">
+						<h1 class="text-sm font-semibold text-gray-700 capitalize">
 							{profile.name}
 						</h1>
-						<p class="text-sm text-gray-500 dark:text-gray-400">
+						<p class="text-sm text-gray-500">
 							{profile.description}
 						</p>
 					</div>
 				</Button>
-				<hr class="border-gray-200 dark:border-gray-700" />
+				<hr class="border-gray-200" />
 			{/if}
 
 			{#each items as item (item.id)}
@@ -101,9 +101,10 @@
 						item.click && item.click();
 						open = false;
 					}}
-					class="group bg-white dark:bg-gray-800 !shadow-none w-full !justify-start !rounded-none !p-3 capitalize text-sm data-[read=true]:hover:bg-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700 data-[read=true]:dark:hover:bg-gray-900"
+					class="group bg-gray-200 w-full !justify-start !rounded-none !p-3 capitalize text-sm data-[read=true]:hover:bg-gray-500 hover:bg-gray-100"
 					color="none"
 					noAnimation
+					noShadow
 					noGlass
 				>
 					<div class="w-5 h-5 mx-1">
@@ -114,7 +115,7 @@
 				</Button>
 
 				{#if item.lineBelow}
-					<hr class="border-gray-200 dark:border-gray-700" />
+					<hr class="border-gray-200" />
 				{/if}
 			{/each}
 		</div>

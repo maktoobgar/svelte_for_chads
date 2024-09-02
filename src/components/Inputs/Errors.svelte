@@ -19,7 +19,7 @@
 		{#each errors[name] as error, index (index)}
 			<p
 				transition:slide|global={{ easing: easeOut, duration: 200, delay: index * 100 }}
-				class="!text-red-500 dark:!text-red-300 pt-1"
+				class="text-red-500 pt-1"
 			>
 				{error}
 			</p>

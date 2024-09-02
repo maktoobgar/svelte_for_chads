@@ -87,7 +87,7 @@
 			{/if}
 
 			{#if label}
-				<strong class="font-medium text-gray-900 dark:text-white">{label}</strong>
+				<strong class="font-medium text-gray-900">{label}</strong>
 			{/if}
 		</div>
 

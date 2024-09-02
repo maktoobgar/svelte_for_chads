@@ -25,19 +25,19 @@
 	export { className as class };
 
 	$: colorClassName = disabled
-		? 'data-[checked=true]:ring-gray-400 data-[checked=true]:bg-gray-200 dark:data-[checked=true]:bg-gray-700/50'
+		? 'data-[checked=true]:ring-gray-400 data-[checked=true]:bg-gray-200'
 		: color === 'red'
-			? 'data-[checked=true]:ring-red-500 data-[checked=true]:bg-red-50 dark:data-[checked=true]:bg-red-700/10'
+			? 'data-[checked=true]:ring-red-500 data-[checked=true]:bg-red-50'
 			: color === 'green'
-				? 'data-[checked=true]:ring-green-500 data-[checked=true]:bg-green-50 dark:data-[checked=true]:bg-green-700/10'
+				? 'data-[checked=true]:ring-green-500 data-[checked=true]:bg-green-50'
 				: color === 'cyan'
-					? 'data-[checked=true]:ring-cyan-500 data-[checked=true]:bg-cyan-50 dark:data-[checked=true]:bg-cyan-700/10'
+					? 'data-[checked=true]:ring-cyan-500 data-[checked=true]:bg-cyan-50'
 					: color === 'blue'
-						? 'data-[checked=true]:ring-blue-500 data-[checked=true]:bg-blue-50 dark:data-[checked=true]:bg-blue-700/10'
+						? 'data-[checked=true]:ring-blue-500 data-[checked=true]:bg-blue-50'
 						: color === 'primary'
-							? 'data-[checked=true]:ring-primary-500 data-[checked=true]:bg-primary-glass-10 dark:data-[checked=true]:bg-primary-glass-10'
+							? 'data-[checked=true]:ring-primary-500 data-[checked=true]:bg-primary-glass-10'
 							: color === 'secondary'
-								? 'data-[checked=true]:ring-secondary-500 data-[checked=true]:bg-secondary-glass-10 dark:data-[checked=true]:bg-secondary-glass-10'
+								? 'data-[checked=true]:ring-secondary-500 data-[checked=true]:bg-secondary-glass-10'
 								: '';
 </script>
 
@@ -59,7 +59,7 @@
 				{#each items as item (item.id)}
 					<button
 						data-checked={selectedItem === item}
-						class="flex w-full !items-start !justify-start ltr:!text-left rtl:!text-right gap-4 rounded-2xl border p-4 transition hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-900 data-[checked=true]:ring-2 {colorClassName}"
+						class="flex w-full !items-start !justify-start ltr:!text-left rtl:!text-right gap-4 rounded-2xl border p-4 transition hover:bg-gray-50 data-[checked=true]:ring-2 {colorClassName}"
 						on:click={() => {
 							selectedItem = item;
 							deleteError();
@@ -79,11 +79,13 @@
 						/>
 
 						<div class={`w-full ${type === 'cardRow' ? 'flex justify-between' : 'space-y-1'}`}>
-							<strong class="font-medium text-gray-900 dark:text-white">{item.title}</strong>
+							<strong class="font-medium text-gray-900">
+								{item.title}
+							</strong>
 
 							{#if item.description}
 								<p
-									class={`text-pretty text-sm text-gray-700 dark:text-gray-200 ${type === 'cardRow' && 'ltr:text-right rtl:text-left'}`}
+									class={`text-pretty text-sm text-gray-900 ${type === 'cardRow' && 'ltr:text-right rtl:text-left'}`}
 								>
 									{item.description}
 								</p>

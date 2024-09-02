@@ -9,6 +9,8 @@
 	import Editor from '@cp/Editor.svelte';
 	import Layout from '@cp/Layout.svelte';
 	import Global from '@cp/Global.svelte';
+	import ThemeSwitcher from '@cp/ThemeSwitcher.svelte';
+	import LanguageChanger from '@cp/LanguageChanger.svelte';
 
 	const queryClient = new QueryClient({
 		defaultOptions: {
@@ -18,6 +20,11 @@
 		}
 	});
 </script>
+
+<div class="fixed left-1/2 bottom-0 -translate-x-1/2 z-10 flex ltr">
+	<ThemeSwitcher class="w-7 h-7 !p-0 m-5 drop-shadow-3xl" />
+	<LanguageChanger class="w-7 h-7 !p-0 m-5 drop-shadow-3xl" />
+</div>
 
 <ImageEditor />
 <Notifier />

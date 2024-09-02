@@ -37,6 +37,9 @@
 		timer = setTimeout(() => (text = internalText), 500);
 	};
 
+	// If text changed from outside, we change the internalText instantly
+	$: internalText = text;
+
 	onDestroy(() => {
 		clearTimeout(timer);
 	});
@@ -46,16 +49,14 @@
 	<div class="sm:flex sm:items-center sm:justify-between">
 		<div>
 			<div class="flex items-center gap-x-3">
-				<h2 class="text-lg font-medium text-gray-800 dark:text-white">{name}</h2>
+				<h2 class="text-lg font-medium text-gray-800">{name}</h2>
 
-				<span
-					class="px-3 py-1 text-xs text-primary-700 bg-primary-200 rounded-full dark:bg-primary-400 dark:text-primary-100"
-				>
+				<span class="px-3 py-1 text-xs text-primary-700 bg-primary-200 rounded-full">
 					{`${count} ${name}`}
 				</span>
 			</div>
 
-			<p class="mt-1 text-sm text-gray-500 dark:text-gray-300 ltr:first-letter:capitalize">
+			<p class="mt-1 text-sm text-gray-500 ltr:first-letter:capitalize">
 				{description}
 			</p>
 		</div>
@@ -88,7 +89,7 @@
 
 	<div class="mt-6 md:flex md:items-center md:justify-between">
 		<div
-			class="inline-flex overflow-hidden bg-white border divide-x rtl:divide-x-reverse rounded-[15px] dark:bg-gray-900 rtl:flex-row-reverse dark:border-gray-700 dark:divide-gray-700 shadow-custom dark:shadow-custom-dark ltr"
+			class="inline-flex overflow-hidden bg-gray-200 divide-x rtl:divide-x-reverse divide-gray-300 rounded-lg rtl:flex-row-reverse shadow-custom dark:shadow-custom-dark ltr"
 		>
 			{#each filterItems as item}
 				<Button
@@ -96,9 +97,10 @@
 					on:click={() =>
 						onFilterItemSelect && onFilterItemSelect(item, activeFilterItem?.id !== item.id)}
 					data={{ 'data-select': activeFilterItem?.id === item.id }}
-					class="px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100 rounded-none capitalize !shadow-none border-gray-300 dark:data-[select=true]:bg-green-900 data-[select=true]:bg-green-300"
+					class="px-5 py-2 text-xs font-medium transition-colors duration-200 sm:text-sm rounded-none capitalize data-[select=true]:bg-green-200"
 					color="none"
 					noAnimation
+					noShadow
 					noGlass
 				>
 					{item.title}
@@ -107,7 +109,7 @@
 		</div>
 
 		<form
-			class="relative flex items-center mt-4 md:mt-0 rounded-[16px] overflow-hidden border border-gray-400 dark:border-gray-700 shadow-custom dark:shadow-custom-dark"
+			class="relative flex items-center mt-4 md:mt-0 rounded-lg overflow-hidden shadow-custom dark:shadow-custom-dark"
 			on:submit={(e) => {
 				e.preventDefault();
 				text = internalText;
@@ -120,7 +122,7 @@
 					viewBox="0 0 24 24"
 					stroke-width="1.5"
 					stroke="currentColor"
-					class="w-5 h-5 mx-3 text-gray-400 dark:text-gray-600"
+					class="w-5 h-5 mx-3 text-gray-400"
 				>
 					<path
 						stroke-linecap="round"
@@ -135,23 +137,23 @@
 				placeholder={$LL.Components.Table.Search()}
 				on:input={handleInput}
 				bind:value={internalText}
-				class="block w-full py-1.5 pr-5 text-gray-700 bg-white md:w-80 placeholder-gray-400/70 pl-11 rtl:pr-11 rtl:pl-5 dark:bg-gray-900 dark:text-gray-300 active:bg-pure-white outline-none ltr:placeholder:capitalize"
+				class="block w-full py-1.5 pr-5 text-gray-700 bg-gray-200 md:w-80 placeholder-gray-400 pl-11 rtl:pr-11 rtl:pl-5 focus:bg-gray-100 outline-none ltr:placeholder:capitalize"
 			/>
 		</form>
 	</div>
 
 	<div
-		class="flex flex-col mt-6 overflow-x-scroll overflow-hidden rounded-[16px] shadow-custom dark:shadow-custom-dark"
+		class="flex flex-col mt-6 overflow-x-scroll overflow-hidden rounded-lg shadow-custom dark:shadow-custom-dark"
 	>
 		<div class="inline-block min-w-full w-fit align-middle shadow-custom">
-			<div class={`relative bg-white dark:bg-gray-900 ${status === 'loading' && 'min-h-[200px]'}`}>
-				<table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-					<thead class="bg-gray-50 dark:bg-gray-800">
+			<div class={`relative bg-gray-200 ${status === 'loading' && 'min-h-[200px]'}`}>
+				<table class="min-w-full divide-y divide-gray-300">
+					<thead class="bg-gray-100">
 						<tr>
 							{#each columns as col (col.id)}
 								<th
 									scope="col"
-									class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+									class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500"
 								>
 									<button
 										disabled={!col.sort}
@@ -167,7 +169,7 @@
 
 										{#if col.id === sort?.id && sort.sort === 'asc' && col.sort}
 											<svg
-												class="h-4 fill-primary-800 dark:fill-primary-100"
+												class="h-4 fill-primary-400"
 												viewBox="0 0 576 512"
 												in:fade={{ duration: 150, easing: easeOut }}
 											>
@@ -178,7 +180,7 @@
 										{/if}
 										{#if col.id === sort?.id && sort.sort === 'desc' && col.sort}
 											<svg
-												class="h-4 fill-primary-800 dark:fill-primary-100"
+												class="h-4 fill-primary-400"
 												viewBox="0 0 576 512"
 												in:fade={{ duration: 150, easing: easeOut }}
 											>
@@ -197,7 +199,7 @@
 					</thead>
 					{#if status === 'idle' || status === 'success'}
 						<tbody
-							class="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900"
+							class="bg-gray-200 divide-y divide-gray-200"
 							in:fade={{ duration: 150, delay: 150, easing: easeOut }}
 							out:fade={{ duration: 150, easing: easeOut }}
 						>
@@ -208,10 +210,7 @@
 											class={`px-4 py-4 text-sm whitespace-nowrap ${index === 0 ? 'flex gap-4' : ''}`}
 										>
 											{#if index === 0 && select}
-												<input
-													type="checkbox"
-													class="text-blue-500 border-gray-300 rounded dark:bg-gray-900 dark:ring-offset-gray-900 dark:border-gray-700"
-												/>
+												<input type="checkbox" class="text-blue-500 border-gray-300 rounded" />
 											{/if}
 											{#if col.type === 'profile'}
 												<div class="flex items-center gap-x-2 w-[200px]">
@@ -221,14 +220,12 @@
 														alt=""
 													/>
 													<div>
-														<p class="font-medium text-gray-800 dark:text-white">
+														<p class="font-medium text-gray-800">
 															{item.data[col.colName].content[0]
 																? item.data[col.colName].content[0]
 																: '-'}
 														</p>
-														<p
-															class="text-sm font-normal text-gray-600 dark:text-gray-400 ltr rtl:text-right"
-														>
+														<p class="text-sm font-normal text-gray-600 ltr rtl:text-right">
 															{item.data[col.colName].content[1]
 																? item.data[col.colName].content[1]
 																: '-'}
@@ -237,12 +234,12 @@
 												</div>
 											{:else if col.type === 'twoPiece'}
 												<div>
-													<p class="text-gray-700 dark:text-gray-200">
+													<p class="text-gray-700">
 														{item.data[col.colName].content[0]
 															? item.data[col.colName].content[0]
 															: '-'}
 													</p>
-													<p class="text-gray-500 dark:text-gray-400">
+													<p class="text-gray-500">
 														{item.data[col.colName].content[1]
 															? item.data[col.colName].content[1]
 															: '-'}
@@ -250,7 +247,7 @@
 												</div>
 											{:else if col.type === 'status'}
 												<div
-													class={`inline px-3 py-1 text-sm font-normal rounded-full gap-x-2 bg-emerald-100/60 dark:bg-gray-800 capitalize select-none text-black-800 dark:text-white ${item.data[col.colName].extra?.color === 'green' ? 'bg-green-500 dark:bg-green-900' : item.data[col.colName].extra?.color === 'red' ? 'bg-red-400 dark:bg-red-900' : item.data[col.colName].extra?.color === 'primary' ? 'bg-primary-200 dark:bg-primary-500' : item.data[col.colName].extra?.color === 'secondary' ? 'bg-secondary-300 dark:bg-secondary-500' : item.data[col.colName].extra?.color === 'cyan' ? 'bg-cyan-300 hover:bg-cyan-500 dark:bg-cyan-900' : 'bg-glass-20 dark:bg-white-glass-10'}`}
+													class={`inline px-3 py-1 text-sm font-normal rounded-full gap-x-2 bg-emerald-100/60 capitalize select-none text-black-800 ${item.data[col.colName].extra?.color === 'green' ? 'bg-green-500' : item.data[col.colName].extra?.color === 'red' ? 'bg-red-400' : item.data[col.colName].extra?.color === 'primary' ? 'bg-primary-200' : item.data[col.colName].extra?.color === 'secondary' ? 'bg-secondary-300' : item.data[col.colName].extra?.color === 'cyan' ? 'bg-cyan-300 hover:bg-cyan-500' : 'bg-glass-20'}`}
 												>
 													{item.data[col.colName].content
 														? item.data[col.colName].content.toString()
@@ -278,7 +275,7 @@
 									{#if optionsButton}
 										<td>
 											<button
-												class="px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg dark:text-gray-300 hover:bg-gray-100"
+												class="px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg hover:bg-gray-100"
 											>
 												<svg
 													xmlns="http://www.w3.org/2000/svg"
@@ -316,9 +313,9 @@
 	</div>
 
 	<div class="mt-6 sm:flex sm:items-center sm:justify-between">
-		<div class="text-sm text-gray-500 dark:text-gray-400 ltr:first-letter:capitalize">
+		<div class="text-sm text-gray-500 ltr:first-letter:capitalize">
 			{$LL.Components.Table.Page()}
-			<span class="font-medium text-gray-700 dark:text-gray-100"
+			<span class="font-medium text-gray-700"
 				>{`${pageNumber} ${$LL.Components.Table.Of()} ${allPages}`}</span
 			>
 		</div>
@@ -328,8 +325,9 @@
 				href="#"
 				as="button"
 				on:click={() => (pageNumber = pageNumber - 1 > 0 ? pageNumber - 1 : pageNumber)}
-				class="flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white rounded-md sm:w-auto gap-x-2 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-200 dark:hover:bg-gray-800"
+				class="flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-gray-200 rounded-lg sm:w-auto gap-x-2 hover:bg-gray-100 !font-normal"
 				color="none"
+				noAnimation
 				noGlass
 			>
 				<svg
@@ -354,8 +352,9 @@
 				href="#"
 				as="button"
 				on:click={() => (pageNumber = pageNumber + 1 <= allPages ? pageNumber + 1 : pageNumber)}
-				class="flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white rounded-md sm:w-auto gap-x-2 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-200 dark:hover:bg-gray-800"
+				class="flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-gray-200 rounded-lg sm:w-auto gap-x-2 hover:bg-gray-100 !font-normal"
 				color="none"
+				noAnimation
 				noGlass
 			>
 				<span> {$LL.Components.Table.Next()} </span>

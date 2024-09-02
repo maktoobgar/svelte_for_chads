@@ -18,7 +18,7 @@
 	}
 
 	function getCroppedImage() {
-		cropper.getCroppedCanvas({ width: 600, height: 600 }).toBlob((blob: Blob) => {
+		cropper.getCroppedCanvas({ width: 600, height: 600 }).toBlob((blob: Blob | null) => {
 			const url = cropper.getCroppedCanvas({ width: 600, height: 600 }).toDataURL();
 			$editor.onCrop && $editor.onCrop(blob, url);
 			editor.set({ ...$editor, enable: false });
@@ -46,7 +46,7 @@
 		>
 			<Button
 				color="none"
-				class="!rounded-full !p-2 bg-red-600 hover:bg-red-700 dark:bg-red-900 dark:hover:bg-red-700 disabled:bg-gray-300 dark:disabled:bg-gray-700"
+				class="!rounded-full !p-2 bg-red-600 hover:bg-red-700 disabled:bg-gray-300"
 				on:click={cancelCrop}
 			>
 				<svg class="size-8 fill-white" viewBox="0 0 384 512">
@@ -57,7 +57,7 @@
 			</Button>
 			<Button
 				color="none"
-				class="!rounded-full !px-3 !py-2 bg-blue-600 hover:bg-blue-700 dark:bg-blue-900 dark:hover:bg-blue-700 disabled:bg-gray-300 dark:disabled:bg-gray-700 space-x-2 rtl:space-x-reverse"
+				class="!rounded-full !px-3 !py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 space-x-2 rtl:space-x-reverse"
 				on:click={getCroppedImage}
 			>
 				<svg class="size-8 fill-white" viewBox="0 0 448 512">

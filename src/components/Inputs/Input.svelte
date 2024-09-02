@@ -34,7 +34,7 @@
 		node.type = type;
 	}
 
-	const commonClassName = `w-full outline-none px-4 rounded-2xl bg-black-20 focus:bg-pure-white disabled:bg-gray-200 dark:bg-primary-700 dark:focus:bg-primary-600 dark:disabled:bg-gray-700 disabled:text-gray-500 dark:disabled:text-gray-400 dark:text-white sm:text-base transition-none font-normal shadow-md`;
+	const commonClassName = `w-full outline-none px-4 rounded-2xl bg-black-20 focus:bg-pure-white disabled:bg-gray-200 disabled:text-gray-500 sm:text-base transition-none font-normal shadow-md`;
 </script>
 
 <svelte:window on:load={autoFocusFunc} />

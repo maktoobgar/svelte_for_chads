@@ -7,13 +7,13 @@
 	export let exOneTime: string = '12st June, 2020';
 	export let exTwo: string = 'Reading time';
 	export let exTwoTime: string = '3 minute';
-	export let href: string = "#";
+	export let href: string = '#';
 </script>
 
 <!-- svelte-ignore a11y-invalid-attribute -->
 <a
-	href={href}
-	class="bg-background-reverse sm:max-w-[480px] max-w-[300px] relative block overflow-hidden rounded-lg border border-black-40 dark:border-gray-800 transition-[box-shadow] hover:shadow-lg p-4 sm:p-6 lg:p-8"
+	{href}
+	class="bg-background-reverse sm:max-w-[480px] max-w-[300px] relative block overflow-hidden rounded-lg border border-gray-200 transition-[box-shadow] hover:shadow-lg p-4 sm:p-6 lg:p-8"
 >
 	<span
 		class="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-secondary-500 via-primary-50 to-primary-500"

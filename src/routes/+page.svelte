@@ -3,12 +3,10 @@
 	import Dialog from '@cp/Dialog.svelte';
 	import DropdownMenu from '@cp/DropdownMenu.svelte';
 	import Input from '@cp/Inputs/Input.svelte';
-	import LanguageChanger from '@cp/LanguageChanger.svelte';
 	import Meta from '@cp/Meta.svelte';
 	import ProfileCard from '@cp/ProfileCard.svelte';
 	import ProfileCard2 from '@cp/ProfileCard2.svelte';
 	import ShopCard from '@cp/ShopCard.svelte';
-	import ThemeSwitcher from '@cp/ThemeSwitcher.svelte';
 	import TypeWriter from '@cp/TypeWriter.svelte';
 	import LL from '@i18n/i18n-svelte';
 	import Man from '@icons/Man.svelte';
@@ -33,6 +31,8 @@
 	import Navbar from '@cp/Navbar.svelte';
 	import { fade } from 'svelte/transition';
 	import Option from '@/types/option';
+	import DatePicker from '@cp/DatePicker.svelte';
+	import language from '@stores/i18n';
 
 	let dialog: Dialog;
 
@@ -58,8 +58,6 @@
 <Meta title={$LL.NewProjectsNewTeam()} />
 <div class="snap-y snap-mandatory h-screen overflow-scroll scroll-none">
 	<div class="relative flex justify-center items-center min-h-screen overflow-hidden snap-start">
-		<ThemeSwitcher class="absolute left-2 top-2" />
-		<LanguageChanger class="absolute right-2 top-2" />
 		<div
 			class="absolute flex flex-col justify-between left-0 bottom-0 p-3 sm:h-[200px] h-[160px] ltr"
 		>
@@ -103,7 +101,7 @@
 			</div>
 		</Dialog>
 		<div class="absolute right-0 bottom-0 p-3">
-			<Button on:click={() => dialog.open = true}>{$LL.ShowPopup()}</Button>
+			<Button on:click={() => (dialog.open = true)}>{$LL.ShowPopup()}</Button>
 		</div>
 		<div class="relative lg:w-[512px] sm:w-[384px] w-[256px] lg:h-[512px] sm:h-[384px] h-[256px]">
 			<TypeWriter
@@ -114,21 +112,21 @@
 			/>
 			<SecondMan
 				position={where - 1}
-				class={`absolute transition-all lg:w-[384px] sm:w-[256px] w-[128px] lg:h-[384px] sm:h-[256px] h-[128px] lg:data-[position=mid]:w-[512px] sm:data-[position=mid]:w-[384px] data-[position=mid]:w-[256px] lg:data-[position=mid]:h-[512px] sm:data-[position=mid]:h-[384px] data-[position=mid]:h-[256px] data-[position=left]:left-[5%] data-[position=right]:left-[95%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-80 data-[position=mid]:opacity-100 fill-glass-80 data-[position=mid]:fill-primary-800 duration-500 z-0 data-[position=mid]:z-[1] dark:fill-white-glass-80 dark:data-[position=mid]:fill-primary-300 data-[position=mid]:drop-shadow-3xl data-[position=mid]:animate-fade-in [&:not([data-position=mid])]:animate-fade-out${$runAllowed ? ' invisible' : ''}`}
+				class={`absolute transition-all lg:w-[384px] sm:w-[256px] w-[128px] lg:h-[384px] sm:h-[256px] h-[128px] lg:data-[position=mid]:w-[512px] sm:data-[position=mid]:w-[384px] data-[position=mid]:w-[256px] lg:data-[position=mid]:h-[512px] sm:data-[position=mid]:h-[384px] data-[position=mid]:h-[256px] data-[position=left]:left-[5%] data-[position=right]:left-[95%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-80 data-[position=mid]:opacity-100 fill-glass-80 data-[position=mid]:fill-primary-800 duration-500 z-0 data-[position=mid]:z-[1] data-[position=mid]:drop-shadow-3xl data-[position=mid]:animate-fade-in [&:not([data-position=mid])]:animate-fade-out${$runAllowed ? ' invisible' : ''}`}
 			/>
 			<Man
 				position={where - 2}
-				class="absolute transition-all lg:w-[384px] sm:w-[256px] w-[128px] lg:h-[384px] sm:h-[256px] h-[128px] lg:data-[position=mid]:w-[512px] sm:data-[position=mid]:w-[384px] data-[position=mid]:w-[256px] lg:data-[position=mid]:h-[512px] sm:data-[position=mid]:h-[384px] data-[position=mid]:h-[256px] data-[position=left]:left-[5%] data-[position=right]:left-[95%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-80 data-[position=mid]:opacity-100 fill-glass-80 data-[position=mid]:fill-primary-800 duration-500 z-0 data-[position=mid]:z-[1] dark:fill-white-glass-80 dark:data-[position=mid]:fill-primary-300 data-[position=mid]:drop-shadow-3xl data-[position=mid]:animate-fade-in [&:not([data-position=mid])]:animate-fade-out"
+				class="absolute transition-all lg:w-[384px] sm:w-[256px] w-[128px] lg:h-[384px] sm:h-[256px] h-[128px] lg:data-[position=mid]:w-[512px] sm:data-[position=mid]:w-[384px] data-[position=mid]:w-[256px] lg:data-[position=mid]:h-[512px] sm:data-[position=mid]:h-[384px] data-[position=mid]:h-[256px] data-[position=left]:left-[5%] data-[position=right]:left-[95%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-80 data-[position=mid]:opacity-100 fill-glass-80 data-[position=mid]:fill-primary-800 duration-500 z-0 data-[position=mid]:z-[1] data-[position=mid]:drop-shadow-3xl data-[position=mid]:animate-fade-in [&:not([data-position=mid])]:animate-fade-out"
 			/>
 			<ThirdMan
 				position={where - 3}
-				class={`absolute transition-all lg:w-[384px] sm:w-[256px] w-[128px] lg:h-[384px] sm:h-[256px] h-[128px] lg:data-[position=mid]:w-[512px] sm:data-[position=mid]:w-[384px] data-[position=mid]:w-[256px] lg:data-[position=mid]:h-[512px] sm:data-[position=mid]:h-[384px] data-[position=mid]:h-[256px] data-[position=left]:left-[5%] data-[position=right]:left-[95%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-80 data-[position=mid]:opacity-100 fill-glass-80 data-[position=mid]:fill-primary-800 duration-500 z-0 data-[position=mid]:z-[1] dark:fill-white-glass-80 dark:data-[position=mid]:fill-primary-300 data-[position=mid]:drop-shadow-3xl data-[position=mid]:animate-fade-in [&:not([data-position=mid])]:animate-fade-out${$runAllowed ? ' invisible' : ''}`}
+				class={`absolute transition-all lg:w-[384px] sm:w-[256px] w-[128px] lg:h-[384px] sm:h-[256px] h-[128px] lg:data-[position=mid]:w-[512px] sm:data-[position=mid]:w-[384px] data-[position=mid]:w-[256px] lg:data-[position=mid]:h-[512px] sm:data-[position=mid]:h-[384px] data-[position=mid]:h-[256px] data-[position=left]:left-[5%] data-[position=right]:left-[95%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-80 data-[position=mid]:opacity-100 fill-glass-80 data-[position=mid]:fill-primary-800 duration-500 z-0 data-[position=mid]:z-[1] data-[position=mid]:drop-shadow-3xl data-[position=mid]:animate-fade-in [&:not([data-position=mid])]:animate-fade-out${$runAllowed ? ' invisible' : ''}`}
 			/>
 			<div
 				class="lg:w-[512px] sm:w-[384px] w-[256px] absolute left-1/2 -bottom-14 -translate-x-1/2 flex justify-between ltr"
 			>
 				<Button
-					class="flex justify-center items-center w-[60px] h-[50px] fill-glass-70 dark:fill-black-20 !shadow-none"
+					class="flex justify-center items-center w-[60px] h-[50px] fill-glass-70 dark:fill-white-glass-30 !shadow-none"
 					on:click={() =>
 						click(() => {
 							where = where <= 1 ? 3 : where - 1;
@@ -137,14 +135,15 @@
 					color="none"
 					noGlass
 					rippleOff
-					><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 512 512"
-						><path
-							d="M459.5 440.6c9.5 7.9 22.8 9.7 34.1 4.4s18.4-16.6 18.4-29V96c0-12.4-7.2-23.7-18.4-29s-24.5-3.6-34.1 4.4L288 214.3V256v41.7L459.5 440.6zM256 352V256 128 96c0-12.4-7.2-23.7-18.4-29s-24.5-3.6-34.1 4.4l-192 160C4.2 237.5 0 246.5 0 256s4.2 18.5 11.5 24.6l192 160c9.5 7.9 22.8 9.7 34.1 4.4s18.4-16.6 18.4-29V352z"
-						/></svg
-					></Button
 				>
+					<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 512 512">
+						<path
+							d="M459.5 440.6c9.5 7.9 22.8 9.7 34.1 4.4s18.4-16.6 18.4-29V96c0-12.4-7.2-23.7-18.4-29s-24.5-3.6-34.1 4.4L288 214.3V256v41.7L459.5 440.6zM256 352V256 128 96c0-12.4-7.2-23.7-18.4-29s-24.5-3.6-34.1 4.4l-192 160C4.2 237.5 0 246.5 0 256s4.2 18.5 11.5 24.6l192 160c9.5 7.9 22.8 9.7 34.1 4.4s18.4-16.6 18.4-29V352z"
+						/>
+					</svg>
+				</Button>
 				<Button
-					class="flex justify-center items-center w-[60px] h-[50px] fill-glass-70 dark:fill-black-20 !shadow-none"
+					class="flex justify-center items-center w-[60px] h-[50px] fill-glass-70 dark:fill-white-glass-30 !shadow-none"
 					on:click={() =>
 						click(() => {
 							where = where >= 3 ? 1 : where + 1;
@@ -380,7 +379,7 @@
 			]}
 			><svelte:fragment slot="icon">
 				<h3 class="font-vibur">
-					<a href="/" class="dark:!text-primary-100 !text-primary-500">SvelteChad</a>
+					<a href="/" class="!text-primary-500">SvelteChad</a>
 				</h3>
 			</svelte:fragment></Header
 		>
@@ -408,8 +407,9 @@
 				>
 					<Button
 						on:click={() => (open = !open)}
-						class="group bg-white dark:bg-gray-800 !shadow-lg"
+						class="group bg-gray-200 shadow-lg"
 						color="none"
+						noShadow
 						noGlass
 						><span class="mx-1">{$LL.DropDown.Name()}</span>
 						<svg
@@ -484,7 +484,7 @@
 				}
 			]}
 			filterItems={[
-				{ id: 0, title: $LL.Table.ViewAll(), autoActive: true },
+				{ id: 0, title: $LL.Table.ViewAll(), key: '', value: '', autoActive: true },
 				{ id: 1, title: $LL.Table.Approved(), key: 'approved', value: 'true' }
 			]}
 		/>
@@ -497,7 +497,7 @@
 			<div class="mx-[12px]">
 				<Tooltip text={$LL.Tooltip()} xDirection="right" yDirection="center">
 					<div
-						class="text-gray-600 transition-colors duration-200 focus:outline-none dark:text-gray-200 dark:hover:text-blue-400 hover:text-blue-500"
+						class="text-gray-600 transition-colors duration-200 focus:outline-none hover:text-blue-500"
 					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -557,7 +557,7 @@
 			<div class="mx-[12px]">
 				<Tooltip text={$LL.Tooltip()} xDirection="center" yDirection="top">
 					<div
-						class="text-gray-600 transition-colors duration-200 focus:outline-none dark:text-gray-200 dark:hover:text-blue-400 hover:text-blue-500"
+						class="text-gray-600 transition-colors duration-200 focus:outline-none hover:text-blue-500"
 					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -653,5 +653,9 @@
 			open={openNavbar}
 			items={[{ id: '0', component: Input, props: { id: '0', label: 'shut it' } }]}
 		></Navbar>
+	</div>
+
+	<div class="flex flex-col h-screen justify-center items-center bg-background snap-start relative">
+		<DatePicker calendarType={$language === 'en' ? 'Gregorian' : 'Jalali'} />
 	</div>
 </div>

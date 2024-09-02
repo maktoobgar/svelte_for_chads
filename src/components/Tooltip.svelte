@@ -68,7 +68,7 @@
 				tooltipWidth = node.clientWidth;
 				tooltipHeight = node.clientHeight;
 			}}
-			class="absolute z-[10] flex items-center justify-center max-w-[300px] p-3 text-gray-600 bg-pure-white rounded-lg shadow-lg dark:bg-gray-800 dark:text-white"
+			class="absolute z-[10] flex items-center justify-center max-w-[300px] p-3 text-gray-600 bg-gray-100 rounded-lg shadow-lg"
 			style={`left: ${left !== null ? left + 'px' : 'auto'}; right: ${right !== null ? right + 'px' : 'auto'}; top: ${top !== null ? top + 'px' : 'auto'}; bottom: ${bottom !== null ? bottom + 'px' : 'auto'};`}
 			in:fade={{ duration: 200, delay: 100 }}
 			out:fade={{ duration: 200 }}
@@ -78,7 +78,7 @@
 			<svg
 				data-x-direction={xDirection}
 				data-y-direction={yDirection}
-				class="size-[28px] absolute -mb-3 transform text-white fill-pure-white drop-shadow-lg dark:text-gray-800 dark:fill-gray-800 data-[x-direction=center]:-translate-x-1/2 data-[x-direction=center]:left-1/2 data-[x-direction=left]:right-[6px] data-[x-direction=right]:left-[6px] data-[y-direction=top]:-bottom-0.5 data-[y-direction=bottom]:bottom-[101%] data-[y-direction=bottom]:rotate-180 data-[y-direction=bottom]:drop-shadow-none data-[y-direction=center]:top-1/2 data-[y-direction=center]:-translate-y-1/2 data-[y-direction=center]:data-[x-direction=left]:-rotate-90 data-[y-direction=center]:data-[x-direction=left]:-right-[16px] data-[y-direction=center]:data-[x-direction=right]:rotate-90 data-[y-direction=center]:data-[x-direction=right]:-left-[16px]"
+				class="size-[28px] absolute -mb-3 transform text-white fill-gray-100 drop-shadow-lg data-[x-direction=center]:-translate-x-1/2 data-[x-direction=center]:left-1/2 data-[x-direction=left]:right-[6px] data-[x-direction=right]:left-[6px] data-[y-direction=top]:-bottom-0.5 data-[y-direction=bottom]:bottom-[101%] data-[y-direction=bottom]:rotate-180 data-[y-direction=bottom]:drop-shadow-none data-[y-direction=center]:top-1/2 data-[y-direction=center]:-translate-y-1/2 data-[y-direction=center]:data-[x-direction=left]:-rotate-90 data-[y-direction=center]:data-[x-direction=left]:-right-[16px] data-[y-direction=center]:data-[x-direction=right]:rotate-90 data-[y-direction=center]:data-[x-direction=right]:-left-[16px]"
 				viewBox="0 0 320 512"
 			>
 				<path

@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+- 🎉 feat: added date picker + many changes and bug fixes
 - 🐛 fix: added DatePicker but code needs some changes + so many bug fixes
 - 🎉 feat: cd added
 - 🎉 feat: header is better now + some components updated

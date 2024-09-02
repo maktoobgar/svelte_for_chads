@@ -52,7 +52,7 @@ const en = {
 	Tooltip: 'Just answer the question',
 
 	RadioButton: {
-		Question: 'Describe the experience of using this chad boilerplate.',
+		Question: 'Describe the experience of using chad boilerplate.',
 		Demo: [
 			{ Title: 'Good', Description: 'You really enjoyed' },
 			{ Title: 'Ok', Description: "You enjoyed but you'd rather do what you do" },
@@ -142,10 +142,6 @@ const en = {
 
 		ImageEditor: {
 			Submit: 'Submit'
-		},
-
-		DatePicker: {
-			WeekStartsOn: ""
 		}
 	}
 } satisfies BaseTranslation;

@@ -1,14 +1,15 @@
+<!-- * Credits to https://github.com/nargeszmn/persian-date-picker-svelte * -->
+
 <script lang="ts">
 	import {
 		getMonthLength,
 		getCalendarDays,
-		toPersianCharacter,
 		type CalendarDay,
 		type CalendarType
-	} from './date-utils.js';
-	import { getInnerLocale, type Locale } from './locale.js';
+	} from '@/utils/date-utils';
 	import { createEventDispatcher } from 'svelte';
 	import { newDate, getYear, getMonth, getDate } from 'date-fns-jalali';
+	import Button from './Button.svelte';
 
 	const dispatch = createEventDispatcher<{
 		/** Fires when the user selects a new value by clicking on a date or by pressing enter */
@@ -21,7 +22,74 @@
 
 	/** Date value. It's `null` if no date is selected */
 	export let value: Date | null = null;
-	export let calendarType: CalendarType = 'Jalali';
+	export let calendarType: 'Jalali' | 'Gregorian' = 'Jalali';
+
+	$: calendarConfig =
+		calendarType === 'Jalali'
+			? {
+					weekdays: ['ی', 'د', 'س', 'چ', 'پ', 'ج', 'ش'],
+					months: [
+						'فروردین',
+						'اردیبهشت',
+						'خرداد',
+						'تیر',
+						'مرداد',
+						'شهریور',
+						'مهر',
+						'آبان',
+						'آذر',
+						'دی',
+						'بهمن',
+						'اسفند'
+					],
+					shortMonths: [
+						'فرو',
+						'ارد',
+						'خرد',
+						'تیر',
+						'مرد',
+						'شهر',
+						'مهر',
+						'آبا',
+						'آذر',
+						'دی',
+						'بهم',
+						'اسف'
+					],
+					weekStartsOn: 6
+				}
+			: {
+					weekdays: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+					months: [
+						'January',
+						'February',
+						'March',
+						'April',
+						'May',
+						'June',
+						'July',
+						'August',
+						'September',
+						'October',
+						'November',
+						'December'
+					],
+					shortMonths: [
+						'Jan',
+						'Feb',
+						'Mar',
+						'Apr',
+						'May',
+						'Jun',
+						'Jul',
+						'Aug',
+						'Sep',
+						'Oct',
+						'Nov',
+						'Dec'
+					],
+					weekStartsOn: 1
+				};
 
 	function setValue(d: Date) {
 		if (d.getTime() !== value?.getTime()) {
@@ -58,8 +126,6 @@
 	/** Default Date to use */
 	const defaultDate = new Date();
 
-	/** Show a time picker with the specified precision */
-	export let timePrecision: 'minute' | 'second' | 'millisecond' | null = null;
 	/** The earliest year the user can select */
 	export let min =
 		calendarType == 'Gregorian'
@@ -135,9 +201,6 @@
 		return years;
 	}
 
-	/** Locale object for internationalization */
-	export let locale: Locale = {};
-	$: iLocale = getInnerLocale(locale, calendarType);
 	/** Wait with updating the date until a date is selected */
 	export let browseWithoutSelecting = false;
 
@@ -248,7 +311,7 @@
 		}
 	}
 
-	$: calendarDays = getCalendarDays(browseDate, iLocale.weekStartsOn, calendarType);
+	$: calendarDays = getCalendarDays(browseDate, calendarConfig.weekStartsOn, calendarType);
 
 	function selectDay(calendarDay: CalendarDay) {
 		if (dayIsInRange(calendarDay, min, max)) {
@@ -430,160 +493,124 @@
 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
-	class="inline-block p-2 text-sm text-black bg-white border rounded shadow-sm cursor-default border-gray-300/30 dark:text-white dark:bg-gray-800 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
+	class="inline-block p-2 text-sm text-black border rounded shadow-sm cursor-default border-gray-300 bg-gray-200 transition-all"
 	on:focusout
 	tabindex="0"
 	on:keydown={keydown}
 >
 	<div class="outline-none" tabindex="-1">
-		<div class="flex items-center justify-center pb-2">
-			<button
+		<div class="flex items-center justify-between pb-2 ltr">
+			<!-- * Go Previous Month * -->
+			<Button
 				type="button"
-				class="flex items-center justify-center w-6 h-6 bg-transparent border rounded border-transparent hover:bg-gray-800/20 hover:border-gray-800/20 transition-all"
-				tabindex="-1"
+				color="none"
+				class="flex items-center justify-center size-10 border border-transparent hover:bg-gray-300 hover:border-gray-300 transition-all !rounded-full bg-gray-100"
 				on:click={() =>
 					calendarType == 'Gregorian'
 						? setMonth(browseDate.getMonth() - 1)
-						: setMonth(getMonth(browseDate) - 1)}
+						: setMonth(getMonth(browseDate) + 1)}
+				noAnimation
+				noPadding
+				noShadow
+				noGlass
 			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="24"
 					height="24"
 					viewBox="0 0 24 24"
-					class="block w-[.68rem] h-[.68rem] fill-current text-black dark:text-white opacity-75"
+					class="block size-4 fill-current text-gray-800 opacity-75"
 				>
 					<path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" transform="rotate(180, 12, 12)" />
 				</svg>
-			</button>
-			<div class="relative flex mx-1">
-				<select
-					value={browseMonth}
-					on:keydown={monthKeydown}
-					on:input={(e) => setMonth(parseInt(e.currentTarget.value))}
-					class="{calendarType == 'Jalali'
-						? 'rtl'
-						: ''} flex-grow appearance-none p-0 pr-[1.3rem] h-6 border border-gray-300/30 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all bg-none"
-				>
-					{#each iLocale.months as monthName, i}
-						<option disabled={monthIsInRange(i)} value={i}>{monthName} </option>
-					{/each}
-				</select>
-				<select
-					class="{calendarType == 'Jalali'
-						? 'rtl'
-						: ''} absolute top-0 left-0 w-full pointer-events-none outline-none bg-white dark:bg-gray-800"
-				>
-					{#each iLocale.months as monthName, i}
-						<option value={i} selected={i === browseMonth}>{monthName}</option>
-					{/each}
-				</select>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					width="24"
-					height="24"
-					viewBox="0 0 24 24"
-					class="absolute top-0 right-0 w-2 h-full p-0 pr-2 fill-current text-black dark:text-white opacity-75"
-				>
-					<path d="M6 0l12 12-12 12z" transform="rotate(90, 12, 12)" />
-				</svg>
+			</Button>
+			<div class="flex space-x-2">
+				<div class="relative flex">
+					<select
+						value={browseMonth}
+						on:keydown={monthKeydown}
+						on:input={(e) => setMonth(parseInt(e.currentTarget.value))}
+						class="flex-grow px-2 py-2 appearance-none border-none outline-none transition-all bg-gray-100 rounded text-center"
+					>
+						{#each calendarConfig.months as monthName, i}
+							<option disabled={monthIsInRange(i)} value={i}>{monthName} </option>
+						{/each}
+					</select>
+				</div>
+				<div class="relative flex">
+					<select
+						value={browseYear}
+						on:input={(e) => setYear(parseInt(e.currentTarget.value))}
+						on:keydown={yearKeydown}
+						class="flex-grow px-2 py-2 appearance-none border-none outline-none transition-all bg-gray-100 rounded text-center"
+					>
+						{#each years as v}
+							<option value={v}>{v}</option>
+						{/each}
+					</select>
+				</div>
 			</div>
-			<div class="relative flex mx-1">
-				<select
-					value={browseYear}
-					on:input={(e) => setYear(parseInt(e.currentTarget.value))}
-					on:keydown={yearKeydown}
-					class="{calendarType == 'Jalali'
-						? 'rtl'
-						: ''} flex-grow appearance-none p-0 pr-[1.3rem] h-6 border border-gray-300/30 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all bg-none"
-				>
-					{#each years as v}
-						<option value={v}
-							>{calendarType == 'Jalali' ? toPersianCharacter(v.toString()) : v}</option
-						>
-					{/each}
-				</select>
-				<select
-					class="{calendarType == 'Jalali'
-						? 'rtl'
-						: ''} absolute top-0 left-0 w-full pointer-events-none outline-none bg-white dark:bg-gray-800"
-				>
-					{#each years as v}
-						<option
-							value={v}
-							selected={calendarType == 'Gregorian'
-								? v === browseDate.getFullYear()
-								: v === getYear(browseDate)}
-						>
-							{calendarType == 'Jalali' ? toPersianCharacter(v.toString()) : v}
-						</option>
-					{/each}
-				</select>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					width="24"
-					height="24"
-					viewBox="0 0 24 24"
-					class="absolute top-0 right-0 w-2 h-full p-0 pr-2 fill-current text-black dark:text-white opacity-75"
-				>
-					<path d="M6 0l12 12-12 12z" transform="rotate(90, 12, 12)" />
-				</svg>
-			</div>
-			<button
+			<!-- * Go Next Month * -->
+			<Button
 				type="button"
-				class="flex items-center justify-center w-6 h-6 bg-transparent border rounded border-transparent hover:bg-gray-800/20 hover:border-gray-800/20 transition-all"
-				tabindex="-1"
+				color="none"
+				class="flex items-center justify-center size-10 border border-transparent hover:bg-gray-300 hover:border-gray-300 transition-all !rounded-full bg-gray-100"
 				on:click={() =>
 					calendarType == 'Gregorian'
 						? setMonth(browseDate.getMonth() + 1)
-						: setMonth(getMonth(browseDate) + 1)}
+						: setMonth(getMonth(browseDate) - 1)}
+				noAnimation
+				noPadding
+				noShadow
+				noGlass
 			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="24"
 					height="24"
 					viewBox="0 0 24 24"
-					class="block w-[.68rem] h-[.68rem] fill-current text-black dark:text-white opacity-75"
+					class="block size-4 fill-current text-gray-800 opacity-75"
 				>
 					<path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
 				</svg>
-			</button>
+			</Button>
 		</div>
-		<div class="flex font-semibold pb-0.5 {calendarType == 'Jalali' ? 'flex-row-reverse' : ''}">
+		<div class="flex py-2">
 			{#each Array(7) as _, i}
-				{#if i + iLocale.weekStartsOn < 7}
+				{#if i + calendarConfig.weekStartsOn < 7}
 					<div class="flex-grow text-center w-[1.875rem]">
-						{iLocale.weekdays[iLocale.weekStartsOn + i]}
+						{calendarConfig.weekdays[calendarConfig.weekStartsOn + i]}
 					</div>
 				{:else}
 					<div class="flex-grow text-center w-[1.875rem]">
-						{iLocale.weekdays[iLocale.weekStartsOn + i - 7]}
+						{calendarConfig.weekdays[calendarConfig.weekStartsOn + i - 7]}
 					</div>
 				{/if}
 			{/each}
 		</div>
 		{#each Array(6) as _, weekIndex}
-			<div class="flex {calendarType == 'Jalali' ? 'flex-row-reverse' : ''}">
+			<div class="flex space-x-2 space-y-2 rtl:space-x-reverse">
 				{#each calendarDays.slice(weekIndex * 7, weekIndex * 7 + 7) as calendarDay}
 					<!-- svelte-ignore a11y-click-events-have-key-events -->
-					<div
-						class="flex items-center justify-center w-8 h-7 flex-grow border rounded border-transparent box-border cursor-pointer transition-all {calendarDay.month !==
-						browseMonth
-							? 'opacity-40'
-							: ''} {isToday(calendarDay)
-							? 'font-semibold border-2 border-gray-800/30'
-							: ''} {isDaySelected(calendarDay)
-							? 'bg-blue-200 border-2 border-blue-500 text-black'
-							: ''}"
+					<Button
+						color="none"
+						disabled={!dayIsInRange(calendarDay, min, max)}
+						class="first-of-type:mt-2 flex items-center justify-center size-10 flex-grow border rounded border-transparent cursor-pointer transition-all disabled:opacity-20 disabled:bg-transparent disabled:line-through
+						{calendarDay.month !== browseMonth ? 'opacity-40' : ''} {isDaySelected(calendarDay)
+							? 'font-semibold bg-primary-200 hover:bg-primary-300 border-2 border-primary-500 text-black'
+							: isToday(calendarDay)
+								? 'font-semibold bg-secondary-100 hover:bg-secondary-300'
+								: '!font-normal bg-gray-100 hover:bg-gray-300'}"
 						on:click={() => selectDay(calendarDay)}
-						class:disabled={!dayIsInRange(calendarDay, min, max)}
+						noAnimation
+						noPadding
+						noShadow
+						noGlass
 					>
-						<span
-							>{calendarType == 'Jalali'
-								? toPersianCharacter(calendarDay.number.toString())
-								: calendarDay.number}</span
-						>
-					</div>
+						<span>
+							{calendarDay.number}
+						</span>
+					</Button>
 				{/each}
 			</div>
 		{/each}

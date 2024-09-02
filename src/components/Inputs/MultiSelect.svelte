@@ -127,17 +127,17 @@
 		<label
 			for={id}
 			on:click={() => (open = true)}
-			class={`block select-none font-medium !text-gray-700 dark:!text-gray-200 cursor-pointer pb-1 ${labelClass}`}
+			class={`block select-none font-medium !text-gray-700 cursor-pointer pb-1 ${labelClass}`}
 		>
 			{label}
 		</label>
 	{/if}
 	<div
-		class="flex flex-wrap relative items-center w-full outline-none rounded-2xl border-gray-200 shadow-md dark:border-gray-700 dark:text-white sm:text-sm space-x-3 rtl:space-x-reverse h-[58px] {open ||
+		class="flex flex-wrap relative items-center w-full outline-none rounded-2xl border-gray-200 shadow-md sm:text-sm space-x-3 rtl:space-x-reverse h-[58px] {open ||
 		selectedOptions.length > 0 ||
 		selectedOption
-			? 'bg-pure-white dark:bg-gray-800'
-			: 'bg-gray-100 dark:bg-gray-800'} {inputClass}"
+			? 'bg-gray-200'
+			: 'bg-gray-100'} {inputClass}"
 	>
 		<div class="relative w-full h-full flex items-center">
 			{#if !single}
@@ -155,12 +155,12 @@
 			{:else if selectedOption}
 				<button
 					on:click={() => (open = !open)}
-					class="relative h-full text-lg bg-pure-white dark:bg-gray-800 w-full ltr:text-left rtl:text-right rounded-2xl capitalize {selectedOption &&
+					class="relative h-full text-lg bg-gray-200 w-full ltr:text-left rtl:text-right rounded-2xl capitalize {selectedOption &&
 						'ltr:pl-4 rtl:pr-4'}"
 				>
 					{selectedOption.toString()}
 					<Button
-						class="!size-[20px] !p-1 !rounded-2xl !shadow-none !bg-gray-200 hover:!bg-gray-300 dark:!bg-gray-600 !absolute ltr:right-5 rtl:left-5 top-1/2 -translate-y-1/2"
+						class="!size-[20px] !p-1 !rounded-2xl !shadow-none !bg-gray-200 hover:!bg-gray-300 !absolute ltr:right-5 rtl:left-5 top-1/2 -translate-y-1/2"
 						color="none"
 						noAnimation
 						noGlass
@@ -173,7 +173,7 @@
 							selectedOptions = [];
 						}}
 					>
-						<svg class="dark:fill-white fill-gray-700" viewBox="0 0 384 512">
+						<svg class="fill-gray-700" viewBox="0 0 384 512">
 							<path
 								d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
 							/>
@@ -186,10 +186,10 @@
 					{placeholder}
 					bind:value={inputValue}
 					on:focus={() => (open = true)}
-					class="flex-grow outline-none rounded-xl py-3 px-3 border-gray-200 dark:border-gray-700 dark:bg-gray-800 placeholder:text-gray-500 dark:text-white capitalize sm:text-sm {open ||
+					class="flex-grow outline-none rounded-xl py-4 px-4 border-gray-200 placeholder:text-gray-500 capitalize sm:text-sm {open ||
 					selectedOptions.length > 0 ||
 					selectedOption
-						? ''
+						? 'bg-gray-200'
 						: 'bg-gray-100'}"
 				/>
 			{/if}
@@ -197,7 +197,7 @@
 			{#if open}
 				<div
 					transition:slide={{ duration: 150, easing: easeOut }}
-					class="absolute inset-x-0 max-h-[200px] rounded-2xl overflow-y-scroll dark:bg-gray-800 bg-pure-white shadow-md z-[1] {top
+					class="absolute inset-x-0 max-h-[200px] rounded-2xl overflow-y-scroll bg-gray-200 shadow-md z-[1] {top
 						? topVisible
 							? 'bottom-full mb-3'
 							: 'top-full mt-3'
@@ -210,7 +210,7 @@
 							<Button
 								on:click={() => optionClick(item, index)}
 								data={{ 'data-selected': optionsSelectedStates[index] }}
-								class="!shadow-none w-full !justify-start rounded-none flex items-center capitalize data-[selected=true]:bg-secondary-100 dark:data-[selected=true]:bg-secondary-800"
+								class="!shadow-none w-full !justify-start rounded-none flex items-center capitalize data-[selected=true]:bg-secondary-100"
 								as="button"
 								color="none"
 								type="button"
@@ -234,9 +234,7 @@
 							<h6 class="select-none whitespace-nowrap">
 								{$LL.Components.MultiSelect.NoItems()}...
 							</h6>
-							<Empty
-								class="w-[30px] h-[30px] md:w-[50px] md:h-[50px] fill-black-700 dark:fill-white"
-							/>
+							<Empty class="w-[30px] h-[30px] md:w-[50px] md:h-[50px] fill-black-700" />
 						</div>
 					{/if}
 				</div>
@@ -253,7 +251,7 @@
 					<Button
 						on:click={() => optionClick(item, index)}
 						data={{ 'data-selected': optionsSelectedStates[index] }}
-						class="!shadow-none w-full !justify-start rounded-none flex items-center capitalize data-[selected=true]:bg-secondary-100 dark:data-[selected=true]:bg-secondary-800"
+						class="!shadow-none w-full !justify-start rounded-none flex items-center capitalize data-[selected=true]:bg-secondary-100"
 						as="button"
 						color="none"
 						type="button"
@@ -275,7 +273,7 @@
 			{:else}
 				<div class="flex items-center justify-center p-5 space-x-5 rtl:space-x-reverse">
 					<h6 class="select-none whitespace-nowrap">{$LL.Components.MultiSelect.NoItems()}...</h6>
-					<Empty class="w-[30px] h-[30px] md:w-[50px] md:h-[50px] fill-black-700 dark:fill-white" />
+					<Empty class="w-[30px] h-[30px] md:w-[50px] md:h-[50px] fill-black-700" />
 				</div>
 			{/if}
 			<div bind:this={topDiv} id="topDiv" />
@@ -291,7 +289,7 @@
 					<Button
 						on:click={() => optionClick(item, index)}
 						data={{ 'data-selected': optionsSelectedStates[index] }}
-						class="!shadow-none w-full !justify-start rounded-none flex items-center capitalize data-[selected=true]:bg-secondary-100 dark:data-[selected=true]:bg-secondary-800"
+						class="!shadow-none w-full !justify-start rounded-none flex items-center capitalize data-[selected=true]:bg-secondary-100"
 						as="button"
 						color="none"
 						type="button"
@@ -313,7 +311,7 @@
 			{:else}
 				<div class="flex items-center justify-center p-5 space-x-5 rtl:space-x-reverse">
 					<h6 class="select-none whitespace-nowrap">{$LL.Components.MultiSelect.NoItems()}...</h6>
-					<Empty class="w-[30px] h-[30px] md:w-[50px] md:h-[50px] fill-black-700 dark:fill-white" />
+					<Empty class="w-[30px] h-[30px] md:w-[50px] md:h-[50px] fill-black-700" />
 				</div>
 			{/if}
 			<div id="bottomDiv" bind:this={bottomDiv} />

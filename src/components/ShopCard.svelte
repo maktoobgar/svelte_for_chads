@@ -11,13 +11,13 @@
 	export let itemTwoText: string = '4 foods';
 	export let itemThreeTitle: string = 'Drink';
 	export let itemThreeText: string = '4 sodas';
-	export let href: string = "#";
+	export let href: string = '#';
 </script>
 
 <!-- svelte-ignore a11y-invalid-attribute -->
 <a
-	href={href}
-	class="sm:w-[400px] w-[250px] block rounded-lg p-4 bg-background-reverse transition-[box-shadow] border border-black-40 dark:border-black-800 hover:shadow-lg shadow-indigo-100"
+	{href}
+	class="sm:w-[400px] w-[250px] block rounded-lg p-4 bg-background-reverse transition-[box-shadow] border border-gray-200 hover:shadow-lg shadow-indigo-100"
 >
 	<img alt="" src={picture} class="h-56 w-full rounded-md object-cover" />
 

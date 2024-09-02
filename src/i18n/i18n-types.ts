@@ -173,7 +173,7 @@ type RootTranslation = {
 	Tooltip: string
 	RadioButton: {
 		/**
-		 * D​e​s​c​r​i​b​e​ ​t​h​e​ ​e​x​p​e​r​i​e​n​c​e​ ​o​f​ ​u​s​i​n​g​ ​t​h​i​s​ ​c​h​a​d​ ​b​o​i​l​e​r​p​l​a​t​e​.
+		 * D​e​s​c​r​i​b​e​ ​t​h​e​ ​e​x​p​e​r​i​e​n​c​e​ ​o​f​ ​u​s​i​n​g​ ​c​h​a​d​ ​b​o​i​l​e​r​p​l​a​t​e​.
 		 */
 		Question: string
 		Demo: {
@@ -435,7 +435,7 @@ type RootTranslation = {
 		}
 		ImageEditor: {
 			/**
-			 * ا​ر​س​ا​ل
+			 * S​u​b​m​i​t
 			 */
 			Submit: string
 		}
@@ -601,7 +601,7 @@ export type TranslationFunctions = {
 	Tooltip: () => LocalizedString
 	RadioButton: {
 		/**
-		 * Describe the experience of using this chad boilerplate.
+		 * Describe the experience of using chad boilerplate.
 		 */
 		Question: () => LocalizedString
 		Demo: {
@@ -854,7 +854,7 @@ export type TranslationFunctions = {
 		}
 		ImageEditor: {
 			/**
-			 * ارسال
+			 * Submit
 			 */
 			Submit: () => LocalizedString
 		}

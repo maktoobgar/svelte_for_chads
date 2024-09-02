@@ -54,7 +54,7 @@
 				style={`margin-top: ${distanceMenu}px`}
 				data-open={open}
 				data-open-reverse={openReverse}
-				class={`flex flex-col sm:absolute sm:top-0 sm:w-[300px] sm:rounded-md fixed smMax:bottom-0 smMax:inset-0 smMax:!mt-0 z-[1000] overflow-hidden bg-white dark:bg-gray-800 shadow-custom ltr:origin-top-left rtl:origin-top-right ltr:data-[open-reverse=true]:origin-top-right rtl:data-[open-reverse=true]:origin-top-left sm:rounded-b-xl ${openClasses}`}
+				class={`flex flex-col sm:absolute sm:top-0 sm:w-[300px] sm:rounded-md fixed smMax:bottom-0 smMax:inset-0 smMax:!mt-0 z-[1000] overflow-hidden bg-gray-200 shadow-custom ltr:origin-top-left rtl:origin-top-right ltr:data-[open-reverse=true]:origin-top-right rtl:data-[open-reverse=true]:origin-top-left sm:rounded-b-xl ${openClasses}`}
 			>
 				<div class="flex items-center justify-between my-5 mx-5 sm:hidden">
 					<h3>{$LL.Notification.Notifications()}</h3>
@@ -71,14 +71,14 @@
 						</svg>
 					</button>
 				</div>
-				<hr class="border-black-50 dark:border-black-700 border-[1px] mx-5 sm:hidden" />
+				<hr class="border-gray-300 border-[1px] mx-5 sm:hidden" />
 				<div class="overflow-y-scroll sm:max-h-[250px]">
 					{#each items as item (item.id)}
 						<Button
 							as="a"
 							href={item.href}
 							data={{ 'data-read': item.read }}
-							class="!whitespace-normal group bg-white dark:bg-gray-800 !shadow-none w-full !justify-start !rounded-none !p-3 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 data-[read=true]:!bg-gray-200 data-[read=true]:hover:!bg-gray-100 data-[read=true]:dark:!bg-gray-900 data-[read=true]:dark:hover:!bg-gray-700"
+							class="!whitespace-normal group bg-gray-200 !shadow-none w-full !justify-start !rounded-none !p-3 text-sm hover:bg-gray-100 data-[read=true]:!bg-gray-200 data-[read=true]:hover:!bg-gray-100"
 							color="none"
 							noGlass
 						>
@@ -93,7 +93,7 @@
 						</Button>
 
 						{#if item.lineBelow}
-							<hr class="border-black-50 dark:border-black-700 mx-5" />
+							<hr class="border-gray-300 mx-5" />
 						{/if}
 					{/each}
 				</div>

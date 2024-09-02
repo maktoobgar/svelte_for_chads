@@ -52,7 +52,7 @@
 			{#if type !== 'simple'}
 				{#each items as item (item.id)}
 					<Button
-						class="flex w-full !items-start !justify-start ltr:!text-left rtl:!text-right gap-4 rounded-lg border border-gray-200 p-4 transition hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-900 group-data-[color=blue]:has-[:checked]:bg-blue-50 group-data-[color=cyan]:has-[:checked]:bg-cyan-50 group-data-[color=red]:has-[:checked]:bg-red-50 group-data-[color=green]:has-[:checked]:bg-green-50 group-data-[color=primary]:has-[:checked]:bg-primary-50 group-data-[color=blue]:has-[:checked]:bg-secondary-50 dark:group-data-[color=blue]:has-[:checked]:bg-blue-700/10 dark:group-data-[color=red]:has-[:checked]:bg-red-700/10 dark:group-data-[color=green]:has-[:checked]:bg-green-700/10 dark:group-data-[color=cyan]:has-[:checked]:bg-cyan-700/10 dark:group-data-[color=primary]:has-[:checked]:bg-primary-glass-10 dark:group-data-[color=secondary]:has-[:checked]:bg-secondary-glass-10 {itemClass}"
+						class="flex w-full !items-start !justify-start ltr:!text-left rtl:!text-right gap-4 rounded-lg border border-gray-200 p-4 transition hover:bg-gray-200 group-data-[color=blue]:has-[:checked]:bg-blue-50 group-data-[color=cyan]:has-[:checked]:bg-cyan-50 group-data-[color=red]:has-[:checked]:bg-red-50 group-data-[color=green]:has-[:checked]:bg-green-50 group-data-[color=primary]:has-[:checked]:bg-primary-50 group-data-[color=blue]:has-[:checked]:bg-secondary-50 {itemClass}"
 						on:click={() => {
 							deleteError();
 							select(item);
@@ -72,11 +72,13 @@
 							{hideInput}
 						/>
 
-						<div class={`w-full ${type === 'cardRow' ? 'flex justify-between' : 'space-y-1'}`}>
-							<strong class="font-medium text-gray-900 dark:text-white">{item.title}</strong>
+						<div
+							class={`w-full space-x-10 rtl:space-x-reverse ${type === 'cardRow' ? 'flex justify-between' : 'space-y-1'}`}
+						>
+							<strong class="font-medium text-gray-900">{item.title}</strong>
 
 							<p
-								class={`text-pretty text-sm text-gray-700 dark:text-gray-200 ${type === 'cardRow' && 'ltr:text-right rtl:text-left'}`}
+								class={`text-pretty text-sm text-gray-500 ${type === 'cardRow' && 'ltr:text-right rtl:text-left'}`}
 							>
 								{item.description}
 							</p>
