@@ -40,7 +40,7 @@ const config = {
 			'@animations': './src/animations',
 			'@Layouts': './src/components/Layouts',
 			'@stores': './src/stores',
-			'@icons': './src/lib/icons',
+			'@icons': './src/icons',
 			'@types': './src/types',
 			'@utils': './src/utils',
 			'@i18n': './src/i18n',

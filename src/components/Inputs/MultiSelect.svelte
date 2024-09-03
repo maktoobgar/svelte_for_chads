@@ -11,7 +11,7 @@
 
 <script lang="ts" generics="T extends {id: number}">
 	import IntersectionObserver from 'svelte-intersection-observer';
-	import { createEventDispatcher, onMount } from 'svelte';
+	import { createEventDispatcher } from 'svelte';
 	import { clickOutside } from '@utils/general';
 	import Input from '@cp/Inputs/Input.svelte';
 	import { slide } from 'svelte/transition';
