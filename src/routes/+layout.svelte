@@ -11,6 +11,7 @@
 	import Global from '@cp/Global.svelte';
 	import ThemeSwitcher from '@cp/ThemeSwitcher.svelte';
 	import LanguageChanger from '@cp/LanguageChanger.svelte';
+	import ToasterInit from '@cp/Toast/ToasterInit.svelte';
 
 	const queryClient = new QueryClient({
 		defaultOptions: {
@@ -26,6 +27,7 @@
 	<LanguageChanger class="w-7 h-7 !p-0 m-5 drop-shadow-3xl" />
 </div>
 
+<ToasterInit where="bottom_right" />
 <ImageEditor />
 <Notifier />
 <Layout />

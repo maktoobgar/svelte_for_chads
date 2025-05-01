@@ -80,59 +80,10 @@ export default {
 					90: 'var(--secondary-glass-90)',
 					95: 'var(--secondary-glass-95)'
 				},
-				red: {
-					50: 'var(--red-50)',
-					100: 'var(--red-100)',
-					200: 'var(--red-200)',
-					300: 'var(--red-300)',
-					400: 'var(--red-400)',
-					500: 'var(--red-500)',
-					600: 'var(--red-600)',
-					700: 'var(--red-700)',
-					800: 'var(--red-800)',
-					900: 'var(--red-900)',
-				},
-				cyan: {
-					50: 'var(--cyan-50)',
-					100: 'var(--cyan-100)',
-					200: 'var(--cyan-200)',
-					300: 'var(--cyan-300)',
-					400: 'var(--cyan-400)',
-					500: 'var(--cyan-500)',
-					600: 'var(--cyan-600)',
-					700: 'var(--cyan-700)',
-					800: 'var(--cyan-800)',
-					900: 'var(--cyan-900)',
-				},
-				green: {
-					50: 'var(--green-50)',
-					100: 'var(--green-100)',
-					200: 'var(--green-200)',
-					300: 'var(--green-300)',
-					400: 'var(--green-400)',
-					500: 'var(--green-500)',
-					600: 'var(--green-600)',
-					700: 'var(--green-700)',
-					800: 'var(--green-800)',
-					900: 'var(--green-900)',
-				},
 				// Black
 				'pure-white': 'var(--pure-white)',
 				white: 'var(--white)',
 				black: 'var(--black)',
-				gray: {
-					50: 'var(--gray-50)',
-					100: 'var(--gray-100)',
-					200: 'var(--gray-200)',
-					300: 'var(--gray-300)',
-					400: 'var(--gray-400)',
-					500: 'var(--gray-500)',
-					600: 'var(--gray-600)',
-					700: 'var(--gray-700)',
-					800: 'var(--gray-800)',
-					900: 'var(--gray-900)',
-					950: 'var(--gray-950)'
-				},
 				black: {
 					10: 'var(--black-10)',
 					20: 'var(--black-20)',
@@ -185,9 +136,41 @@ export default {
 			},
 			// Keyframes
 			keyframes: {
-				'fade-in-and-slide': {
+				'fade-in-and-slide-from-bottom': {
 					'0%': { opacity: 0, transform: 'translateY(30%)' },
 					'100%': { opacity: 1, transform: 'translateY(0%)' }
+				},
+				'fade-in-and-slide-from-top': {
+					'0%': { opacity: 0, transform: 'translateY(-30%)' },
+					'100%': { opacity: 1, transform: 'translateY(0%)' }
+				},
+				'fade-out-and-slide-from-bottom': {
+					'0%': { opacity: 1, transform: 'translateY(0%)' },
+					'100%': { opacity: 0, transform: 'translateY(30%)' },
+				},
+				'fade-out-and-slide-from-top': {
+					'0%': { opacity: 1, transform: 'translateY(0%)' },
+					'100%': { opacity: 0, transform: 'translateY(-30%)' },
+				},
+				'fade-in-and-slide-from-right': {
+					'0%': { opacity: 0, transform: 'translateX(30%)' },
+					'100%': { opacity: 1, transform: 'translateX(0%)' }
+				},
+				'fade-in-and-slide-from-left': {
+					'0%': { opacity: 0, transform: 'translateX(-30%)' },
+					'100%': { opacity: 1, transform: 'translateX(0%)' }
+				},
+				'fade-out-and-slide-from-right': {
+					'0%': { opacity: 1, transform: 'translateX(0%)' },
+					'100%': { opacity: 0, transform: 'translateX(30%)' },
+				},
+				'fade-out-and-slide-from-left': {
+					'0%': { opacity: 1, transform: 'translateX(0%)' },
+					'100%': { opacity: 0, transform: 'translateX(-30%)' },
+				},
+				'squash': {
+					'0%': { maxHeight: "var(--max-height)" },
+					'100%': { maxHeight: "0px" }
 				},
 				'fade-in': {
 					'0%': { opacity: 0 },
@@ -213,7 +196,15 @@ export default {
 			},
 			// Animations
 			animation: {
-				'fade-in-and-slide': 'fade-in-and-slide 0.5s ease-out forwards',
+				'fade-in-and-slide-from-top': 'fade-in-and-slide-from-top 0.3s ease-out forwards',
+				'fade-in-and-slide-from-bottom': 'fade-in-and-slide-from-bottom 0.3s ease-out forwards',
+				'fade-in-and-slide-from-right': 'fade-in-and-slide-from-right 0.3s ease-out forwards',
+				'fade-in-and-slide-from-left': 'fade-in-and-slide-from-left 0.3s ease-out forwards',
+				'fade-out-and-slide-from-top': 'fade-out-and-slide-from-top 0.3s ease-out forwards',
+				'fade-out-and-slide-from-bottom': 'fade-out-and-slide-from-bottom 0.3s ease-out forwards',
+				'fade-out-and-slide-from-right': 'fade-out-and-slide-from-right 0.3s ease-out forwards',
+				'fade-out-and-slide-from-left': 'fade-out-and-slide-from-left 0.3s ease-out forwards',
+				'squash': 'squash 0.3s ease-out forwards',
 				'fade-in': 'fade-in 0.5s ease-out forwards',
 				'fade-out': 'fade-out 0.5s ease-out forwards',
 				'slide-in': 'slide-in 0.5s ease-out forwards',

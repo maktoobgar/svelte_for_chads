@@ -19,7 +19,6 @@
 	import Help from '@icons/Help.svelte';
 	import SignOut from '@icons/SignOut.svelte';
 	import { oneTime, rateClickLimiter } from '@utils/general';
-	import { error, info, success } from '@utils/notifier';
 	import Header from '@Layouts/Header.svelte';
 	import MultiSelect from '@cp/Inputs/MultiSelect.svelte';
 	import TableRequester from '@cp/Table/TableRequester.svelte';
@@ -33,6 +32,7 @@
 	import Option from '@/types/option';
 	import DatePicker from '@cp/DatePicker.svelte';
 	import language from '@stores/i18n';
+	import { success, error, info, warning } from '@utils/toast';
 
 	let dialog: Dialog;
 
@@ -42,9 +42,10 @@
 	let where = 1;
 	$: content = contents[where - 1];
 	$: contents = [$LL.Chad1(), $LL.Chad2(), $LL.Chad3()];
-	$: successFn = () => success($LL.Success());
-	$: errorFn = () => error($LL.Error());
-	$: infoFn = () => info($LL.Info());
+	$: successFn = () => success('Success', $LL.Success());
+	$: errorFn = () => error('Error', $LL.Error());
+	$: infoFn = () => info('Info', $LL.Info());
+	$: warningFn = () => warning('Warning', $LL.Info());
 
 	let username = '';
 	let password = '';
@@ -58,18 +59,17 @@
 <Meta title={$LL.NewProjectsNewTeam()} />
 <div class="snap-y snap-mandatory h-screen overflow-scroll scroll-none">
 	<div class="relative flex justify-center items-center min-h-screen overflow-hidden snap-start">
-		<div
-			class="absolute flex flex-col justify-between left-0 bottom-0 p-3 sm:h-[200px] h-[160px] ltr"
-		>
+		<div class="absolute flex flex-col justify-between left-0 bottom-0 p-3 space-y-3 ltr">
 			<Button color="green" on:click={successFn}>{$LL.SuccessMsg()}</Button>
 			<Button color="red" on:click={errorFn}>{$LL.ErrorMsg()}</Button>
 			<Button color="cyan" on:click={infoFn}>{$LL.InfoMsg()}</Button>
+			<Button color="primary" on:click={warningFn}>Warning</Button>
 		</div>
 		<Dialog
 			contentClass="w-[300px] sm:w-[350px] h-[400px] sm:h-[450px] flex flex-col justify-between"
 			on:submit={() => {
 				dialog.open = false;
-				username && success($LL.LoggedIn({ username }));
+				username && success('Success', $LL.LoggedIn({ username }));
 			}}
 			bind:this={dialog}
 		>
